@@ -1,8 +1,7 @@
-\documentclass[11pt]{report}
+\documentclass[11pt,twoside,openright,letterpaper]{book}
 
 \usepackage{titling}
-% Use Helvetica font.
-\usepackage{helvet}
+\usepackage{helvet} % Use Helvetica font.
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
 \usepackage{tabularx}
@@ -17,63 +16,82 @@
 
 \makeatletter\let\Title\@title\makeatother
 \makeatletter\let\Author\@author\makeatother
+
+% \newenvironment{abstract}%
+% {\cleardoublepage\null \vfill\begin{center}%
+% \bfseries \abstractname \end{center}}%
+%     {\vfill\null}
+
+\usepackage{tocbibind} % include toc within toc
+\usepackage{titlesec}
+
+\newenvironment{titemize} {
+	\begin{itemize}
+	  \setlength{\itemsep}{0cm}%
+	  \setlength{\parskip}{0cm}%
+} {\end{itemize}}
+
+\newenvironment{tenumerate} {
+	\begin{enumerate}
+	  \setlength{\itemsep}{0cm}%
+	  \setlength{\parskip}{0cm}%
+} {\end{enumerate}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setcounter{tocdepth}{5}
-\setcounter{page}{1}
-\pagenumbering{roman}
+% \setcounter{tocdepth}{5}
+% \setcounter{page}{1}
 
-%\begin{titlepage}
+\frontmatter
+
+\begin{titlepage}
 \begin{center}
     \vspace*{1cm}
     \Large{ \textbf{\Title} } \\
     \vspace{1.5cm}
     \normalsize
     \Author \\ \vspace{1cm}
-
-\begin{tabularx}{\textwidth}{@{}X@{}X@{}}
-    \begin{minipage}[t]{\linewidth}
-        \textbf{Candidate:} \\ 
-        %\vspace{1.5cm} \hrule\smallskip Signature
-        \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
-        %\vspace{1.5cm} \noindent\rule{0.9\textwidth}{0.4pt}
-    \end{minipage}
-    &
-    \\
-    \begin{minipage}[t]{\linewidth}
+    \begin{tabularx}{\textwidth}{@{}X@{}X@{}}
+        \begin{minipage}[t]{\linewidth}
+            \textbf{Candidate:} \\ 
+            %\vspace{1.5cm} \hrule\smallskip Signature
+            \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
+            %\vspace{1.5cm} \noindent\rule{0.9\textwidth}{0.4pt}
+        \end{minipage}
+        & \\
+        \begin{minipage}[t]{\linewidth}
+            \vspace{1cm}
+            \textbf{Thesis Advisor:} \\ 
+            \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
+            \begin{flushleft}
+                Adam Auton, D.Phil. \\
+                \small \smallskip
+                Assistant Professor, Department of Genetics \\
+                Assistant Professor, Department of Epidemiology \& Population Health \\
+            \end{flushleft}
+        \end{minipage}
         \vspace{1cm}
-        \textbf{Thesis Advisor:} \\ 
-        \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
-        \begin{flushleft}
-            Adam Auton, D.Phil. \\
-            \small \smallskip
-            Assistant Professor, Department of Genetics \\
-            Assistant Professor, Department of Epidemiology \& Population Health \\
-        \end{flushleft}
-    \end{minipage}
-    \vspace{1cm}
-    &
-    \begin{minipage}[t]{\linewidth}
-        \vspace{1cm}
-        \textbf{Co-advisor:} \\ 
-        \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
-        \begin{flushleft}
-            Bernice E. Morrow, Ph.D. \\
-            \small \smallskip
-            Professor, Department of Genetics \\
-            Professor, Department of Obstetrics \& Gynecology and Women's Health \\
-            Professor, Department of Pediatrics (Cardiology) \\
-            Sidney L. and Miriam K. Olson Chair in Cardiology \\
-            Director, Division of Translational Genetics, Department of Genetics \\
-        \end{flushleft}
-    \end{minipage}\\
-\end{tabularx}
-
-%\mbox{} \\ \vspace{2cm}
+        &
+        \begin{minipage}[t]{\linewidth}
+            \vspace{1cm}
+            \textbf{Co-advisor:} \\ 
+            \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
+            \begin{flushleft}
+                Bernice E. Morrow, Ph.D. \\
+                \small \smallskip
+                Professor, Department of Genetics \\
+                Professor, Department of Obstetrics \& Gynecology and Women's Health \\
+                Professor, Department of Pediatrics (Cardiology) \\
+                Sidney L. and Miriam K. Olson Chair in Cardiology \\
+                Director, Division of Translational Genetics, Department of Genetics \\
+            \end{flushleft}
+        \end{minipage}\\
+    \end{tabularx}
+%%%
 \vfill
 Submitted in partial fulfillment of the requirements for the Degree of Doctor of
 Philosophy in the Graduate Division of Medical Sciences.
@@ -82,58 +100,93 @@ Philosophy in the Graduate Division of Medical Sciences.
 \\ Yeshiva University
 \\ New York
 \\ December 2016
-\\ \vspace{0.8cm}
-
 \end{center}
+\end{titlepage}
+\newpage
+\setcounter{page}{1}
 
-\clearpage
 
-\chapter*{Abstract}
-\addcontentsline{toc}{section}{Abstract}
-\begin{center}
-ABSTRACT
-\end{center}
-\Title \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract: The abstract of the Dissertation is to include: a hypothesis, the procedures followed, the
+% significant results and the general conclusions. The abstract is to be presented on a separate page
+% headed with the word ABSTRACT in capital letters centered on the page. On the next line is the
+% title of the Dissertation. The following line is the full name of the student. The length of the
+% abstract must not exceed 600 words. (Please note the separate instructions for the 350 word
+% microfilm copy abstract described in the first section of this manual.)
+\thispagestyle{plain}
+\begin{centering} ABSTRACT \\ %\end{centering}
+\noindent\Title \\
 \Author \\
-600 words
+\end{centering}
 
-\clearpage
-\chapter*{Acknowledgements}
-\addcontentsline{toc}{section}{Acknowledgements}
-The Training Program in Cellular and Molecular Biology and Genetics, T32 GM007491.
 
-\clearpage
-\chapter*{Table of Contents}
-\addcontentsline{toc}{section}{Table of Contents}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Training Program in Cellular and Molecular Biology and Genetics, T32 GM007491.
+
+
 \tableofcontents
 \listoffigures
 \listoftables
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
-\input{chapter1/chapter1}
+\include{chapter1/chapter1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Escape from crossover interference increases with maternal age}
-\input{chapter2/chapter2}
-\setcounter{page}{1}
-\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Sexual dimorphism in human recombination}
+\include{chapter2/chapter2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Recombination in dogs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Gene conversion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Bibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% should have a bib for each chapter separately?
 
-\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Supplementary Materials and Methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{List of Abbreviations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
