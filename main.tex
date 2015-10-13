@@ -5,6 +5,7 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
+\usepackage{tabularx}
 
 % Use 1/2-inch margins.
 \usepackage[margin=1in,lmargin=1.5in]{geometry}
@@ -32,42 +33,63 @@
     \Large{ \textbf{\Title} } \\
     \vspace{1.5cm}
     \normalsize
-    \Author \\ \vspace{5cm}
-    \begin{minipage}[t]{0.40\textwidth}
-        Candidate: \\ \vspace{1cm}
-        \vspace{1.0cm}\hrule\smallskip
-        %\hspace{0.0cm} \makebox[1.5in]{\hrulefill} \\
-        Signature
+    \Author \\ \vspace{1cm}
+
+\begin{tabularx}{\textwidth}{@{}X@{}X@{}}
+    \begin{minipage}[t]{\linewidth}
+        \textbf{Candidate:} \\ 
+        %\vspace{1.5cm} \hrule\smallskip Signature
+        \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
+        %\vspace{1.5cm} \noindent\rule{0.9\textwidth}{0.4pt}
     \end{minipage}
-    \hspace{0.5cm}
-    \begin{minipage}[t]{0.45\textwidth}
-        Thesis Advisor: \\ \vspace{1cm}
-        \vspace{1.0cm}\hrule\smallskip
-        Signature \\
+    &
+    \\
+    \begin{minipage}[t]{\linewidth}
+        \vspace{1cm}
+        \textbf{Thesis Advisor:} \\ 
+        \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
         \begin{flushleft}
             Adam Auton, D.Phil. \\
+            \small \smallskip
             Assistant Professor, Department of Genetics \\
             Assistant Professor, Department of Epidemiology \& Population Health \\
         \end{flushleft}
     \end{minipage}
-    %%%
-    \vfill
-    Submitted in partial fulfillment of the requirements for the Degree of Doctor of
-    Philosophy in the Graduate Division of Medical Sciences.
-    \vspace{0.2cm}
-    \\ Albert Einstein College of Medicine
-    \\ Yeshiva University
-    \\ New York
-    \\ December 2016
-    \\ \vspace{0.8cm}
-    %\includegraphics[width=0.4\textwidth]{university}
-    
-\end{center}
-%\end{titlepage}
+    \vspace{1cm}
+    &
+    \begin{minipage}[t]{\linewidth}
+        \vspace{1cm}
+        \textbf{Co-advisor:} \\ 
+        \vspace{1.5cm} \hrule width 0.9\textwidth \smallskip Signature
+        \begin{flushleft}
+            Bernice E. Morrow, Ph.D. \\
+            \small \smallskip
+            Professor, Department of Genetics \\
+            Professor, Department of Obstetrics \& Gynecology and Women's Health \\
+            Professor, Department of Pediatrics (Cardiology) \\
+            Sidney L. and Miriam K. Olson Chair in Cardiology \\
+            Director, Division of Translational Genetics, Department of Genetics \\
+        \end{flushleft}
+    \end{minipage}\\
+\end{tabularx}
 
+%\mbox{} \\ \vspace{2cm}
+\vfill
+Submitted in partial fulfillment of the requirements for the Degree of Doctor of
+Philosophy in the Graduate Division of Medical Sciences.
+\vspace{0.5cm}
+\\ Albert Einstein College of Medicine
+\\ Yeshiva University
+\\ New York
+\\ December 2016
+\\ \vspace{0.8cm}
+
+\end{center}
 
 \clearpage
+
 \chapter*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
 \begin{center}
 ABSTRACT
 \end{center}
@@ -77,10 +99,12 @@ ABSTRACT
 
 \clearpage
 \chapter*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
 The Training Program in Cellular and Molecular Biology and Genetics, T32 GM007491.
 
 \clearpage
 \chapter*{Table of Contents}
+\addcontentsline{toc}{section}{Table of Contents}
 \tableofcontents
 \listoffigures
 \listoftables
@@ -88,22 +112,25 @@ The Training Program in Cellular and Molecular Biology and Genetics, T32 GM00749
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{Introduction}
+\input{chapter1/chapter1}
+
 \chapter{Escape from crossover interference increases with maternal age}
-\input{chapter1}
+\input{chapter2/chapter2}
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
 \clearpage
-\chapter*{Bibliography}
+\chapter{Bibliography}
 
 \clearpage
-\chapter*{Supplementary Materials and Methods}
+\chapter{Supplementary Materials and Methods}
 
 \clearpage
-\chapter*{List of Abbreviations}
+\chapter{List of Abbreviations}
 
 \clearpage
-\chapter*{Appendix}
+\chapter{Appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
