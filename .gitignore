@@ -1,0 +1,13 @@
+*aux
+*bbl
+*blg
+*dvi
+*latexmk
+*fls
+*log
+*out
+*swp
+*lof
+*lot
+*toc
+*-eps-converted-to.pdf

@@ -1,10 +1,14 @@
-\documentclass[11pt,twoside,openright,letterpaper]{book}
+%\documentclass[11pt,twoside,openright,letterpaper]{book}
+\documentclass[11pt,twoside,openright,letterpaper]{memoir}
 
 \usepackage{titling}
 \usepackage{helvet} % Use Helvetica font.
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{setspace}
 \usepackage{tabularx}
+\usepackage[super,comma,sort&compress]{natbib}
+% switch bibliography numbering to 1. from [1] :
+\makeatletter \renewcommand\@biblabel[1]{#1.} \makeatother
 
 % Use 1/2-inch margins.
 \usepackage[margin=1in,lmargin=1.5in]{geometry}
@@ -48,7 +52,8 @@
 
 \frontmatter
 
-\begin{titlepage}
+%\begin{titlepage}
+\begin{titlingpage}
 \begin{center}
     \vspace*{1cm}
     \Large{ \textbf{\Title} } \\
@@ -101,8 +106,9 @@ Philosophy in the Graduate Division of Medical Sciences.
 \\ New York
 \\ December 2016
 \end{center}
-\end{titlepage}
-\newpage
+%\end{titlepage}
+\end{titlingpage}
+%\newpage
 \setcounter{page}{1}
 
 
@@ -148,7 +154,29 @@ Philosophy in the Graduate Division of Medical Sciences.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Sexual dimorphism in human recombination}
+\chapterstyle{ger}
+%\chapter{Sexual dimorphism in human recombination}
+\chapter{Escape from crossover interference increases with maternal age}
+
+%\noindent \textbf{Escape from crossover interference increases with maternal age}
+
+\noindent Christopher L. Campbell$^1$, Nicholas A. Furlotte$^2$, Nick Eriksson$^{2,\dagger}$, David Hinds$^2$, and Adam Auton$^1$
+
+\vspace{0.5cm}
+\noindent This manuscript has been published: \\
+Campbell, C. L. et al. Escape from crossover interference increases with maternal age. Nat. Commun. 6:6260 doi: 10.1038/ncomms7260 (2015).
+
+\vspace{0.5cm}
+\noindent $^1$ Department of Genetics, Albert Einstein College of Medicine, 1301 Morris Park Avenue, Bronx, New York 10461, USA. \\
+\noindent $^2$ 23andMe Inc., Mountain View, California 94043, USA. \\
+\noindent $^\dagger$ Present address: Coursera, 381 East Evelyn Avenue, Mountain View, California 94041, USA. \\
+
+\vspace{0.5cm}
+\begin{centering}
+    Correspondence and requests for materials should be addressed to \\
+    A.A.\ (email: \texttt{adam.auton@einstein.yu.edu}). \\
+\end{centering}
+
 \include{chapter2/chapter2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
