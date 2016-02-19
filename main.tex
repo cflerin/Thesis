@@ -9,6 +9,24 @@
 \usepackage[super,comma,sort&compress]{natbib}
 % switch bibliography numbering to 1. from [1] :
 \makeatletter \renewcommand\@biblabel[1]{#1.} \makeatother
+\usepackage{siunitx} % for math formatting
+\usepackage{newtxtext,newtxmath} % formats numbers in math mode to consistent font
+
+\usepackage{hyperref} % allow urls
+\hypersetup{
+    pdfauthor={CLCampbell},
+%    pdfsubject={Some subject},
+    pdftitle={},
+%    pdfkeywords={LaTeX, PDF, hyperlinks}.
+    citebordercolor = {1 1 1}, % no box around citations
+    %,pdfborder = {0 0 1} % visible box around hyperlinks.
+    %,pdfborderstyle={/S/U/W 1}
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black % blue
+}
 
 % Use 1/2-inch margins.
 \usepackage[margin=1in,lmargin=1.5in]{geometry}
