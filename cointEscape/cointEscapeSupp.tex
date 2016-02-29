@@ -463,8 +463,188 @@ rate.
 Although the assumptions of this simulation study are quite simplistic, given  
 our dataset contains over 645,000 events these results would suggest that less than  
 1\% of the events represent false positives. In addition, we note that in analysis of  
+the real data, we used high-confidence sites and removed potential
+genotyping errors using MERLIN's error-detection feature (see Methods).  
+
+\subsubsection{Individual Ancestral Assignment}
+ 
+Individuals were assigned to ancestral categories by quantifying the
+genetic variation they share with a set of representative reference
+populations.Chromosomal segments are assigned to geographic regions using
+23andMe's Ancestry Composition tool\cite{23andMe2014}.  Informally, Ancestry Composition assigns
+regions of an individual's genome to 31 reference populations constructed from
+public reference datasets as well as private 23andMe cohort data\cite{23andMe2012}.  
+Individuals are assigned to genomic regions by first splitting the genome into short
+non-overlapping segments, and assigning each segment to the reference
+population with the highest degree of similarity. Given this assignment, it is
+straightforward to compute the percentage of an individual's DNA that originates
+from a certain sub-population.  For example, if 200,000 out of 400,000 total
+segments are predicted to come from an African background, then the global
+percentage of African ancestry is 50\%.  Given this global percentage,
+individuals are assigned to high-level categories (European, Middle Eastern,
+East Asian or South Asian) if their total percentage of ancestry in
+that category exceeds 97\%. For individuals of admixed ancestry, 23andMe uses a
+logistic classifier trained on the segment length distributions of individuals
+who have self-identified as African American or Latino. In order to
+define the final population label for a given individual, we first determined if
+they had at least 97\% European, Middle Eastern, East Asian or South Asian
+ancestry. If so, then their category was determined.  If the 97\% threshold
+was not met, but the individual had a total global percentage of at least 97\%
+when summing contributions from European, African and Native American, then
+the logistic classifier was applied. If neither of these conditions were met,
+then the individual was categorized as ``Other''.  
+ 
+\subsubsection{Estimation of hotspot usage }
+ 
+To estimate the degree of hotspot usage by an individual, we adopted the  
+method of Coop et al.\cite{Coop2008}. In brief, this method estimates the fraction of recombination  
+events that overlap with known LD-based hotspots while accounting for the  
+uncertainty in the localization of the called recombination events. For convenience,  
+we re-describe the approach here.  
+ 
+We aim to estimate the proportion, $\alpha$, of events that occur within LD-based  
+hotspots. Given a recombination event, $r$, the probability that the event overlaps  
+with a hotspot is given by:  
+\[
+    P ( r \text{ overlaps a hotspot} ) = \alpha + (1-\alpha) P(r \text{ overlaps a hotspot by chance} )
+\]
+To estimate $P(r \text{ overlaps a hotspot by chance})$, we randomly shift the  
+recombination events by a normally distributed distance (mean 0, standard  
+deviation 200kb) a total of 1,000 times, and calculated the fraction of these moves  
+that result in the event overlapping a hotspot. The likelihood for $\alpha$ is given by:  
+\[
+    L(\alpha|r) = \delta_r P( r \text{ overlaps a hotspot} ) + (1 - \delta_r)( 1 - P( r \text{ overlaps a hotspot}) )
+\]
+
+where $\delta_r$ is an indicator function, taking the value 1 if $r$ overlaps a hotspot and zero  
+otherwise. For a set of $k$ recombination events labeled $r_0,r_1,\dots,r_{k-1}$, the likelihood  
+of $\alpha$ for the whole dataset is given by:  
+\begin{equation}
+    L(\alpha|r_0,r_1,\dots,r_{k-1} = \prod_{i=0}^{k-1} L(\alpha|r_i) .
+\end{equation}
+
+We used this method to estimate $α$ for each mother and father (for phase  
+unknown individuals), and each meiosis (for phase known individuals). As in \citet{Coop2008},
+we used all events that were well localized to within 30kb, but note that our  
+results are robust to larger values of this parameter. The likelihood of alpha was  
+estimated over a uniformly spaced grid of 2,000 values between 0 and 1, with the  
+MLE taken as the value of $\alpha$ with the maximum likelihood on this grid. A 95\%  
+confidence interval was constructed as being the set of values within two log  
+likelihood units of the MLE.    
+
+For phase-known individuals for which recombination events could be  
+assigned to specific children, a separate $\alpha$ was estimated for each meiosis. For  
+phase-unknown individuals where such an assignment was not possible, $\alpha$ was  
+estimated using all events that could be attributed to the parent.  
+
+
+\subsubsection{Hotspot usage results}
+ 
+The estimates for hotspot usage are shown in Supplementary Figure \ref{fig:cointFS7}. 
+The  median hotspot usage estimate for females was 62.68\% (95\% C.I. 62.25\% - 63.10\%),
+whereas for males it was 67.26\% (95\% C.I. 66.85\% - 67.69\%), a difference of 4.6\%  
+($p=$ \num{1.1e-69}, Mann-Whitney U).  
+
+To ensure the difference between males and females is not driven by higher  
+precision in females (resulting from higher numbers of events), we thinned the  
+female data in order to match the number of events in males. Specifically, for each  
+male, we randomly selected a female (without replacement) with a greater or equal  
+number of events, and thinned the female events to match the number of male  
+events. The resulting dataset contains an equal number of males and females, with  
+each pair having an equal number of events. The estimates of hotspot usage for the  
+two sexes were very similar to the previous estimates (62.2\% for females, and  
+66.8\% for males), and the difference in hotspot usage remains highly significant  
+($p<$ \num{2.2e-16}).  
+
+To determine whether the observed differences in hotspot usage between  
+males and females is dependent on the position within the chromosome (as males  
+tend to have higher recombination rates towards the telomeres), we repeated the  
+analysis having divided each chromosome into segments. Specifically, we split each  
+chromosome into three windows, assigning the terminal 25\% of sequence from  
+each end to p- and q-arm bins, and keeping the central 50\% of the sequence for the  
+middle bin. For acrocentric chromosomes we omit the p-arm bin. We estimated the  
+degree of hotspot usage in each of these bins. We observe that males use hotspots to  
+a greater extent than females (Mann-Whitney U $p<$ \num{2.2e-16} for all three bins),  
+suggesting that the difference in hotspot usage between males and females
+cannot be explained by telomere effects.  
+
+Due to variation in PRDM9, hotspot
+usage is expected to vary between populations\cite{Hinch2011,Berg2011}. The hotspots used in this
+study were identified from genome-wide Phase II HapMap linkage disequilibrium
+data\cite{hapmap2007}, in which hotspots were called that were active in at least two of the
+three constituent populations (CEU, YRI, JPT+CHB). As such, one possibility for
+the observed difference between males and females is that the ancestry
+proportions within our data differ between the female and male samples.
+Inspection of the ancestry proportions within our data showed this not to be the
+case. In addition, if the analysis is partitioned by inferred ancestry,
+females have lower hotspot usage within all populations (Figure \ref{fig:cointF2}B), with the
+difference remaining significant in European, East Asian, Latino, and South
+Asian populations(Supplementary Table \ref{tab:cointTS6}).  
+
+\subsubsection{Description of age effect}
+ 
+Previous research has indicated a relationship between maternal age and
+the number of recombination events. In particular, research from the
+deCODE consortium used data from 14,140 meioses to report that the number
+of recombination events in females increase with age\cite{Kong2004}. The reported effect size
+is reasonably modest, contributing 0.082 ($\pm$ 0.012 standard error)
+recombination events per year, depending on the analysis method used. This
+translates as approximately a 4\% increase in the average maternal recombination
+rate over a period of 25 years. No such association was observed in males.  A
+second study confirmed this effect using 728 meioses observed with
+from Hutterite families\cite{Coop2008}, observing that mothers over 35 years of age had
+approximately 3.1 extra recombination events compared to those under 25. Despite
+the small sample size, the effect size in this study was estimated to be 0.19 
+($\pm$ 0.092 standard error) events per year. Again, no such effect was observed in
+males.   
+ 
+Conversely, a separate research group considering recombination events in 195
+meioses reported a decrease in the number of recombination events with maternal
+age\cite{Hussin2011}. In this case, the effect size was larger, corresponding to between 
+$-$0.49 and $-$0.42 crossovers per year, again with no such effect observed in
+males. Although the smallest of the three studies, the authors suggest that the
+discrepancy in the direction of the effect between studies could be due to
+marker density and/or true biological differences between populations.
+
+\paragraph{Correlation between number of recombination events and parental age.}
+
+To quantify the correlation between parental age and recombination rate,
+we first partitioned our data into phase-unknown parents for which
+recombination events could not be assigned to a specific child (or meiosis), and
+phase-known parents for which such an assignment was possible. For the
+phase-unknown parents group we used the maternal / paternal ages averaged
+across children, whereas for the phase-known group, we used the known parental
+ages at the time of the child's birth.
+
+Using linear regression, we estimated the association between the number
+of autosomal events and parent age (Supplementary Figure \ref{fig:cointFS6}). 
+A weak positive association between age and the number of recombination events was
+detected for females, but no such effect was observed for males. The number of
+recombination events in females increased on average by 0.067 per year (standard
+error: $\pm$ 0.0215), which is similar to the estimate from deCODE.  
+
+We note that the observed effect is quite weak, and appears to be largely
+driven by an increase in the number of recombination events for mothers of 35
+years or older (Figure \ref{fig:cointF1}C).  
+
+To ensure the observed effect is not confounded by population
+structure within the data, we first repeated the analysis for each population
+separately. In Europeans, for whom we have by far the largest sample size
+(accounting for $\sim$76\%of individuals), a significant association with maternal
+age was still observed (0.087 extra events per year, $p=$ \num{3.2e-4}). In all
+other populations (East Asian, Middle Eastern, Latino, African American, and
+South Asian), no significant association was observed, possibly due to
+insufficient power. No significant association with paternal age was observed
+within any population.  
+
+
 
 \subsection{Data Availability}
+
+Sex-specific genetic maps generated from this data are available at  
+\url{http://autonlab.einstein.yu.edu/23andMe_recomb/}. To preserve the privacy of  
+participants, access to other data associated with this study is controlled through  
+the 23andMe Research Portal\cite{23andMe2013}.
 
 \subsection{Supplementary References}
 
