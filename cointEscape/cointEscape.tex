@@ -542,7 +542,7 @@ holder to reproduce the material. To view a copy of this license, visit \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{ccampbell_thesis} %unsrtnat} %abbrvnat_noURL} %abbrvUnsrt_last-first} %plain,unsrt,alpha,abbrv,acm,apalike,unsrt
-\bibliography{/home/ccampbell/Dropbox/papers/thesis-cointEscape}
+\bibliography{cointEscape/thesis-cointEscape}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -964,13 +964,58 @@ Chrom & Start position (bp) & End position (bp) \\ \hline
 \subsection{Supplementary Methods}
 
 \subsubsection{Assessment of robustness to genotyping error}
-           
 
+In order to understand how our results could be influenced by genotyping  
+error we simulated data for each of the pedigree structures contained within our  
+data.  To do this, we generated haplotypes for the founder individuals using the  
+coalescent simulation software ms\cite{Hudson2002}.  Specifically, we generated 6 haplotypes (using:  
+\verb|ms 6 1 -t 2189.781|) and combined haplotypes at random to generate the genotypes  
+of the founders.  The population mutation rate was selected give an expected  
+number of 5000 segregating sites. Children were then created by drawing  
+haplotypes from each parent, and adding recombination as required.   
+
+To test MERLIN's ability to detect crossover events we placed one  
+recombination event in the center of the sequence in one random parent, and  
+passed this simulated pedigree data to MERLIN for haplotype analysis (option
+\verb|--best|).  This process is repeated to obtain 1000 total events per parent in each  
+pedigree structure. Our results indicate that MERLIN is able to capture 99.6\% of  
+recombination events generated in this manner. The false negative calls resulted  
+from low levels of heterozygosity (i.e. high relatedness) in the simulated haplotypes.  
+The events placed in phase-known pedigrees were correctly assigned to the proper  
+child in all cases. We repeated this simulation in the absence of any introduced  
+recombination and find that in all cases, no events were called.  
+
+Estimates of the error rate of the Illumina HumanOmniExpress array used by  
+23andMe range from 0.01\%\cite{Illumina2013}  to 0.054\%\cite{Imai2011}.  To test for robustness of our results to  
+genotyping error, we next simulated pedigrees without recombination, but with a  
+single genotyping error introduced into one of the individuals by switching one of  
+the alleles at the middle site in the sequence.  This procedure was repeated 1000  
+times in each of the five pedigree structures in our dataset.  We looked for any  
+events called by MERLIN and recorded the position in the sequence and the number  
+of informative sites to the left and right of the event.    
+
+We estimated the number of false recombination events as a function of  
+genotyping error.  Without any filtering (and without using MERLIN’s error  
+detection functionality), we find MERLIN to be sensitive to genotyping error. For a  
+dataset of our size and pedigree composition, a genotyping error rate of 0.001\%  
+would produce 15,000 false positive recombination events, rising to 150,000 for a  
+0.01\% genotyping error rate. However, the filters applied in the real dataset are  
+effective at removing these simple false positives. After requiring at least 3  
+informative sites on both sides of a recombination event, we estimate that a dataset  
+of our size would contain 74 spurious events with a 0.001\% genotyping error rate,  
+739 with a 0.01\% genotyping error rate, and 7,386 with a 0.1\% genotyping error  
+rate.   
+
+Although the assumptions of this simulation study are quite simplistic, given  
+our dataset contains over 645,000 events these results would suggest that less than  
+1\% of the events represent false positives. In addition, we note that in analysis of  
 
 \subsection{Data Availability}
 
 \subsection{Supplementary References}
 
+%\bibliographystyle{ccampbell_thesis}
+%\bibliography{/home/ccampbell/Dropbox/papers/thesis-cointEscapeSupp}
 
 
 
