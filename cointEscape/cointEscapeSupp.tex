@@ -1,11 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \beginsupplement
-\section{Supplementary Material}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Supplementary Figures}
+\section{Supplementary Figures}
 
 \begin{figure}[!h]
     %\includegraphics[width=\textwidth]{cointEscape/figs/Figure4.png}
@@ -157,7 +156,7 @@
 \end{figure}
 
 \clearpage
-\subsection{Supplementary Tables}
+\section{Supplementary Tables}
 
 
 \begin{table}[!h] \centering
@@ -415,9 +414,9 @@ rs138108783 & chr1 & 119,711,419 & A/G & 1.40E-06 & 0.274 & [0.163,0.385] & WARS
 
 \clearpage
 
-\subsection{Supplementary Methods}
+\section{Supplementary Methods}
 
-\subsubsection{Assessment of robustness to genotyping error}
+\subsection{Assessment of robustness to genotyping error}
 
 In order to understand how our results could be influenced by genotyping  
 error we simulated data for each of the pedigree structures contained within our  
@@ -466,7 +465,7 @@ our dataset contains over 645,000 events these results would suggest that less t
 the real data, we used high-confidence sites and removed potential
 genotyping errors using MERLIN's error-detection feature (see Methods).  
 
-\subsubsection{Individual Ancestral Assignment}
+\subsection{Individual Ancestral Assignment}
  
 Individuals were assigned to ancestral categories by quantifying the
 genetic variation they share with a set of representative reference
@@ -494,7 +493,7 @@ when summing contributions from European, African and Native American, then
 the logistic classifier was applied. If neither of these conditions were met,
 then the individual was categorized as ``Other''.  
  
-\subsubsection{Estimation of hotspot usage }
+\subsection{Estimation of hotspot usage }
  
 To estimate the degree of hotspot usage by an individual, we adopted the  
 method of Coop et al.\cite{Coop2008}. In brief, this method estimates the fraction of recombination  
@@ -515,7 +514,6 @@ that result in the event overlapping a hotspot. The likelihood for $\alpha$ is g
 \[
     L(\alpha|r) = \delta_r P( r \text{ overlaps a hotspot} ) + (1 - \delta_r)( 1 - P( r \text{ overlaps a hotspot}) )
 \]
-
 where $\delta_r$ is an indicator function, taking the value 1 if $r$ overlaps a hotspot and zero  
 otherwise. For a set of $k$ recombination events labeled $r_0,r_1,\dots,r_{k-1}$, the likelihood  
 of $\alpha$ for the whole dataset is given by:  
@@ -523,7 +521,7 @@ of $\alpha$ for the whole dataset is given by:
     L(\alpha|r_0,r_1,\dots,r_{k-1} = \prod_{i=0}^{k-1} L(\alpha|r_i) .
 \end{equation}
 
-We used this method to estimate $α$ for each mother and father (for phase  
+We used this method to estimate $\alpha$ for each mother and father (for phase
 unknown individuals), and each meiosis (for phase known individuals). As in \citet{Coop2008},
 we used all events that were well localized to within 30kb, but note that our  
 results are robust to larger values of this parameter. The likelihood of alpha was  
@@ -538,7 +536,7 @@ phase-unknown individuals where such an assignment was not possible, $\alpha$ wa
 estimated using all events that could be attributed to the parent.  
 
 
-\subsubsection{Hotspot usage results}
+\subsubsection{Hotspot usage results} % \mbox{}
  
 The estimates for hotspot usage are shown in Supplementary Figure \ref{fig:cointFS7}. 
 The  median hotspot usage estimate for females was 62.68\% (95\% C.I. 62.25\% - 63.10\%),
@@ -581,7 +579,7 @@ females have lower hotspot usage within all populations (Figure \ref{fig:cointF2
 difference remaining significant in European, East Asian, Latino, and South
 Asian populations(Supplementary Table \ref{tab:cointTS6}).  
 
-\subsubsection{Description of age effect}
+\subsection{Description of age effect}
  
 Previous research has indicated a relationship between maternal age and
 the number of recombination events. In particular, research from the
@@ -606,7 +604,7 @@ males. Although the smallest of the three studies, the authors suggest that the
 discrepancy in the direction of the effect between studies could be due to
 marker density and/or true biological differences between populations.
 
-\paragraph{Correlation between number of recombination events and parental age.}
+\subsubsection{Correlation between number of recombination events and parental age} % \mbox{}
 
 To quantify the correlation between parental age and recombination rate,
 we first partitioned our data into phase-unknown parents for which
@@ -637,19 +635,305 @@ South Asian), no significant association was observed, possibly due to
 insufficient power. No significant association with paternal age was observed
 within any population.  
 
+\subsection{Inferring Crossover Interference}
+In the following text, we provide a description of the crossover interference
+models used within the main analysis.  
+
+\subsubsection{The Gamma Model (a.k.a. the `simple interference' model)} % \mbox{}
+
+We follow the description of the Gamma model of crossover interference  
+presented by Broman and Weber\cite{Broman2000}. For clarity, we repeat the description of this the  
+model below.  
+
+The Gamma model describes the locations of chiasmata on the four-strand  
+bundle according to a stationary renewal process, with increments being drawn  
+from a gamma distribution with shape $\nu$ and rate 2$\nu$. As such, in this model the  
+distances between chiasmata are independent with mean 0.5 Morgans, and a  
+standard deviation of $(2 \sqrt{\nu})^{-1}$. Under the assumption of no chromatid interference,  
+the chiasmata are thinned such that each chiasmata becomes a crossover with  
+probability 0.5. As such, this model satisfies the requirement that the average 
+inter-crossover distance should be 1 Morgan.   
+
+The parameter $\nu$ is a unitless measure of the strength of interference.   
+Specifically, $\nu$ = 1 corresponds to no interference between chiasmata, and $\nu>$ 1  
+corresponds to positive interference (i.e.\ decreased variance in chiasmata spacing  
+than would be expected under a Poisson model), and $\nu<$ 1 corresponds to negative  
+interference (i.e.\ increased variance in chiasmata spacing than expected under a  
+Poisson model).  
+
+Let $x_0,x_1,x_2,\dots$ be the genetic distances (in Morgans) between adjacent  
+chiasmata, with $x_0$ being the distance from the p-terminal end of the chromosome to  
+the first chiasma. Under the Gamma model, the chiasmata locations are generated  
+according to a gamma renewal process, such that $x_1,x_2,\dots$ are independent and  
+follow a gamma distribution with shape $\nu$ and rate 2$\nu$, where $\nu$ is a positive real number.
+Therefore, the density of $x_i$ is given by $f(x;\nu) = (2\nu)^\nu e^{-2 \nu x} x^{\nu-1} / \Gamma(\nu)$,
+for $i>0$, and where $\Gamma(.)$ represents the gamma function. The density of $x_0$ is given by
+$g(x;\nu) = 2 [ 1-F(x;\nu) ]$, where $F$ is the cumulative distribution function (cdf) of $f$.  
+
+However, using transmitted genotype data, the actual chiasmata locations are not observed. 
+Rather, only the crossovers derived from the chiasmata positions are observed. Assuming 
+no chromatid interference, the probability that a chiasmata results in a crossover is $\frac{1}{2}$.
 
 
-\subsection{Data Availability}
+Let $y_0,y_1,y_2,\dots$ be the genetic distances (in Morgans) between adjacent crossovers.  
+Each $y_i$ is independent, with density given  by
+$f^*(y;\nu) = \sum^\infty_{k=1} (\frac{1}{2})^k f_k(y;\nu)$,
+where is the gamma distribution density with shape $k\nu$ and rate $2\nu$:
+$f_k(k;\nu) = (2\nu)^{k \nu} e^{-2 \nu x} x^{k \nu -1} / \Gamma(k \nu)$,
+which is derived from the convolution of $f(y;\nu)$ with itself $k$ times. 
+The density of $y_0$ is given by $g^*(k;\nu) = 1 - F^*(y;\nu)$, where $F^*$  is the cdf of 
+$f^*$. Likewise, let $G^*$ represent the cdf of $g^*$.  
+
+Given the above model, the contribution to the likelihood is:   
+\begin{equation}
+    Lk(\nu;y) = 
+    \begin{cases}
+        1 - G^*(L;\nu)
+        & \text{if $m_i = 0$} \\
+
+        g^*(y_0;\nu) g^*(y_1;\nu)
+        & \text{if $m_i = 1$} \\
+
+        \displaystyle g^*(y_0;\nu) \Bigg[ \prod_{j=1}^{m_i-1} f^*(y_j;\nu) \Bigg] g^*(y_m;\nu)
+        & \text{otherwise} \\
+
+    \end{cases}
+\end{equation}
+The likelihood for the complete data may be obtained as the product over all individual contributions.   
+
+\subsubsection{The Housworth-Stahl `interference escape' model.} % \mbox{}
+ 
+The Gamma model assumes that all crossover events are subject to the same
+interference process. The model has been shown to fit the data reasonably well for
+numerous organisms\cite{Broman2000,Broman2002}. However, evidence from model organisms 
+suggests the existence of a subset of events that are not subject to crossover interference\cite{Baudat2007},
+and statistical support of this finding has been seen in humans\cite{Fledel-Alon2009,Housworth2003}.  
+
+For this reason, we adopt the Housworth-Stahl model of interference, which models 
+the distances between crossovers as being a mixture of two processes. In one process, 
+crossovers are distributed according to the gamma model described above, whereas in the
+second process, crossovers are distributed without interference. We describe this model here,
+following Housworth and Stahl's 2003 paper\cite{Housworth2003}, and refer to it as the 
+`interference escape' model.  
+
+Assume that we have a mixture of two independent types of crossover, such that one type 
+occurs with probability $q$ and has interference parameter $\nu$, and the other type occurs
+with probability $p = 1 - q$ and is not subject to interference ($\nu =$ 1). 
+As for the Gamma model described above, let $x_0,x_1,x_2,\dots$ be the genetic distances
+(in Morgans) between adjacent chiasmata, with $x_0$ being the distance from the p-terminal
+end of the chromosome to the first chiasma. The distances between chiasmata are given
+by a gamma distribution with shape $\nu$  and rate $2 q \nu$. As such, the density of
+$x_i$ is given by $f(x;\nu,2 q \nu) = (2 q \nu)^\nu e^{-2 q \nu x} x^{\nu-1} / \Gamma(\nu)$,
+for $i > 0$. Likewise,
+the density of $x_0$ is given by $g(x;\nu,q) = 2q [ 1 - F(x;\nu,2q\nu) ]$, where $F$ is the
+cumulative distribution function (cdf) of $f$.  
+
+As described for the Gamma model, crossover events are determined by thinning 
+the chiasmata positions, with each position retained with probability $\frac{1}{2}$.
+Let $y_0,y_1,y_2,\dots$ be the genetic distances (in Morgans) between adjacent crossovers
+of this type. Each $y_i$ is independent, with density given by
+$f^*(y;\nu,q) = \sum_{k=1}^\infty (\frac{1}{2})^k f(y;k\nu,2q\nu)$.
+The density of $y_0$ is given by $g^*(k;\nu,q) = q [ 1 - F^*(y;\nu,q)]$, where $F^*$ is the cdf of $f^*$.
+Likewise, let $G^*$ represent the cdf of $g^*$.  
+
+Now consider a dataset from a single meiosis where the intercrossover distances are given by 
+$x_0,x_1,x_2,\dots,x_n$, where $\sum_{i=0}^n x_i = L$. We assume these events are derived from 
+two types of crossover. The interference-free type occurs with probability $p$ and has $\nu=$ 1.
+The second type is subject to interference and occurs with probability $q = 1 - p$. 
+To calculate the likelihood of the data, we must sum over the $2^n$ possible ways to assign 
+crossovers to the two types. Given one possible assignment, we split the data into two sets of 
+intercrossover distances, $y_0,y_1,y_2,\dots,y_j$ for the interference-free type, 
+and $z_0,z_1,z_2,\dots,z_k$ for the second `interference' type, where $j + k = n + 1$.
+The likelihood of the data in from the interference-free type is:  
+\begin{equation}
+    Lk(\nu = 1,q=p;y) =  
+    \begin{cases}
+        1 - G^*(L;1,p)
+        & \text{if $j=0$} \\
+        g^*(y_0;1,p) [ 1-F^*(y_1|1,p) ]
+        & \text{if $j=1$} \\
+        \displaystyle g^*(y_0;1,p) \Bigg[ \prod_{i=1}^{j-1} f^*(y_i;1,p) \Bigg] \Big[ 1-F^*(y_j|1,p) \Big]
+        & \text{otherwise.} \\
+    \end{cases}
+\end{equation}
+The likelihood of the data from the interference type is: 
+\begin{multline}
+    Lk(\nu = t,q=1-p;z) = \\
+    \begin{cases}
+        1 - G^*(L;t,1-p)
+        & \text{if $j=0$} \\
+        g^*(y_0;t,1-p) [ 1-F^*(y_1|t,1-p) ]
+        & \text{if $j=1$} \\
+        \displaystyle g^*(y_0;t,1-p) \Bigg[ \prod_{i=1}^{j-1} f^*(y_i;t,1-p) \Bigg] \Big[ 1-F^*(y_j|t,1-p) \Big]
+        & \text{otherwise.} \\
+    \end{cases}
+\end{multline}
+To calculate the likelihood of the data, we sum over all $2^n$ possible assignments to the two types:  
+\begin{multline}
+    Lk'(\nu=t,q=p;x) =
+    \sum_{\substack{ (y_0,y_1,y_2,\dots,y_j),\\
+                     (z_0,z_1,z_2,\dots,z_k) 
+             }} Lk(\nu=1,q=p;y) Lk(\nu=t,q=1-p;z)
+\end{multline}
+To calculate the likelihood over multiple individuals, one simply takes the product of the above likelihood.  
+
+In our implementation of the above formulas, we calculated $f^*$ by summing over $k$ from 0 to 25. 
+Numerical integration was used to calculate $G^*$ using the \textit{integral} function in MATLAB.   
+
+\subsubsection{Extension to interference escape model for phase-unknown data} % \mbox{}
+ 
+The above description of the interference escape model assumes that the observed crossover
+events can be assigned to a specific meiosis. However, in the case of the phase-unknown
+individuals that make up the majority of our data, the observed crossovers cannot be 
+assigned to specific children. As such, the above model cannot be used.  
+
+To extend the model for phase-unknown, we perform the same trick of summing over all 
+possible assignments to each type, but this time also summing over all possible assignments
+to each meiosis. Although this procedure is somewhat na\"{i}ve, both simulations and 
+comparison of results between phased and unphased families have shown that it works well
+in practice (Supplementary Figure \ref{fig:cointFS11}).   
+
+Consider a family quartet. For each parent, the observed crossovers are the result of 
+two independent meioses, which we will call $M_1$ and $M_2$ respectively. Let the intercrossover
+distances events in $M_1$ be $a_{i0},a_{i1},a_{i2},\dots,$ and the intercrossover distances in 
+$M_2$ be $b_{i0},b_{i1},b_{i2},\dots,$ where $a_{i0}$ and $b_{i0}$ represent the distances between
+the first event and the p-terminal end of the chromosome in $M_1$ and $M_2$ respectively.
+If we could observe these intercrossover distances, we could apply the Housworth-Stahl 
+model as described above. However, due to the nature of phase-unknown individuals, all
+we are unable to directly observe these distances, and can only observe crossovers derived 
+from both meioses without knowing which event is from which meiosis.  
+
+Na\"{i}vely, we could be to sum over all possible assignments to each meiosis,and for each
+assignment apply the Housworth-Stahl model independently. However, this would be inefficient,
+as it would result in summing over $4^n$ possible assignments (as there are 2 crossover types 
+in each of 2 meioses). Instead, we note that the same result can be achieved by combining the
+`interference free' classes, allowing us to sum over $3^n$ possible assignments. 
+   
+Let the $n$ observed crossover positions assigned to a parent be $z_{i1},z_{i2},z_{i3},\dots,z_{in},$ 
+which are derived from a superposition of the gamma renewal processes. In order to calculate the 
+likelihood of this data, we treat the assignment of each event as either belonging to one of 
+two inference classes, or to a single interference free class. Specifically, we calculate the likelihood as:  
+\begin{multline}
+    Lk'(\nu,q;z) = \\
+    \sum_{\substack{ (a_0,a_1,\dots,a_i), \\
+                     (b_0,b_1,\dots,b_i), \\
+                     (c_0,c_1,\dots,c_i)
+             }}
+    \Big[ Lk(\nu=t,q=1-p;a) Lk(\nu=t,q=1-p;b) Lk(\nu=1,q=2p;b) \Big]
+\end{multline}
+where the summation is taken over all possible $3^n$ divisions of the $n$ crossovers into  
+the three classes. The likelihood for the complete dataset is given by taking the  
+product of $Lk'(\nu,q;z)$ over all individuals. 
+
+Maximum likelihood estimation of $\nu$ and $q$ was performed using a MATLAB  
+implementation of the Nelder-Mead method\cite{DErrico}, restricting the search space such  
+that $\nu \in [0.1,100]$, and $q \in (0,0.5)$. Uncertainty in the MLE point estimates was  
+obtained by using the inverse of the Fisher information matrix to estimate the  
+covariance matrix.  
+ 
+We note that the mixture model lacks identifiability when $\nu$ is close to 1. 
+In this situation, the estimates of $q$  become uninformative. When performing likelihood 
+maximization, we experimented with including a weakly informative prior on $q$  that favors 
+smaller values. Specifically, we set $P(q)= 1 - q$, and performing maximum a posteriori 
+estimation in place of maximum likelihood. In simulations, we found this method slightly 
+improved results when $\nu$ is small, and has negligible effect otherwise. However, given 
+the limited benefit of this approach,we did not pursue it further.  
+
+We validated the extension using simulations, and found it to give comparable results to 
+those obtained from the original version for phase-known data. In addition, the per-chromosome 
+estimates obtained from the real data were largely concordant between the phase-known and 
+phase-unknown estimates (Supplementary Table \ref{tab:cointTS7}).  
+
+MATLAB code for performing inference of crossover interference parameters using this 
+extension can be found at \url{https://github.com/auton1/interference/}.
+
+\subsubsection{Interference across the genome} % \mbox{}
+
+We fitted the Gamma and interference-escape models for each chromosome  
+separately, and also having combined data across the autosomes. As reported  
+previously\cite{Fledel-Alon2009,Housworth2003}, we find the interference escape 
+model to provide a much better fit to  the data than the traditional Gamma model (Figure \ref{fig:cointF3}A),
+and therefore focus on parameter estimates from this model.  
+
+Across the whole genome, crossover interference is stronger in males than  
+for females. The average interference parameter was estimated to be $\nu=$ 7.18 in  
+females, and $\nu=$ 8.93 in males, which implies increased variance in crossover  
+spacing for females relative to males. We infer that $p=$ 7.8\% and $p=$ 6.7\% of  
+events escape interference in males and females respectively. We note that these  
+estimates are quite similar to those obtained in Hutterites\cite{Fledel-Alon2009},
+where the estimates were reported as $\nu=$ 9.17, $p=$ 8\%  and $\nu=$ 6.96, $p=$ 6\%
+in males and females respectively.  
+
+The results for each chromosome are shown in Figure \ref{fig:cointF3}B and C. In females,  
+there is a clear trend of shorter chromosomes having higher interference parameter  
+($\nu$) estimates, whereas any such effect is much weaker in males. In contrast, no such  
+relationship is seen in the fraction of events that escape interference ($p$).   
+
+Of note in males, the estimate of the interference parameter for chromosome  
+21 appears to be extremely large, if not infinite (Supplementary Table \ref{tab:cointTS7}). This  
+finding has been reported previously\cite{Broman2000,Fledel-Alon2009}, and reflects the fact 
+that very few paternal chromosomes exhibit more than one crossover. In our data, just 1.7\% of paternal  
+meioses have evidence of more than one crossover on chromosome 21, compared to  
+30.0\% for chromosome 20 and 8.3\% for chromosome 22.  
+
+The degree of interference on a chromosome is reasonably well predicted by  
+the map length. Combining data across the sexes, the chromosome map length  
+explains 57\% of the variance in the interference parameter (Supplementary Figure  
+\ref{fig:cointFS8}). When considering the sexes separately, the association is stronger in females  
+(where 69\% of the variance can be explained) than in males (where just 17.2\% can  
+be explained, and the fit does not achieve significance; $p=$ 0.061). A multiple
+regression including sex as a predictor variable 
+($\nu_{chr} = \beta_0 + \beta_1 maplength_{chr} + \beta_2 sex_{chr}$)
+finds the $\beta_2$ to be marginally significant ($p=$ 0.0183), but the model is not 
+a significantly better fit than the model without including sex ($\Delta$(deviance)$=$ 3.54, $p=$ 0.0599).  
+
+\subsubsection{Analysis of interference by age} % \mbox{}
+ 
+We divided our data into quantiles of approximate equal size on the basis of age.
+For each decile, we fitted the interference-escape model. The results are shown in Figure \ref{fig:cointF4}
+and Supplementary Figure \ref{fig:cointFS9} for 10 quantiles, and in Supplementary Figure \ref{fig:cointFS10}
+for 5 and 20 quantiles. In females, the proportion of events escaping interference consistently 
+increases with maternal age, and the pattern is consistent across both phase-known and phase-unknown 
+individuals (Supplementary Figure \ref{fig:cointFS11}). There is no such correlation in the degree 
+of interference, which appears to be constant across maternal ages. In contrast, no correlation is 
+observed between paternal age and either parameter.  
+
+\subsubsection{Stratified sampling to account for number of crossovers} % \mbox{}
+ 
+One potential concern is that the inferred degree of interference may be influenced 
+by a change in recombination rate. As the distribution of distances between crossovers 
+depends on the number of crossovers (when there are more crossovers, they are necessarily more 
+closely spaced), if there is a change in the recombination rate with age then this may influence 
+the interference estimates.  
+
+We can address this concern by the use of stratified sampling. Specifically, for each age group, 
+we subsampled individuals in order to ensure that each decile has the exact same distribution 
+of the number of crossovers per meiosis. This was achieved as follows. First, for each age group 
+$i$, we counted the number of individuals with $x$ crossovers, which we call $N_i(x)$. For each $x$,
+we estimated the minimum $N_i(x)$ across all decile age groups, so that $n(x) = min_i (N_i(x))$.
+We then subsampled individuals within each decile by randomly selecting $n(x)$ individuals, 
+without replacement, for each possible $x$. 
+
+Having performed this subsampling, we repeated the analysis. The results are shown in 
+Supplementary Figure \ref{fig:cointFS12}. The results for females are largely identical to that
+obtained without stratified sampling, with a significant increase in the proportion of events 
+escaping interference as maternal age increases.  
+
+
+\section{Data Availability}
 
 Sex-specific genetic maps generated from this data are available at  
 \url{http://autonlab.einstein.yu.edu/23andMe_recomb/}. To preserve the privacy of  
 participants, access to other data associated with this study is controlled through  
 the 23andMe Research Portal\cite{23andMe2013}.
 
-\subsection{Supplementary References}
-
+\renewcommand{\bibname}{Supplementary References}
 \bibliographystyle{ccampbell_thesis}
-\bibliography{/home/ccampbell/Dropbox/papers/thesis-cointEscapeSupp}
+\begingroup
+    \setlength{\bibsep}{10pt}
+    \linespread{1}\selectfont
+    \bibliography{/home/ccampbell/Dropbox/papers/thesis-cointEscapeSupp}
+\endgroup
 
 
 

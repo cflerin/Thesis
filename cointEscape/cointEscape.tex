@@ -541,8 +541,13 @@ holder to reproduce the material. To view a copy of this license, visit \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{References}
 \bibliographystyle{ccampbell_thesis} %unsrtnat} %abbrvnat_noURL} %abbrvUnsrt_last-first} %plain,unsrt,alpha,abbrv,acm,apalike,unsrt
-\bibliography{cointEscape/thesis-cointEscape}
+\begingroup
+    \setlength{\bibsep}{10pt}
+    \linespread{1}\selectfont
+    \bibliography{cointEscape/thesis-cointEscape}
+\endgroup
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -14,7 +14,11 @@
 \usepackage{chapterbib}
 % switch bibliography numbering to 1. from [1] :
 \makeatletter \renewcommand\@biblabel[1]{#1.} \makeatother
+\setlength{\bibsep}{0pt}
 
+% math:
+\usepackage{amsmath} % for multline
+% \usepackage{mathtools}
 \usepackage{siunitx} % for math formatting
 \usepackage{newtxtext,newtxmath} % formats numbers in math mode to consistent font
 \usepackage{graphicx}
@@ -214,8 +218,9 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
     A.A.\ (email: \texttt{adam.auton@einstein.yu.edu}). \\
 \end{centering}
 
-%\include{cointEscape/cointEscape}
-%\include{cointEscape/cointEscapeSupp}
+\DoubleSpacing
+\include{cointEscape/cointEscape}
+\include{cointEscape/cointEscapeSupp}
 
 \chapter{Sexual dimorphism in recombination}
 \include{cointExtras/cointExtras}
