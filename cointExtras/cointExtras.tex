@@ -6,6 +6,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Motivation for studying older families
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods}
@@ -40,7 +42,7 @@ Sequenced 99 sperm cells from an Asian male (analyzed 91)
 \subsection{23andMe data with older parents}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \includegraphics[width=\textwidth]{cointExtras/figs/ageHist_wMasked}
     \vspace{-20pt}
     \captionTitle{\textbf{Age distributions in the 23andMe dataset including older parents.}}{ 
@@ -52,11 +54,28 @@ Sequenced 99 sperm cells from an Asian male (analyzed 91)
 
 \subsection{Crossover interference}
 
+\begin{figure}[H]
+    \includegraphics[width=\textwidth]{cointExtras/figs/coIntParam_wMasked}
+    \vspace{-20pt}
+    \captionTitle{\textbf{Crossover interference parameters as a function of age.}}{ 
+        Parameter estimates for females are shown in the top two panels (A and B), males in the bottom two panels (C and D).
+        Interference strength estimates ($\nu$) are shown in the left two panels (A and C), and estimates for the escape proportion are shown in the right panels (B and D).
+        Data from older parents with masked ages are included in the plot with the axis label ``masked.''
+        These older groups are excluded from the linear regression lines (shown in black).
+    \label{fig:extrasAgeHist}}
+\end{figure}
+
 \subsection{Maternal age effect}
 
 
 
-
-
+\renewcommand{\bibname}{References}
 \bibliographystyle{ccampbell_thesis} %unsrtnat} %abbrvnat_noURL} %abbrvUnsrt_last-first} %plain,unsrt,alpha,abbrv,acm,apalike,unsrt
-\bibliography{/home/ccampbell/Dropbox/papers/thesis-cointExtras}
+\begingroup
+    \setlength{\bibsep}{10pt}
+    \linespread{1}\selectfont
+    \bibliography{/home/ccampbell/Dropbox/papers/thesis-cointExtras}
+\endgroup
+
+
+
