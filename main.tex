@@ -1,6 +1,6 @@
 \documentclass[11pt,twoside,openright,letterpaper]{memoir}
 \setsecnumdepth{subsection} % include numbering on subsections
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 \usepackage{titling}
 \usepackage{helvet} % Use Helvetica font.
@@ -23,7 +23,9 @@
 \usepackage{newtxtext,newtxmath} % formats numbers in math mode to consistent font
 \usepackage{graphicx}
 \usepackage{epstopdf} %converting to PDF
-
+ 
+\usepackage[section]{placeins} % keep floats within sections
+\usepackage{afterpage} % wrap around floats to have them on their own pages
 \usepackage{hyperref} % allow urls
 \hypersetup{
     pdfauthor={CLCampbell},
@@ -180,7 +182,7 @@ Philosophy in the Graduate Division of Medical Sciences.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The Training Program in Cellular and Molecular Biology and Genetics, T32 GM007491.
 
-
+\clearpage
 \tableofcontents
 \listoffigures
 \listoftables
@@ -189,6 +191,7 @@ Philosophy in the Graduate Division of Medical Sciences.
 \mainmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\DoubleSpacing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 \include{introduction/introduction}
@@ -218,17 +221,18 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
     A.A.\ (email: \texttt{adam.auton@einstein.yu.edu}). \\
 \end{centering}
 
-\DoubleSpacing
-\include{cointEscape/cointEscape}
-\include{cointEscape/cointEscapeSupp}
+%\include{cointEscape/cointEscape}
+% \include{cointEscape/cointEscapeSupp}
 
 \chapter{Sexual dimorphism in recombination}
-\include{cointExtras/cointExtras}
+%\include{cointExtras/cointExtras}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Recombination in dogs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \include{dogPed/dogPed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Gene conversion}
