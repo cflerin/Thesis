@@ -82,6 +82,12 @@
     \setcounter{figure}{0}
     \renewcommand{\thefigure}{\thechapter.S\arabic{figure}}%
 }
+\newcommand{\beginmain}{ % reset supplement numbering within chapters
+    \setcounter{table}{0}
+    \renewcommand{\thetable}{\thechapter.\arabic{table}}%
+    \setcounter{figure}{0}
+    \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
+}
 %%% adjust spacing between figure number and label in listoffigures:
 \makeatletter \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}} \makeatother
 
@@ -250,7 +256,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
     A.A.\ (email: \texttt{adam.auton@gmail.com}). \\
 \end{centering}
 
-% \include{dogPed/dogPed}
+\include{dogPed/dogPed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Detection of gene conversion in admixed population genetic data}
