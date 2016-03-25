@@ -10,6 +10,21 @@
 Meiosis occurs in all sexually reproducing organisms, and is essential to the generation of gametes.
 Recombination plays a key role in this process, facilitating the pairing and alignment of chromosomes, while the exchange of genetic material has important implications in inheritance, natural selection, and evolution.
 
+\afterpage{
+\begin{figure}[P]
+    \begin{center}
+    \includegraphics[width=\textwidth]{introduction/figs/outcome_CO-GC}
+    \end{center}
+    \vspace{-10pt}
+    \captionTitle{\textbf{Recombination produces crossover and gene conversion.}}{ 
+        Recombination is initiated by DNA double strand breaks that resolve into one of two possible outcomes.
+        Crossover (shown at right) is the large-scale, reciprocal exchange of genetic material between two chromosomes around the break point.
+        Gene conversion (or non-crossover, shown at left) is the one-way transfer of small amounts of DNA from one chromosome to the other during the repair of the break.
+   \label{fig:introOutcomes}}
+\end{figure}
+\clearpage}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The biology of meiotic recombination}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,31 +83,49 @@ This supports the idea that chiasmata, which serve to tether homolgous chromosom
 
 
 
-\afterpage{
-\begin{figure}[P]
-    \begin{center}
-    \includegraphics[width=\textwidth]{introduction/figs/outcome_CO-GC}
-    \end{center}
-    \vspace{-10pt}
-    \captionTitle{\textbf{Recombination produces crossover and gene conversion.}}{ 
-        Recombination is initiated by DNA double strand breaks that resolve into one of two possible outcomes.
-        Crossover (shown at right) is the large-scale, reciprocal exchange of genetic material between two chromosomes around the break point.
-        Gene conversion (or non-crossover, shown at left) is the one-way transfer of small amounts of DNA from one chromosome to the other during the repair of the break.
-   \label{fig:introOutcomes}}
-\end{figure}
-\clearpage}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Timing of meiotic events}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Human:
-Oocytes progress through the diplotene stage before undergoing an arrest period.
-This arrest is called dictyotene stage, or dictyate.
+The fundamental steps of meiosis are the same in males and females, but the timing of these events, both prior and during, differs significantly between the sexes\cite{Lynn2004}, and even between species.
+In humans, male meiosis begins at puberty and continues in a cycle that lasts throughout the lifespan.
+As male meiosis is continually occurring, the precursor cells undergo a minimum of 30 divisions prior to entering meiosis, and this number continues to rise with age.
+A 15 year old male is estimated to be 35 germ-cell divisions, with this number rising to 380 at age 30, and 840 by age 50\cite{Crow2000a}.
 
+Females have 22 cell divisions prior to meiotic entry, and one during, for a total of 23 divisions\cite{Crow2000a}, and this number is fixed for all oocytes.
+In females, meiosis begins prenatally, and oocytes progress through the diplotene stage of prophase I before undergoing an arrest period\cite{Hassold2001,Crow2000a}.
+This arrest is called the dictyotene stage, or dictyate arrest, and meiosis is frozen at the point the chromosomes have fully synapsed and chiasmata have formed\ref{fig:introTiming}.
+This arrest period ends only upon ovulation, and thus meiosis can be potentially very lengthy, taking one to five decades to complete.
+Additionally, while each male meiosis produces four haploid sperm products, female meiosis yields one haploid oocyte contain the majority of the cytoplasm, the remaining meiosis I and II division products produce polar bodies, which contain DNA but typically apoptose\cite{Schmerler2011}.
 
+Male progenitor cells undergo potentially many more mitotic divisions prior meiotic entry.
+As the number of mitioc proliferations increases in males, so does the number of mutations accumulated through DNA replication errors.
+A recent study using a chimpanzee pedigree estimated that the number of mutations rises linearly with the father's age, with approximately three additional mutations accumulating per year\cite{Venn2014}.
+This contributes to a paternal age effect, with mutations accumulating on the male germ line with increasing age.
+
+Dog meiosis differs from that of humans in some key respects.
+Meiosis in female dogs begins later, starting in the neonatal period\cite{Freixa1987}.
+The meiotic arrest occurs at the same dictyotene stage in both species, but is shorter in dogs, given the later onset of meiosis in dogs as well as a reduced lifespan.
+In addition, while meiosis exits the arrest period prior to ovulation in humans, dogs ovulate immature, primary oocytes, which only mature to fertility 48-60 hours after ovulation\cite{Tsutsui1989,Chastant-Maillard2011}.
+
+\afterpage{
+\begin{figure}[P]
+    \begin{center}
+    \includegraphics[width=\textwidth]{introduction/figs/meioticTiming}
+    \end{center}
+    \vspace{-10pt}
+    \captionTitle{\textbf{Timing of meiosis I events in humans.}}{ 
+        Males exhibit a continuous wave of meioses throughout adulthood.
+        In females, meiosis begins before birth and enters an arrest period that can last decades before completion.
+   \label{fig:introTiming}}
+\end{figure}
+\clearpage}
+
+Several biological possibilities have been proposed to explain what happens to oocytes during meiotic arrest.
+Polani1991, Rowsey2014: Production line hyp.
+Polani: production line holds true for mice
 
 
 
@@ -200,23 +233,92 @@ All six hotspots found within the region of the MHC were found to be tightly cor
 
 Jeffreys2009: rise/fall
 
-\citet{Lu2012b}
+\citet{Lu2012}
 \citet{Wang2012}
 
 
 \paragraph{Single oocytes.}
-\citet{Hou2013} (single oocytes)
+Recent studies have provided much needed insight into recombination in single oocytes through novel methods.
+\citet{Hou2013} conducted an analysis in human oocytes, providing at the same time a potential new method for applying next generation sequencing methods to the screening for various genetic disorders with in vitro fertilization (IVF) techniques.
+Here, the researchers extracted and fertilized a total of 70 oocytes from 8 Asian female donors, collecting the first and second polar bodies, as well as the male and female pronucleus from the fertilized egg.
+This complete collection of data from female oogenesis and fertilization enabled haplotype phasing and crossover calls
+Most intriguingly, this enabled the generation of personal genetic maps for each donor, allowing the researchers to address the question of how recombination varies on an individual basis.
+This data allows the observation of all four members of the tetrad bundle, both sister chromatids and their homologues, something usually missed by inferential studies of recombination.
+
+This data allows valuable data to be inferred regarding both crossover interference, affecting the spacing between pairs of crossovers, and chromatid interference, affecting which chromatid is involved in crossing over within the tetrad.
+Comparing to previously published sperm data\cite{Lu2012}, \citet{Hou2013} look at crossover spacing as a function of both physical distance (in bp), and synaptonemal complex length (\SI{}{\micro\metre}), concluding that the strength of interference is equivalent in males and females when considering the synaptonemal complex length, which is longer in females, reflecting their higher recombination rate.
+%an observation that conflicts with a number of other studies\cite{Broman2000,Housworth2003,Fledel-Alon2009}.
+Somewhat puzzling was the omission of genetic distance (in centimorgans) in this analysis, a factor that controls for the 1.6 fold higher recombination rate in females over males.
+A reanalysis of this data using genetic distance is presented in this thesis in Chapter X.
+
+By identifying which chromatid is involved in each crossover \citet{Hou2013} found evidence for weak and negative chromatid interference.
+This means that once an initial crossover is established between two chromatids (e.g.\ labeled 1 and 2), a second crossover is more likely to form using at least one of these first chromatids (1 and 2), and less likely to form using neither (between 3 and 4).
+Positive chromatid interference corresponds to an decrease in the probability of a second crossover involving the same chromatids as the first, that is, the first crossover ``interferes'' or prevents the placement of the second on the same chromatids.
+
+
+
 
 
 \subsubsection{Recombination initiation maps}
-DSB chip: Pratto2014
+Additional methods have been developed to identify double strand breaks within a individual cells undergoing meiotic recombination.
+\citet{Pratto2014} utilized chromatin immunoprecipitation coupled with sequencing to identify DSBs associatated with the strand-exchange protein DMC1 to generate DSB maps in four unrelated human males.
+This method identifies the majority of DSBs within the meiotic cell, only a fraction of which will be resolved as crossovers that could be identified via genotyping methods, the remainder ending up as non-crossover gene conversions.
+The researchers found the DSB cluster into hotspots, of which 51\% overlapped with the LD crossover hotspots\cite{hapmap2007}, and 80\% of DSB hotspots overlapped regions with elevated recombination rate.
+In addition, the DSB locations were largely tied to the specific PRDM9 allele for each particular individual.
+PRDM9$_\text{A}$ and PRDM$_\text{B}$ alleles appear to specify similar DSB hotspots, while PRDM9$_\text{C}$ has a separate specificity.
+PRDM9 heterozygosity also affects hotspot strength.
 
 \subsection{Current ``gold standard'' maps (Hapmap2 LD map, deCODE pedigree map).}
 
 \subsubsection{Marshfield map}
-The Marshfield map, generated by \citet{Broman1998} in 1998, was the first genetic map of the human genome at a resolution high enough to make inferences on the recombination properties in humans.
+The Marshfield map, generated by \citet{Broman1998} in 1998, was the first genetic map of the human genome at a resolution high enough to make inferences on the recombination properties in humans, using $>$8000 short tandem repeat polymorphsims (STRPs) in 188 meioses.
+Here, estimates of the genome wide map lengths, inferences on individual variation, and sex differences in recombination were highlighted.
+The ratio of female to male autosomal map length was estimated at 1.56, indicating that the recombination rate in females is substantially higher than males.
+This ratio has proved stable over a number of studies in the intervening years (summarized in Table \ref{tab:introHeterochiasmy}).
+Analysis of this this ratio as a function of chromosome position revealed that male recombination tends to be highest in the telomeres, while females had a higher ratio towards the centromeres.
+This study provided valuable insight into sex dimporphism in recombination
+
 \subsubsection{deCODE maps}
-\subsubsection{deCODE maps}
+Another major stride in pedigree-based genetic maps came from deCODE genetics, an Icelandic pharmaceutical company that used their database of genealogical and genetic data on many Icelandic families to infer recombination, producing many high quality studies.
+The first was in 2002, where 146 families, comprising 1257 meioses, were genotyped using 5136 microsatellite markers\cite{Kong2002}.
+This data, in conjunction with the draft sequence of the human genome\cite{Venter2001,Lander2001} was used to improve the marker order and their placement within the reference sequence.
+The genetic map generated from this study confirmed much found by \citet{Broman1998} in terms of sex dimorphism in recombination, and further characterized fine scale variation between the chromosomes.
+One particular finding was that of recombination ``jungles,'' regions of high crossover rate that clustered towards the telomeres.
+In addition, recombination rate was found to correlate with GC content, CpG motif occurrance, and tracts of poly(A)/poly(T), together explaining $\sim$37\% of variation.
+
+In 2010, using genome wide SNP data on x meioses, deCODE genetics published an updated sex-specific recombination map\cite{Kong2010}.
+Instead of a typical pedigree-based recombination study, \citet{Kong2010} leverage the high degree of relatedness within the Icelandic population to infer phase and parent-of-origin in 20,217 individuals typed on microarrays assaying $>$289,000 autosomal SNPs.
+Here, phase is determined for parent-child pairs by taking into account haplotype blocks that are shared with other individuals within the population to determine the parent-of-origin for a particular block.
+Crossovers are called when a segment of a child's haplotype is inferred to move between maternal and paternal origin.
+This enables recombination be called in 15,257 parent-offspring pairs.
+%%%
+One effect of this parent-child phasing approach is that inference of recombination events near the telomeres is difficult, and \citet{Kong2010} omit the most distal 5 Mb for each chromosome.
+The omission of the telomeric regions, where male recombination is higher, contributes to the inflation of the female:male map length ratio seen in Table \ref{tab:introHeterochiasmy}) at 1.78 in this study, however much more likely to be closer to the consensus ratio of around 1.56.
+Since its release in 2010 the deCODE genetic map has proven quite valuable as a high quality sex-specific map of recombination in the human genome.
+
+Coop map: first to use genome-wide SNP arrays (Affy500k), 728 meioses.
+
+Kong2010 (place elsewhere):
+Lower rec. rate within genic regions (and this difference is greater for females).
+Recombination tends to be depressed within geneic regions overall compared to intergenic, with recombination high just upstream of the TSS and downstream of the TSE, and falling off after a few hundred kb\cite{Kong2010,Coop2008}.
+Additionally, while females have a lower rates within genic regions, males have higher rate within exonic regions.
+%%%
+% \citet{Coop2008} found that recombination was elevated upstream of the TSS and 
+
+
+
+
+\afterpage{
+\begin{table}[h] \centering
+    \begin{tabular}{|l|c|c|c|c|c|c|c|} 
+        \hline Species & Common name & Study & Year & Female (cM) & Male (cM) & Ratio & Sex avg.\ (cM) \\ \hline
+    \hline \end{tabular}
+    \captionTitle{\textbf{Autosomal map length estimates for a number of studies in various species.}}{
+    Total map lengths are given in centimorgans, while the ratio represents the female to male map lengths. Sex specific map lengths are not available for the LD based maps.\label{tab:introHeterochiasmy}}
+\end{table}
+\clearpage}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -258,17 +360,35 @@ Ottolini2015: selection for maternal recombination rates. (Kong2004 suggested th
 \subsection{Maternal age effect.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Kong2004 (0.082 events/year +/- 0.012 s.e., 4\% increase over 25 years)
+Age effects on reproduction have been tied with an increased incidence of aneuploidy in humans\cite{Hassold2001,*}.
 
-Coop2008 (3.1 extra events in mothers over 35 vs mothers under 25.)(0.19 events/year +/- 0.092)
+Several studies have shown evidence for an increase in the number of crossover events with maternal age, suggesting a protective mechanism against aneiploidy.
+%%%
+With the aim of investigating age effects in recombination, a study in 2004 using the deCODE genetics dataset with 23,066 meioses, using a reduced set of 1000 microsatellite markers\cite{Kong2004}.
+Genotyping was not done for every individual, with some families having only one parent genotyped, and recombination events were therefore imputed.
+The main finding from this study is that the number of crossovers observed in females appears to increase with age, with an additional 0.082 events per year ($\pm$0.012), corresponding to a 4\% increase over 25 years.
+This effect was seen to increase within families, such that a child born later in the mother's life has a higher number of maternal crossover than their siblings born earlier.
+\citet{Coop2008} analyzed recombination in 728 meioses from Hutterites, and found that mothers 35 year or older have an extra 3.1 crossover events compared to mothers under 25 years old.
+This effect corresponds with an extra 0.19 events per year ($\pm$0.092).
+No such effect was found in males in either study.
+%%%
 
-Hussin2011, -0.49 and -0.42 crossovers per year
+A study by \citet{Hussin2011} examined in recombination in 195 maternal meioses from French-Canadian pedigrees.
+Here, the opposite effect was seen, with recombination rate found to decrease with maternal age, with a larger effect size, estimating a decrease somewhere between $-$0.49 and $-$0.42 events each year.
+Differences in the direction of the effect here may be due to real differences between populations, when considering the French-Canadian as a genetic isolate, or simply due due to a lack of power with only 195 meioses.
+%%%
+Another study reported a slight decrease in crossover count with maternal age in 338 meioses, finding a decrease of $-$0.29 events per year\cite{Bleazard2013}.
 
-Bleazard 2013: Decrease in CO \# (n=338 meioses, Asian population)
+While evidence for an age effect on crossover count in females is conflicting, these studies all agree that there is no age effect present in males.
+A recent meta-analysis by \citet{Martin2015} provided much need insight into the age effect issue.
+Using a combination of nine cohorts comprising $>$6000 meioses, the authors report a modest but significant increase in the crossover count with age.
+The authors used a comprehensive and systematic approach that avoids the methodological differences between previous studies.
+%%%
+An interesting suggestion from this study, was that of possible confounding factors upon the maternal age effect.
+One, that assisted reproductive technologies, including IVF, may provide an artificial selection for oocytes with a greater number of crossovers.
+Second was the possibility that oral contraception, which suppresses ovulation, could somehow alter the age-count association, especially if the production-line hypothesis holds true for humans.
+However, neither of these possibilities could be controlled for with the power of this study and remain undetermined.
 
-Martin2015
-
-Polani1991, Rowsey2014: Production line hyp.
 
 \subsection{Recombination in other organisms, including dogs.}
 
@@ -303,7 +423,7 @@ Extensive analysis by sperm typing has indicated that hotspots are generally 1-2
 
 Since hotspots were first looked at in detail, and the discovery that they were common and spread across the entire genome, questions regarding a possibly regulatory mechanism for hotspots have persisted.
 \citet{Myers2005} found that hotspots shared many common features including repeat elements THE1A/B, and a common sequence motif (CCTCCCT) located at the centers of many hotspots.
-A further famly of motifs were identified via the use of the Hapmap phase 2 LD map\cite{Hapmap2007}, encompassed by the degenerate 13 bp motif (CCNCCNTNNCCNC)\cite{Myers2008}, estimated to be involved in up to 40\% of all hotspots.
+A further famly of motifs were identified via the use of the Hapmap phase 2 LD map\cite{hapmap2007}, encompassed by the degenerate 13 bp motif (CCNCCNTNNCCNC)\cite{Myers2008}, estimated to be involved in up to 40\% of all hotspots.
 
 Spencer2006 : hotspots associated with increased GC content, and GC increasing mutations, a likely result of the action of biased gene conversion.
 
@@ -361,6 +481,9 @@ PRDM9 knockouts.
 \section{Crossover interference}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Chromatid interfernce}
+Hou2013: weak negative chromatid interference
+Fledel-Alon2009: no chromatid interference
 
 % Current status of crossover interference field.
 \begin{titemize}
