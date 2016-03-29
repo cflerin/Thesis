@@ -3,7 +3,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Meiotic recombination overview}
+\section{An overview of meiotic recombination}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -64,7 +64,7 @@ The recombination process is begun by programmed double strand breaks (DSBs) in 
 There are two isoforms of \textit{Spo11} in humans, and mice, and a recent study in mice suggests that they may have differing functions, with \textit{Spo11$\beta$} being expressed earlier in meiosis, coinciding with most DSBs occurring on the autosomes.
 Male mice with only \textit{Spo11$\beta$} had meiotic defects, with the majority of spermatocytes failing to recombine in the pseudoautosomal region (PAR).
 Following this, \textit{Spo11$\alpha$} was found to be expressed later in meiosis, and coincided with DSBs located within the sex chromosomes, including the PAR\cite{Kauppi2011,DeMassy2013}.
-This evidence indicates that the initiation of DSBs is a complex, multi-stage process, with autosomal DNA process earlier than DNA from the allosome.
+This evidence indicates that the initiation of DSBs is a complex, multi-stage process, with autosomal DNA process earlier than DNA from the sex chromosomes.
 
 
 
@@ -77,10 +77,10 @@ Meiosis I non-disjunction is thought to involve recombination, either in a failu
 
 A reduced recombination rate has been observed in human genetic maps generated from meiosis I aneuploidies (15, 16, 18, 21, XXX, XXY)\cite{Hassold2001,Lynn2004}.
 This indicates that recombination rate must remain above a certain level to prevent non-disjunction.
-This is supported by the finding that many trisomies involve achiasmate chromosomes, in which recombination is absent in that crhomsome(*).
+This is supported by the finding that many trisomies involve achiasmate chromosomes, in which recombination is absent in that chromosome(*).
 
 This supports the idea that chiasmata, which serve to tether homolgous chromosomes together after the dissolution of the SC, and through the first, provide a crucial tension that serves to inhibit non-disjunction.
-
+Research suggests that there is a requirement of one chiasma per chromosome to prevent non-disjunction, but that there may be a backup mechanism to enable chromosomes to properly segregate even without any chiamata\cite{Fledel-Alon2009}.
 
 
 
@@ -144,9 +144,6 @@ Brief historical review of meiotic recombination, pre Human Genome Project.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Current status of recombination field in humans
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Methods for studying recombination}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Recombination can be observed in a number of ways.
 Genome-wide methods have the primary goal of creating a genetic map of the frequency of recombination as a function of physical distance across each chromosome.
@@ -154,19 +151,24 @@ In contrast, several other methods are limited in scope, and reveal information 
 With each method, the detection of recombination is made difficult by the fact that crossovers are rare -- only 20-50 are expected to occur in each meiosis.
 
 % brief introduction to these before describing in detail in "description of approach"
-\subsubsection{Pedigree analysis}
 
 Tracing the inheritance of markers from one generation to the next within a family pedigree provided the first genome-wide measurement of recombination across the human genome, prior to the completion of the Human Genome Project.
 Early studies used restriction fragment length polymorphism (RFLP) probes to identify specific loci within the genome, and determine if they are linked.
-An study described the use of RFLPs to generate a linkage map of recombination in the human genome\cite{Botstein1980}.
+An early study described the use of RFLPs to generate a linkage map of recombination in the human genome\cite{Botstein1980}.
 Further linkage studies increased the marker density across the genome by using microsatellite, short tandem repeat polymorphisms (STRPs) and other approaches to capturing genetic variation\cite{Morton1991,Matise1994,Dib1996}.
 The Marshfield map, generated in 1998 by \citet{Broman1998}, was an important step in characterizing recombination on a genome-wide basis.
 
 With the completion of the Human Genome Project and the publication of the draft sequence of the human genome\cite{Venter2001,Lander2001}, human genetic variation has become increasingly characterized, and a number of technologies have sprung up to make genome-wide ascertainment of variation routine.
 Currently, microarray technology provides a well-balanced approach for determining genome-wide coverage of genetic variation.
 These arrays target a pre-selected panel of hundreds of thousands to millions of single-nucleotide polymorphisms (SNPs) across every chromosome for a reasonable cost.
-While whole-genome sequencing technology allows the discovery of a higher density of markers across the genome, its use is not typically worth the higher cost.
-A higher variant coverage will help to narrow the region of uncertainty surrounding a particular crossover, but it will most likely not assist in the detection of additional crossovers in a single meiosis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods for studying recombination}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Pedigree analysis}
+
+Tracking the transmission of alleles from one generation to the next within known pedigrees provided the first data on recombination in early linkage studies, and pedigree analyses that are still in use today.
 
 Regardless of the method used for obtaining markers, the principle of detecting recombination in a pedigree remains.
 Crossovers can be identified by tracing the allele transmissions from parent to child.
@@ -191,9 +193,16 @@ This region of uncertainty can vary in size and depends on the spacing and genot
 \end{figure}
 \clearpage}
 
+Beyond this intuitive example, the problem of determining the parental phase of a recombinant chromosome has been addressed in a number of methods.
+
+
+It is interesting to note that for a pedigree analysis, 
+while whole-genome sequencing technology allows the discovery of a higher density of markers across the genome, its use is not typically worth the higher cost.
+A higher variant coverage will help to narrow the region of uncertainty surrounding a particular crossover, but it will most likely not assist in the detection of additional crossovers in a single meiosis.
+
 % Kong2002,Coop2008,Kong2010
 
-\subsubsection{Linkage disequilibrium approach}
+\subsection{Linkage disequilibrium approach}
 
 Another powerful method is to use population genetic data to study recombination by inference.
 These data can be gathered by genotyping samples of genetic data from unrelated individuals on a microarray or by whole-genome sequencing.
@@ -207,15 +216,21 @@ These alleles exhibit evidence of linkage disequilibrium, a deviation from the a
 LD is measured in a pairwise fashion, considering allele frequencies at each pair of markers in the genome.
 
 
-Hapmap2007, Auton LDhat (Mcvean2004)
+From measurements of LD within a number of unrelated samples, methods based on coalescent theory have been developed to estimate the recombination rate\cite{Auton2012}.
+In software such as LDhat\cite{Mcvean2004,Auton2007,Auton2014}, the population-scale recombination rate, $\rho$, is estimated from the data, and the per-generation recombination rate can be calculated by the relationship
+$\rho = 4 N_e r$
+where $N_e$ represents the effective population size.
+These methods are quite powerful and have produced high-quality estimates of recombination in humans\cite{hapmap2007}, however, they are subject to limitations.
+First, that this method requires the knowledge of the genealogical history of a sample, which is unknown, and thus relies on an often simplistic approximation.
+Second, these maps by their nature generate sex-averaged data only, since recombination events that are inferred have occurred over the course of potentially thousands of generations.
 
 
-\subsubsection{Molecular assays}
+\subsection{Molecular assays}
 
 A number of molecular assays have been developed for studying recombination.
 Most, however are limited to small regions of the genome, and are more effective in males.
 
-\paragraph{Sperm cell assays.}
+\subsubsection{Sperm cell assays}
 
 Sperm typing is one method of identifying both gene conversion and crossover events.
 
@@ -237,7 +252,7 @@ Jeffreys2009: rise/fall
 \citet{Wang2012}
 
 
-\paragraph{Single oocytes.}
+\subsubsection{Single oocytes.}
 Recent studies have provided much needed insight into recombination in single oocytes through novel methods.
 \citet{Hou2013} conducted an analysis in human oocytes, providing at the same time a potential new method for applying next generation sequencing methods to the screening for various genetic disorders with in vitro fertilization (IVF) techniques.
 Here, the researchers extracted and fertilized a total of 70 oocytes from 8 Asian female donors, collecting the first and second polar bodies, as well as the male and female pronucleus from the fertilized egg.
@@ -245,17 +260,9 @@ This complete collection of data from female oogenesis and fertilization enabled
 Most intriguingly, this enabled the generation of personal genetic maps for each donor, allowing the researchers to address the question of how recombination varies on an individual basis.
 This data allows the observation of all four members of the tetrad bundle, both sister chromatids and their homologues, something usually missed by inferential studies of recombination.
 
-This data allows valuable data to be inferred regarding both crossover interference, affecting the spacing between pairs of crossovers, and chromatid interference, affecting which chromatid is involved in crossing over within the tetrad.
-Comparing to previously published sperm data\cite{Lu2012}, \citet{Hou2013} look at crossover spacing as a function of both physical distance (in bp), and synaptonemal complex length (\SI{}{\micro\metre}), concluding that the strength of interference is equivalent in males and females when considering the synaptonemal complex length, which is longer in females, reflecting their higher recombination rate.
-%an observation that conflicts with a number of other studies\cite{Broman2000,Housworth2003,Fledel-Alon2009}.
-Somewhat puzzling was the omission of genetic distance (in centimorgans) in this analysis, a factor that controls for the 1.6 fold higher recombination rate in females over males.
-A reanalysis of this data using genetic distance is presented in this thesis in Chapter X.
 
-By identifying which chromatid is involved in each crossover \citet{Hou2013} found evidence for weak and negative chromatid interference.
-This means that once an initial crossover is established between two chromatids (e.g.\ labeled 1 and 2), a second crossover is more likely to form using at least one of these first chromatids (1 and 2), and less likely to form using neither (between 3 and 4).
-Positive chromatid interference corresponds to an decrease in the probability of a second crossover involving the same chromatids as the first, that is, the first crossover ``interferes'' or prevents the placement of the second on the same chromatids.
-
-
+Using a similar approach, recovering genetic materiel from the first and second polar bodies and oocyte, \citet{Ottolini2015} were able to observe all four products of female recombination.
+The researchers generate ``MeioMaps,'' providing valuable information on how meiosis proceeds on an individual level.
 
 
 
@@ -268,9 +275,11 @@ In addition, the DSB locations were largely tied to the specific PRDM9 allele fo
 PRDM9$_\text{A}$ and PRDM$_\text{B}$ alleles appear to specify similar DSB hotspots, while PRDM9$_\text{C}$ has a separate specificity.
 PRDM9 heterozygosity also affects hotspot strength.
 
-\subsection{Current ``gold standard'' maps (Hapmap2 LD map, deCODE pedigree map).}
 
-\subsubsection{Marshfield map}
+% \section{Current ``gold standard'' maps (Hapmap2 LD map, deCODE pedigree map).}
+\section{Current maps of recombination.}
+
+\subsection{Marshfield map}
 The Marshfield map, generated by \citet{Broman1998} in 1998, was the first genetic map of the human genome at a resolution high enough to make inferences on the recombination properties in humans, using $>$8000 short tandem repeat polymorphsims (STRPs) in 188 meioses.
 Here, estimates of the genome wide map lengths, inferences on individual variation, and sex differences in recombination were highlighted.
 The ratio of female to male autosomal map length was estimated at 1.56, indicating that the recombination rate in females is substantially higher than males.
@@ -278,7 +287,7 @@ This ratio has proved stable over a number of studies in the intervening years (
 Analysis of this this ratio as a function of chromosome position revealed that male recombination tends to be highest in the telomeres, while females had a higher ratio towards the centromeres.
 This study provided valuable insight into sex dimporphism in recombination
 
-\subsubsection{deCODE maps}
+\subsection{deCODE maps}
 Another major stride in pedigree-based genetic maps came from deCODE genetics, an Icelandic pharmaceutical company that used their database of genealogical and genetic data on many Icelandic families to infer recombination, producing many high quality studies.
 The first was in 2002, where 146 families, comprising 1257 meioses, were genotyped using 5136 microsatellite markers\cite{Kong2002}.
 This data, in conjunction with the draft sequence of the human genome\cite{Venter2001,Lander2001} was used to improve the marker order and their placement within the reference sequence.
@@ -296,7 +305,14 @@ One effect of this parent-child phasing approach is that inference of recombinat
 The omission of the telomeric regions, where male recombination is higher, contributes to the inflation of the female:male map length ratio seen in Table \ref{tab:introHeterochiasmy}) at 1.78 in this study, however much more likely to be closer to the consensus ratio of around 1.56.
 Since its release in 2010 the deCODE genetic map has proven quite valuable as a high quality sex-specific map of recombination in the human genome.
 
-Coop map: first to use genome-wide SNP arrays (Affy500k), 728 meioses.
+
+\paragraph{Other pedigree studies.}
+A study in 2008 employed a pedigree analysis of individuals from the Hutterite population, all of European descent\cite{Coop2008}.
+This was the first study to use genome-wide high-density SNP arrays (in this case the Affymetrix GeneChip Mapping 500k array) to study recombination.
+A total of 728 meioses were analyzed, yielding valuable data regarding the overlap of crossovers and hotspots on an individual basis.
+
+
+Other pedigree studies include a map generated from 980 meioses using individuals of Korean and Mongolian descent\cite{Bleazard2013}.
 
 Kong2010 (place elsewhere):
 Lower rec. rate within genic regions (and this difference is greater for females).
@@ -322,37 +338,111 @@ Additionally, while females have a lower rates within genic regions, males have 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Sexual dimorphism in recombination.}
+\section{Sexual dimorphism in recombination.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\paragraph{Heterochiasmy.}
+\subsection{Heterochiasmy}
 
-The Marshfield map\cite{Broman1998}, provided some of the first evidence of recombination rate variation across the genome, and between males ane females.
+The Marshfield map\cite{Broman1998}, provided some of the first evidence of recombination rate variation across the human genome, and between males ane females.
 Particularly interesting was the finding that recombination rates are higher in the telomeres, especially in males, and that females have a 1.6-fold higher rate of recombination in the autosomes.
+The estimation of this ratio proved to be accurate, despite the low marker coverage and few meioses used, and has been reinforced through numerous follow-up studies\cite{Broman2000,Kong2002,Coop2008,Kong2010,Bleazard2013,Campbell2015,Bherer2016}.
+
+This example in humans provides an illustration of heterochiasmy, the unequal distribution of recombination rates between the sexes of a species.
+Humans are among a large majority of species with data currently available in which the female recombination rate is higher than that of the male (Table \ref{tab:introHeterochiasmy}).
+
+
+Haldane-Huxley rule: when recombination is absent in one sex, it is the heterogametic sex.
+%
+Trivers hypothesis: recombination is lower in the sex that undergoes stronger selection (recombination disrupts favorable haplotypes in the most fit individuals, therefore is selected against).
+
 
 \paragraph{Distribution.}
+
 \paragraph{Differences in SC lenth.}
 
-\subsection{Genes involved in recombination (RFN212, etc)}
+\subsection{Recombination under genetic control}
+% Genes involved in recombination (RFN212, etc)}
 
-PRDM9 (Baudat2010, Berg2011, Hinch2012)
+A number of genetic factors have been identified that alter properties of recombination, a summary of which can be found in Table \ref{tab:introGenes}.
 
-Reynolds2013: mouse RNF212 acts to stabilize meiosis-specific recombination factors including MutS (binds DNA strands and facilitates crossing over).
-Rnf212 KO mice are sterile but achieve complete synapsis.
+In a sperm typing analysis, \citet{Jeffreys2005} found a SNP whose minor allele suppressed the ratio of crossover to gene conversion near a particular hotspot.
+Additionally, this variant was found to be overtransmitted, an example of meiotic drive.
+Another study in the Icelandic population found an association with an inversion at 17q21.31 on recombination rate\cite{Stefansson2005}.
+The presence of this inversion is associtated with an increase in crossover rate in females, but not males.
 
-Kong2014: 
+% RNF212: indentified in Saccharomyces cerevisiae and Caenorhabditis elegans
+RNF212 has been associated with recombination rate in an Icelandic population\cite{Kong2008}, and this has been replicated in a number of follow-up studies\cite{Chowdhury2009,Fledel-Alon2011,Reynolds2013,Kong2014}.
+Interestingly, the linkage of two particular SNPs near this gene is associated with an increased recombination rate in males, and a corresponding low rate in females.
+RNF212 is a homologue of ZHP-3, a \textit{C.\ elegans} gene involved in crossing over and disjunction, localizing to sites of crossover, and aids in the change in chromatin structure that occurs with the disassembly of the synaptonemal complex\cite{Bhalla2008}.
+Mouse RNF212 was found to have similar function, facilitating synapsis, and forming crossover-stabilizing structures\cite{Reynolds2013}.
+%Rnf212 KO mice are sterile but achieve complete synapsis.
+In addtion RNF212 possibly influences the decision to repair a DSB as a crossover rather than a gene conversion\cite{Reynolds2013}.
+RNF212 has also been shown to associate with recombniation rate in cattle\cite{Sandor2012}.
 
-RNF212: indentified in Saccharomyces cerevisiae and Caenorhabditis elegans
-Kong2008 in humans.
+A study by \citet{Chowdhury2009} using 2310 meioses found significant associations with variants associated with four gene regions.
+Two were associated with female recombination rate (KIAA1462, PDZK1), and the other two with male rate (UGCG, NUB1).
+These genes are poorly characterized and their function, beyond potential meiotic roles, remains unknown.
+However, this study reinforces the suggestion that male and female recombination rate are controlled via differing genetic factors.
 
-Stefansson2005: Inversion at 17q21.31 increases crossover rate in European females
+Another study, again in the Icelandic population with an expanded number of meioses, identified a further 8 genomic regions that have separate associations with male and female rates\cite{Kong2014}.
+In the telomeric region of chromosome 4, near RNF212, one variant was found that was estimated to increase the map length by 386 cM in females, and 124 cM in males.
+Novel variants were found in an additional six genes (Table \ref{tab:introGenes}).
 
+The strongest association thus far has been with PRDM9, which was first associated with hotspot usage and variation in alleles encoding the zinc finger array by \citet{Baudat2010}.
+Baudat2010 (Association with hotspot usage and zn finger alleles)
+Berg2010 (Sperm typing to determine that Zn finger array variation leads to differences in hotspot usage)
+Berg2011
+Hinch2012(
+Kong2010: PRDM9 confirmation phenotype association
+
+
+Additionally, REC8 has been shown to influence recombination rate in male cattle\cite{Sandor2012}.
+
+\afterpage{
+\begin{table}[p] \centering
+    \small
+    \begin{tabular}{|l|c|c|p{1.3cm}|p{1.3cm}|c|c|} 
+\hline Gene / region & Chr. & Association & Female rate & Male rate & Study & Replication \\ \hline
+        RNF212 & 4 & rate & + & - & \citet{Kong2008} & \cite{Chowdhury2009,Fledel-Alon2011,Reynolds2013,Kong2014,Campbell2015} \\
+        17q21.31 inversion & 17 & rate & + & none & \citet{Stefansson2005} & \cite{Fledel-Alon2011,Chowdhury2009,Kong2014} \\
+        KIAA1462 & 10 & rate & + & none & \citet{Chowdhury2009} &  \\
+        PDZK1 & 1 & rate & + & none & \citet{Chowdhury2009} &  \\
+        UGCG & 9 & rate & none & + & \citet{Chowdhury2009} &  \\
+        NUB1 & 7 & rate & none & + & \citet{Chowdhury2009} &  \\
+        CCNB1IP1 & 14 & rate & + & weakly + & \citet{Kong2014} & \cite{Campbell2015} \\
+        C14orf39 & 14 & rate & + & none & \citet{Kong2014} &  \\
+        SMEK1 & 14 & rate & + & none & \citet{Kong2014} & \cite{Campbell2015} \\
+        RAD21L & 20 & rate & weakly + & + & \citet{Kong2014} &  \\
+        MSH4 & 1 & rate & + & none & \citet{Kong2014} &  \\
+        CCDC43 & 17 & rate & + & none & \citet{Kong2014} &  \\
+        PRDM9 & 5 & hotspot usage & NA & NA & \citet{Baudat2010} & \cite{Fledel-Alon2011,Campbell2015,Kong2014} \\
+    \hline \end{tabular}
+    \captionTitle{\textbf{Gene regions associated with recombination.}}{
+    \label{tab:introGenes}}
+\end{table}
+\clearpage}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Determinants of recombination placement (PRDM9, GC, chromosome position).}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Differences in populations (Berg2010,Berg2011,Hinch2011)
 
 \subsection{Heritability of recombination rates}
-Fledel-Alon2011: male/female rec rates, hotspot usage are heritable.
+
+The 2004 deCODE study, by analyzing siblings in large families, suggested that recombination rates were broadly heritable\cite{Kong2004}.
+The pedigree analysis of the Hutterize population by \citet{Coop2008} was the first to find extensive variation among individuals in terms of their hotspot overlap (the proportion of an individual's crossover that overlap with known hotspots).
+Another significant finding was that hotspot overlap was heritable.
+This raises the possibility that other aspects of the recombination process may also be heritable.
+And supports previous data from sperm typing finding that a hotspot-proximal SNP had recombination-suppressing effects, and that this SNP is over-transmitted to progeny\cite{Jeffreys2005}.
+
+A follow-up study in 2011 reinforced the heritability of hotspot usage as a phenotype, and expanded the scope\cite{Fledel-Alon2011}.
+This study found that both male and female recombination rates are heritable.
+Additionally, associations with RNF212 and the inversion on 17q21.31 were replicated.
+
 
 Ottolini2015: selection for maternal recombination rates. (Kong2004 suggested this as well).
 
@@ -360,9 +450,9 @@ Ottolini2015: selection for maternal recombination rates. (Kong2004 suggested th
 \subsection{Maternal age effect.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Age effects on reproduction have been tied with an increased incidence of aneuploidy in humans\cite{Hassold2001,*}.
+Age effects on reproduction have been tied with an increased incidence of aneuploidy in humans\cite{Hassold2001}(*).
 
-Several studies have shown evidence for an increase in the number of crossover events with maternal age, suggesting a protective mechanism against aneiploidy.
+Several studies have shown evidence for an increase in the number of crossover events with maternal age, suggesting a protective mechanism against aneuploidy.
 %%%
 With the aim of investigating age effects in recombination, a study in 2004 using the deCODE genetics dataset with 23,066 meioses, using a reduced set of 1000 microsatellite markers\cite{Kong2004}.
 Genotyping was not done for every individual, with some families having only one parent genotyped, and recombination events were therefore imputed.
@@ -378,6 +468,8 @@ Here, the opposite effect was seen, with recombination rate found to decrease wi
 Differences in the direction of the effect here may be due to real differences between populations, when considering the French-Canadian as a genetic isolate, or simply due due to a lack of power with only 195 meioses.
 %%%
 Another study reported a slight decrease in crossover count with maternal age in 338 meioses, finding a decrease of $-$0.29 events per year\cite{Bleazard2013}.
+In a direct test of the production line hypothesis, \citet{Rowsey2014} examine more than 8000 oocytes, finding no significant change in crosover count among oocytes.
+Thus, it appears that the number of crossovers in a given oocyte is not governed as a function of order of meiotic entry, and there is a lack of evidence for any effects of the production line hypothesis on crossover count.
 
 While evidence for an age effect on crossover count in females is conflicting, these studies all agree that there is no age effect present in males.
 A recent meta-analysis by \citet{Martin2015} provided much need insight into the age effect issue.
@@ -390,24 +482,24 @@ Second was the possibility that oral contraception, which suppresses ovulation, 
 However, neither of these possibilities could be controlled for with the power of this study and remain undetermined.
 
 
-\subsection{Recombination in other organisms, including dogs.}
+Additional evidence from an analysis of single oocytes provides evidence that maternal recombination rate is highly variable within a single individual, with 41.6 $\pm$ 11.3 crossover per oocyte\cite{Ottolini2015}.
+This study revealed a selection against transmission of non-recombinant oocytes at meiosis II, which were more likely to be found in the second polar body instead of the transmitted oocyte.
+This evidence outlines a potential mechanism by which non-recombinant, potentially aneuploid oocytes could be eliminated from the germ line.
+Furthermore, recombination, thought to be limited to prophase I, was shown to influence events in meiosis II, much later than previously thought.
+
+\section{Recombination in other organisms, including dogs.}
 
 Mouse maps:
 Cox2009
 Liu2014 (collab cross maps)
 
-\subsection{Heritance of recombination modifiers (rate, etc. Kong)}
-\subsection{Sexual dimorphism in recombination rate}
-
-Haldane-Huxley rule: when recombination is absent in one sex, it is the heterogametic sex.
-
-Trivers hypothesis: recombination is lower in the sex that undergoes stronger selection (recombination disrupts favorable haplotypes in the most fit individuals, therefore is selected against).
+\section{Heritance of recombination modifiers (rate, etc. Kong)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Hotspots}
+\section{Hotspots}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Initial discovery}
+\subsection{Initial discovery of hotspots}
 
 Sperm typing produced the first set of well-characterized hotspots in humans, initially focusing within the MHC\cite{Jeffreys2000,Jeffreys2001}.
 The correlation of hotspot locations identified by sperm typing in this regions with breakdown of LD measurements provided support for the use of LD methods to find hotspots of recombination genome-wide, without the expense and limitations of single-cell assays\cite{Jeffreys2001}.
@@ -419,7 +511,7 @@ These LD studies of recombination also estimated the proportion of recombination
 Extensive analysis by sperm typing has indicated that hotspots are generally 1-2 kb in width\cite{Jeffreys2004a,Arnheim2003}.
 
 
-\subsubsection{Discovery of PRDM9}
+\subsection{Discovery of PRDM9}
 
 Since hotspots were first looked at in detail, and the discovery that they were common and spread across the entire genome, questions regarding a possibly regulatory mechanism for hotspots have persisted.
 \citet{Myers2005} found that hotspots shared many common features including repeat elements THE1A/B, and a common sequence motif (CCTCCCT) located at the centers of many hotspots.
@@ -441,7 +533,7 @@ A third study used fine mapping techniques in mice to narrow the region, again i
 
 
 
-\subsubsection{Hotspots in other species}
+\subsection{Hotspots in other species}
 
 Hotspots have been discovered in a number of other species.
 
@@ -457,14 +549,20 @@ Yeast
 Birds
 
 
-\subsubsection{Conservation between species}
+\subsection{Conservation between species}
+
 Humans and chimpanzees have a complete absence of hotspot sharing, despite a high degree of overall DNA sequence identity\cite{Ptak2005,Winckler2005,Auton2012a}.
 
+Evidence points the rapid evolution of the zinc finger DNA binding array as an explanation for the lack of shared hotspots between humans and chimpanzees\cite{Myers2010}, and a wide variety of mammals\cite{Oliver2009,Ponting2011,Thomas2009}.
+
 Discuss hotspot paradox vs stable hotspots theory (latter saying hotspots are confined to specific chromosome features (promoters/GC content), as in yeast and dogs)
+
 \subsubsection{Species lacking PRDM9}
 Dogs, birds (Singhal2015, biorxiv) 
 
-\subsection{Recombination and disease}
+\section{Recombination and disease}
+
+The most direct association of recombination with disease is the association with aneuploidy\cite{Hassold2001}.
 
 Hussin 2013: Rare allelic forms of PRDM9 associated with childhood leukemogenesis
 
@@ -481,9 +579,6 @@ PRDM9 knockouts.
 \section{Crossover interference}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Chromatid interfernce}
-Hou2013: weak negative chromatid interference
-Fledel-Alon2009: no chromatid interference
 
 % Current status of crossover interference field.
 \begin{titemize}
@@ -493,6 +588,32 @@ Fledel-Alon2009: no chromatid interference
     \item potential method of coint action.
     \item Cover what's known in humans, dogs, other organisms.
 \end{titemize}
+
+
+
+The crossovers identified from single oocytes by \citet{Hou2013}
+allows valuable data to be inferred regarding both crossover interference, affecting the spacing between pairs of crossovers.
+Comparing to previously published sperm data\cite{Lu2012}, \citet{Hou2013} look at crossover spacing as a function of both physical distance (in bp), and synaptonemal complex length (\SI{}{\micro\metre}), concluding that the strength of interference is equivalent in males and females when considering the synaptonemal complex length, which is longer in females, reflecting their higher recombination rate.
+%an observation that conflicts with a number of other studies\cite{Broman2000,Housworth2003,Fledel-Alon2009}.
+Somewhat puzzling was the omission of genetic distance (in centimorgans) in this analysis, a factor that controls for the 1.6 fold higher recombination rate in females over males.
+A reanalysis of this data using genetic distance is presented in this thesis in Chapter X.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Chromatid interfernce}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Another type of interference that is somewhat more difficult to observe, and therefore less studied, is chromatid interference.
+Chromatid interference affects which chromatid is involved in crossing over within the tetrad.
+
+By identifying which chromatid is involved in each crossover \citet{Hou2013} found evidence for weak and negative chromatid interference in human oocytes.
+This means that once an initial crossover is established between two chromatids (e.g.\ labeled 1 and 2), a second crossover is more likely to form using at least one of these first chromatids (1 and 2), and less likely to form using neither (between 3 and 4).
+Positive chromatid interference corresponds to an decrease in the probability of a second crossover involving the same chromatids as the first, that is, the first crossover ``interferes'' or prevents the placement of the second on the same chromatids.
+
+In another study, \citet{Fledel-Alon2009} used the observed crossovers to infer the chiasma count in tetrads using human pedigrees.
+Under their model, chromatid interference could account for the observed transmission of nullichiasmic, non-recombinant chromatids, however there was not enough evidence to conclude this definitively.
+
+% However, evidence for chromatid interference has been found in yeast\cite{Zhao1995}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -547,6 +668,7 @@ Here, I outline the methods used to study recombination in humans and dogs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
 \renewcommand{\bibname}{References}
 \bibliographystyle{ccampbell_thesis} %unsrtnat} %abbrvnat_noURL} %abbrvUnsrt_last-first} %plain,unsrt,alpha,abbrv,acm,apalike,unsrt
 \begingroup
