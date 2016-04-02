@@ -669,6 +669,9 @@ Positive interference causes events to be placed further apart that expected, wh
 \subsubsection{Biological models of crossover interference}
 
 Several biological explanations have been proposed to account for the action of crossover interference in the genome, and are reviewed here.
+An early suggestion was that steric interference was responsible for interference.
+In this case, a cluster of proteins that are necessary to facilitate resolution of the DSB would bind, the prevent further attachment at nearby sites.
+This idea was mostly discounted after cytological studies failed to observe complexes of a sufficient size to enable interference over long enough distances.
 
 
 \paragraph{The mechanical stress model.}
@@ -678,34 +681,60 @@ These expansions and contractions create waves of periodic increased or decrease
 DSBs create ``cracks'' in the DNA, reducing the amount of stress directly near the crack.
 The amount of relief slowly decreases with greater distance away from the break until the stress returns to normal levels.
 
-This model has a number of properties that fit into generally accepted properties of recombianation.
+This model has a number of properties that fit into generally accepted properties of recombination.
 First, it ensures that at least one crossover will occur on each chromosome, as long as enough stress is generated.
 Second, it allows for specification of the location of stress and therefore DSBs and crossover, based on, for example, chromatin configuration.
 Finally, this model allows for interference to act at multiple time points in meiosis using the same mechanism.
-
 However, the mechanical stress model assumes that all crossovers are interfering, and does not explain the observation that some organism appear to have two pathways of interference.
 
 \paragraph{The polymerization model.}
-King1990
+The polymerization model describes the maturation of DSBs to crossovers in terms of a time-dependent polymerization event spreading along the synaptonemal complex\cite{King1990}.
+The progression of DSBs to chiasmata to mature crossovers is described in terms of a precursor structure binding, triggering this maturation.
+In the model, early recombination precursors form randomly along the chromosome while it is tied into the synaptonemal complex.
+Some of these early events mature into chiasmata and become crossovers.
+As this maturation occurs, a polymerization event is triggered that moves in both directions away from the crossover.
+The expanding polymer blocks the binding, or forces detachment, of further precursor structures that would lead to crossover, thus creating an interference effect.
+The ejected precursors could then re-bind at another location on the chromosome.
+
+This model makes a distinction between early and late crossover events, guarantees at least one crossover occurs, and captures the distance-dependency of the interference effect.
+However, no evidence of a polymer structure has been observed in cytological studies.
+Furthermore, studies in mice have shown that the synaptonemal complex is not required for interference to act\cite{DeBoer2007}.
 
 \paragraph{The counting model.}
-Foss1995
+The counting model does not depend on SC length, but instead proposes that crossovers must be separated by a discrete number of non-crossover gene conversion in between\cite{Foss1993,Foss1995}.
+In this model, a fixed number of events (presumed to correspond to DSBs) are placed randomly upon a chromosome.
+Then, the events are classified in one of two ways, either crossovers or gene conversions.
+Crossovers form the minority of the mature events with a specific number of gene conversion in between.
+Therefore, no two crossovers can occur directly beside one another, and some degree of distance-dependent spacing is maintained.
 
+Data in Drosophia were found to fit this model well, it was found that it poorly predicted interference in budding yeast and humans\cite{Foss1995}.
+Therefore, extensions to this model were made to allow a second class of non-interfering crossovers to exist along-side those that are interfereing (see ``The two-pathway model'' on page \pageref{cointTPM}).
 
-Due to sex-differences in recombination rate, any comparison between males and females must be done using the genetic position (in cM) of each crossover, which takes into account differences the genetic map length.
+A key element of the counting model is that interference here depends on genetic distance rather than physical, or SC distance.
+This allows interference to be estimated in different species with differing genomic properties, such as chromosome size.
+This also serves to to ``normalize'' the enormous differences in recombination rates per physical distance that are seen in nature.
+Even within species, due to sex-differences in recombination rate, any comparison between males and females must be done using the genetic position (in cM) of each crossover, which takes into account differences the genetic map length.
+
+\paragraph{Chromosome oscillatory movement model.}
 
 \subsubsection{Mathematical models of crossover interference}
 
- %gamma and two-pathway model, math review.
- \paragraph{The count-location model.}
- \citet{Broman2000} tested several versions of the count-location model of interference against early genome-wide data from humans.
+%gamma and two-pathway model, math review.
+% \paragraph{The count-location model.}
+% \citet{Broman2000} tested several versions of the count-location model of interference against early genome-wide data from humans.
 
- \paragraph{The simple gamma model.}
- In the gamma model, all crossovers are assumed to be capable of interfering with each other.
- The distribution inter-crossover distances are modeled to follow a gamma distribution with a single parameter, $\nu$, representing the strength of interference.
- The shape and rate parameters of the gamma distribution are not independent, but instead represented with shape of $\nu$ and rate 2$\nu$.
+\paragraph{The simple gamma model.}
+In the gamma model, all crossovers are assumed to be capable of interfering with each other.
+The distribution inter-crossover distances are modeled to follow a gamma distribution with a single parameter, $\nu$, representing the strength of interference.
+The shape and rate parameters of the gamma distribution are not independent, but instead represented with shape of $\nu$ and rate 2$\nu$.
+The model assumes that chiasma in a tetrad are thinned to become crossovers.
 
- \paragraph{The two pathway model.}
+The gamma distribution has a mean of $\frac{1}{2}$ Morgans, corresponding to a probability of a chiasma becoming a crossover is 0.5.
+Therefore, the average distance between chiasma is $\frac{1}{2}$ Morgans, and the corresponding distance between crossovers is 1 Morgan.
+
+(because X crossovers are expected per tetrad), and a standard deviation of $\frac{1}{2 \sqrt{\nu} }$.
+
+\paragraph{The two pathway model.} \label{cointTPM}
 
 
 \subsubsection{Data on crossover interference}
@@ -754,7 +783,8 @@ A reanalysis of this data using genetic distance is presented in this thesis in 
 
 
 \subsubsection{Other methods of measuring coint}
-Coefficient of coincidence
+Coefficient of coincidence.
+% The ratio of probability
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Chromatid interference}
