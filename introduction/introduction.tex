@@ -496,7 +496,7 @@ Dogs, birds (Singhal2015, biorxiv)
 The distribution of recombination within the genome has been shown to vary considerably between individuals, sexes, and populations.
 At the broad scale, crossovers are not distributed equally across the genome.
 The recombination rate is higher towards the telomeres\cite{Broman1998,Mcvean2004,hapmap2007}.
-This effect seems to be primarily driven by males, with crossover occurring more frequently in telomeric reions, while females have higher recombination rates closer to the centromeres\cite{Kong2002,Coopo2008,Kong2010}.
+This effect seems to be primarily driven by males, with crossover occurring more frequently in telomeric reions, while females have higher recombination rates closer to the centromeres\cite{Kong2002,Coop2008,Kong2010}.
 
 Numerous studies in humans have found that recombination tends to be depressed within gene regions overall, with recombination high just upstream and downstream of gene regions\cite{Mcvean2004,Myers2005,hapmap2007,Spencer2006,Kong2010}.
 In addition, when looking further away from gene regions, around 500 kb away, recombination appears to be elevated, then falling off after a few hundred kb.
@@ -540,7 +540,7 @@ In the telomeric region of chromosome 4, near RNF212, one variant was found that
 Novel variants were found in an additional six genes (Table \ref{tab:introGenes}).
 
 The strongest association thus far has been with PRDM9, which was first associated with hotspot usage and variation in alleles encoding the zinc finger array\cite{Baudat2010,Berg2010}.
-\citet{Berg2011} found that variation in PRDM9 alleles greatly influences hotspot usage in African populations, who appear to have a distinct subset of hotspots\cite{Hinch2012}.
+\citet{Berg2011} found that variation in PRDM9 alleles greatly influences hotspot usage in African populations, who appear to have a distinct subset of hotspots\cite{Hinch2011}.
 Genome-wide associations with hotspot usage were replicated in the Icelandic population with strong effects\cite{Kong2010}.
 
 In non-human studies, both RNF212, and REC8, a SC-associated protein, have also been shown to associate with recombination rate in cattle\cite{Sandor2012}.
@@ -638,7 +638,7 @@ Here, a protective effect against genome rearrangement was seen in men homozygou
 In addition, PRDM9 has been associated with children with B-cell precursor acute lymphoblastic leukemia (B-ALL)\cite{Hussin2013}.
 Here, a rare PRDM9 allele (C) was found in a number of families, and was tied to the abnormal X of crossover events, and associated with B-ALL.
 
-Berg2011:
+%Berg2011:
 
 However, an interesting recent study identified a healthy mother carrying a homozygous knockout of PRDM9 predicted to render the protein inactive\cite{Narasimhan2016}.
 In PRDM9 knockout mice, meiosis is not able to complete properly\cite{Brick2012}.
@@ -657,9 +657,18 @@ This observation by \citet{Narasimhan2016} raises the possibility of a backup me
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Current status of crossover interference field.
-Crossover interference, first observed in flies in 1913\cite{Sturtevant1913}, is another aspect that affects the placement on crossover events on a chromosome.
+Crossover interference, also known as chiasma interference, is another mechanism that affects the placement on crossover events on a chromosome.
+Interference was first observed in flies in 1913\cite{Sturtevant1913}, but not formally named until 1916 when Hermann Muller coined the term:
+\begin{quote}
+    In a sense, then, the occurrence of one crossing-over interferes with the coincident occurrence of another crossing-over in the same pair of chromosomes, and I have accordingly termed this phenomenon ``\textit{interference}''.
+%\hfill Hermann J Muller, 1916\cite{Muller1916}
+\end{quote}
+%
 When two or more events occur on the same chromosome during the same meiosis, crossover interference effects the spacing of events.
 Positive interference causes events to be placed further apart that expected, while negative interference results in events being placed closer together.
+Under positive interference one crossover occuring on a chromosome is thought to ``interfere'' with a second, and inhibit its placement nearby.
+Crossover inteference affects the linkage patterns between genes, has possible implications for ensuring disjunction of chromosomes.
+
 
 
 % potential method of coint action.
@@ -673,9 +682,20 @@ An early suggestion was that steric interference was responsible for interferenc
 In this case, a cluster of proteins that are necessary to facilitate resolution of the DSB would bind, the prevent further attachment at nearby sites.
 This idea was mostly discounted after cytological studies failed to observe complexes of a sufficient size to enable interference over long enough distances.
 
+One aspect that models seek to address is that of crossover homeostasis, and crossover assurance.
+Crossover assurance captures the idea that as least one crossover is required per chromosome, which is thought to prevent non-disjunction.
+In a typical meiotic progression, multiple DSBs are created in the DNA and only a small fraction of themresolve to crossovers, with the remainder repaired as non-crossover gene conversions.
+Studies in yeast have shown that the final number of crossovers remains at the same level even when reducing the number of precursor DSBs\cite{Martini2006}.
+Thus, it appears that there is some regulatory mechanism in place to ensure at least one crossover per chromosome.
+Another implication of crossover homeostasis is that it has the potential to change the ratio of crossovers to gene conversion events.
+Since crossovers tend to be maintained at a constant level, the number of gene conversions decreases.
+
+
+%%% crossover homeostatis
+%%% crossover assurance
 
 \paragraph{The mechanical stress model.}
-\citet{Kleckner2004} propose a model in which interference is governed by mechanical forces.
+\citet{Kleckner2004} proposed a model in which interference is governed by mechanical forces.
 This model starts from the basis that chromatin configuration changes over the course of meiosis, undergoing expansion and contraction cycles.
 These expansions and contractions create waves of periodic increased or decreased stress that propagate along the chromosome.
 DSBs create ``cracks'' in the DNA, reducing the amount of stress directly near the crack.
@@ -700,6 +720,8 @@ This model makes a distinction between early and late crossover events, guarante
 However, no evidence of a polymer structure has been observed in cytological studies.
 Furthermore, studies in mice have shown that the synaptonemal complex is not required for interference to act\cite{DeBoer2007}.
 
+\subsubsection{Mathematical models of crossover interference}
+
 \paragraph{The counting model.}
 The counting model does not depend on SC length, but instead proposes that crossovers must be separated by a discrete number of non-crossover gene conversion in between\cite{Foss1993,Foss1995}.
 In this model, a fixed number of events (presumed to correspond to DSBs) are placed randomly upon a chromosome.
@@ -708,34 +730,51 @@ Crossovers form the minority of the mature events with a specific number of gene
 Therefore, no two crossovers can occur directly beside one another, and some degree of distance-dependent spacing is maintained.
 
 Data in Drosophia were found to fit this model well, it was found that it poorly predicted interference in budding yeast and humans\cite{Foss1995}.
-Therefore, extensions to this model were made to allow a second class of non-interfering crossovers to exist along-side those that are interfereing (see ``The two-pathway model'' on page \pageref{cointTPM}).
+Therefore, extensions to this model were made to allow a second class of non-interfering crossovers to exist along-side those that are interfereing (see ``The simple gamma model'' on page \pageref{cointTPM}).
 
 A key element of the counting model is that interference here depends on genetic distance rather than physical, or SC distance.
 This allows interference to be estimated in different species with differing genomic properties, such as chromosome size.
 This also serves to to ``normalize'' the enormous differences in recombination rates per physical distance that are seen in nature.
 Even within species, due to sex-differences in recombination rate, any comparison between males and females must be done using the genetic position (in cM) of each crossover, which takes into account differences the genetic map length.
 
-\paragraph{Chromosome oscillatory movement model.}
+% \paragraph{Chromosome oscillatory movement model.}
 
-\subsubsection{Mathematical models of crossover interference}
 
 %gamma and two-pathway model, math review.
 % \paragraph{The count-location model.}
 % \citet{Broman2000} tested several versions of the count-location model of interference against early genome-wide data from humans.
 
-\paragraph{The simple gamma model.}
-In the gamma model, all crossovers are assumed to be capable of interfering with each other.
-The distribution inter-crossover distances are modeled to follow a gamma distribution with a single parameter, $\nu$, representing the strength of interference.
+\paragraph{The simple gamma model.} \label{cointTPM}
+
+The gamma model starts with the assumption that all crossovers are capable of interfering with each other, and chromatid interference is neutral.
+The location of chiasmata on a tetrad bundle are determined by a stationary renewal process(*).
+The inter-chiasmata distances are are modeled to follow a gamma distribution with a single parameter, $\nu$, representing the strength of interference.
+In this model, $\nu <$ 0 corresponds to negative interference, $\nu=$ 0 no interference, and $\nu>$0 positive interference.
 The shape and rate parameters of the gamma distribution are not independent, but instead represented with shape of $\nu$ and rate 2$\nu$.
-The model assumes that chiasma in a tetrad are thinned to become crossovers.
+Therefore, the gamma distribution has a mean of 0.5 Morgans, and a standard deviation of $1 / ( 2 \sqrt{\nu} )$.
 
-The gamma distribution has a mean of $\frac{1}{2}$ Morgans, corresponding to a probability of a chiasma becoming a crossover is 0.5.
-Therefore, the average distance between chiasma is $\frac{1}{2}$ Morgans, and the corresponding distance between crossovers is 1 Morgan.
 
-(because X crossovers are expected per tetrad), and a standard deviation of $\frac{1}{2 \sqrt{\nu} }$.
+In typical recombination studies, the locations of the chiasmata are unknown and only the crossover locations are observed.
+From a four strand tetrad, crossing over occurs twice as often as what is observed on a single product, so chiasmata are thinned to become crossovers.
+Since chromatid interference is neutral, each chiasma has a 0.5 probability of becoming a crossover.
+The mean inter-chiasma distance of 0.5 therfore translates into an average distance of 1 Morgan between crossovers.
 
-\paragraph{The two pathway model.} \label{cointTPM}
+This model allows crossover locations from transmitted genotype data to be used to estimate the parameters of a gamma distribution that represent the strength of crossover interference.
 
+
+
+
+\paragraph{The two pathway model.}
+
+The two pathway model is an extension of the gamma model that allows a non-interfering crossovers to exist in a mixture with those that are affected by interference.
+After a growing body of data suggesting that there may be two distinct pathways of crossing over in a number of humans, \citet{Housworth2003} proposed the two pathway model of interference in 2003.
+
+Here, the gamma model is extended to a mixture model.
+The class of interfering crossovers continue to be represented by the gamma distribution with a positive $\nu$, and the non-interfereing crossovers by a simplified gamma distribution where $\nu=$1.
+A second parameter is added, $p$, which controls the mixture between these two cases.
+Interfering crossovers occur with proportion $(1-p)$, and non-interfering crossovers with proportion $p$.
+Thus, $p$ represents the proportion of non-interfering crossover in the distribution.
+These crossovers are said to ``escape'' the effects of crossover interference.
 
 \subsubsection{Data on crossover interference}
 
@@ -749,10 +788,12 @@ Furthermore, interference between x foci indicate that interference can act betw
 These studies suggest that, at least in mice, interference acts across at least two stages of meiotic prophase, and is not dependent on the full assembly of the synaptonemal complex.
 Furthermore, these observations appear to support the mechanical stress model of interference.
 
-Since this study, this method has been used in number of other organisms.
-Barchi2008: mice.  cytological interference is reduced in ATM KO mice.
-Basheva2008: dogs. positive COint, nu=6.5
-
+Since this study, this method has been used in number of other organisms\cite{Barchi2008,Basheva2008}.
+% \cite{Barchi2008,Basheva2008,Vozdova2013,Borodin2008,Borodin2008b,Borodin2009,Mary2014}
+% Barchi2008: mice.  cytological interference is reduced in ATM KO mice.
+% Basheva2008: dogs. positive COint, nu=6.5
+%%% Table on cytological interference?
+%
 Many of these found similar levels of crossover interference, suggesting that interference is a conserved feature.
 
 \paragraph{Strength across the genome.}
@@ -761,10 +802,10 @@ However, this data was re-analyzed by \citet{Housworth2009}, this time using the
 
 
 %%%%%%%%%%
-Interference in yeast: NCO has no interference\cite{Baudat2007}?.
-Getz2008: support two pathway model of interference., and contradit Baudat2007, suggesting that interference acts in two pathways, and that either can result in a CO or NCO (in yeast).
+% Interference in yeast: NCO has no interference\cite{Baudat2007}?.
+% Getz2008: support two pathway model of interference., and contradit Baudat2007, suggesting that interference acts in two pathways, and that either can result in a CO or NCO (in yeast).
 
-The finding that interference can act between DSBs in mice\cite{Baudat2007} suggests that interference may affect the placement of gene conversion events as well.
+% The finding that interference can act between DSBs in mice\cite{Baudat2007} suggests that interference may affect the placement of gene conversion events as well.
 %%%%%%%%%%
 
 \paragraph{Interference inferred from pedigree studies.}
@@ -805,7 +846,7 @@ Under their model, chromatid interference could account for the observed transmi
 Weak negative chromatid interference has also been found in yeast\cite{Zhao1995a}.
 
 
-Petkov2007
+% Petkov2007
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -841,7 +882,7 @@ Petkov2007
 \subsection{Methods used here to study recombination}
 Here, I outline the methods used to study recombination in humans and dogs.
 
-\subsubsection{Linkage disequilibrium}
+% \subsubsection{Linkage disequilibrium}
 
 
 \subsubsection{Pedigree analysis}
