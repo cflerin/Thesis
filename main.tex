@@ -1,11 +1,16 @@
 \documentclass[11pt,twoside,openright,letterpaper]{memoir}
 \setsecnumdepth{subsection} % include numbering on subsections
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{4}
+
+% Use 1/2-inch margins.
+% \usepackage[margin=1in,lmargin=1.5in,showframe]{geometry} % ,showframe % for margin boundary box
+\usepackage[margin=1in,lmargin=1.5in]{geometry} % ,showframe % for margin boundary box
+
 
 \usepackage{titling}
 \usepackage{helvet} % Use Helvetica font.
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage{setspace}
+% \usepackage{setspace}
 \usepackage{tabularx}
 \usepackage{pdfpages}
 
@@ -39,14 +44,13 @@
     citecolor=black,
     filecolor=black,
     linkcolor=black,
-    urlcolor=black % blue
+    urlcolor=black, % blue
+    pdfpagemode=UseOutlines
 }
+% \usepackage{hypcap} % anchor links at image, not caption
+\usepackage{bookmark}
 
-% Use 1/2-inch margins.
-% \usepackage[margin=1in,lmargin=1.5in,showframe]{geometry} % ,showframe % for margin boundary box
-\usepackage[margin=1in,lmargin=1.5in]{geometry} % ,showframe % for margin boundary box
-
-\title{Deep characterization of meiotic crossover and gene conversion}
+\title{Patterns of crossing over and gene conversion in meiotic recombination}
 
 \author{Christopher L Campbell}
 %Albert Einstein College of Medicine}
@@ -198,18 +202,15 @@ Philosophy in the Graduate Division of Medical Sciences.
 \mainmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DoubleSpacing
+\chapterstyle{ger}
+% \DoubleSpacing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 \include{introduction/introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapterstyle{ger}
-%\chapter{Sexual dimorphism in human recombination}
 \chapter{Escape from crossover interference increases with maternal age}
-
-%\noindent \textbf{Escape from crossover interference increases with maternal age}
 
 \noindent Christopher L. Campbell$^1$, Nicholas A. Furlotte$^2$, Nick Eriksson$^{2,\dagger}$, David Hinds$^2$, and Adam Auton$^1$
 
@@ -231,9 +232,20 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 \include{cointEscape/cointEscape}
 \include{cointEscape/cointEscapeSupp}
 
-\chapter{Sexual dimorphism in recombination}
-%\include{cointExtras/cointExtras}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Crossover interference varies by age and individual} % \label{cointExtras}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent Christopher L. Campbell$^1$ and Adam Auton$^{1*}$
+
+\vspace{0.5cm}
+\noindent This chapter contains unpublished data\\
+
+\vspace{0.5cm}
+\noindent $^1$ Department of Genetics, Albert Einstein College of Medicine, 1301 Morris Park Avenue, Bronx, New York 10461, USA. \\
+\noindent $^*$ Former affiliation.
+
+\include{cointExtras/cointExtras}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{A pedigree-based map of recombination in the domestic dog genome}
@@ -276,6 +288,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{discussion/discussion}
 
 \backmatter
 
