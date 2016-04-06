@@ -299,14 +299,14 @@ The genetic map generated from this study confirmed much found by \citet{Broman1
 One particular finding was that of recombination ``jungles,'' regions of high crossover rate that clustered towards the telomeres.
 In addition, recombination rate was found to correlate with GC content, CpG motif occurrance, and tracts of poly(A)/poly(T), together explaining $\sim$37\% of variation.
 
-In 2010, using genome wide SNP data on x meioses, deCODE genetics published an updated sex-specific recombination map\cite{Kong2010}.
+In 2010, using genome wide SNP data, deCODE genetics published an updated sex-specific recombination map consisting of 15,257 meioses\cite{Kong2010}.
 Instead of a typical pedigree-based recombination study, \citet{Kong2010} leverage the high degree of relatedness within the Icelandic population to infer phase and parent-of-origin in 20,217 individuals typed on microarrays assaying $>$289,000 autosomal SNPs.
 Here, phase is determined for parent-child pairs by taking into account haplotype blocks that are shared with other individuals within the population to determine the parent-of-origin for a particular block.
 Crossovers are called when a segment of a child's haplotype is inferred to move between maternal and paternal origin.
 This enables recombination be called in 15,257 parent-offspring pairs.
 %%%
 One effect of this parent-child phasing approach is that inference of recombination events near the telomeres is difficult, and \citet{Kong2010} omit the most distal 5 Mb for each chromosome.
-The omission of the telomeric regions, where male recombination is higher, contributes to the inflation of the female:male map length ratio seen in Table \ref{tab:introHeterochiasmy}) at 1.78 in this study, however much more likely to be closer to the consensus ratio of around 1.56.
+The omission of the telomeric regions, where male recombination is higher, contributes to the inflation of the female:male map length ratio seen in Table \ref{tab:introHeterochiasmy}) at 1.78 in this study, however much more likely to be closer to the consensus ratio of around 1.6.
 Since its release in 2010 the deCODE genetic map has proven quite valuable as a high quality sex-specific map of recombination in the human genome.
 
 
@@ -806,6 +806,7 @@ However, this data was re-analyzed by \citet{Housworth2009}, this time using the
 % Getz2008: support two pathway model of interference., and contradit Baudat2007, suggesting that interference acts in two pathways, and that either can result in a CO or NCO (in yeast).
 
 % The finding that interference can act between DSBs in mice\cite{Baudat2007} suggests that interference may affect the placement of gene conversion events as well.
+Youds2011: review on co/nco choice
 %%%%%%%%%%
 
 \paragraph{Interference inferred from pedigree studies.}
@@ -855,7 +856,7 @@ Weak negative chromatid interference has also been found in yeast\cite{Zhao1995a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Biology, impact on LD, possible model for DSB>CO/GC
-% Williams paper
+% Williams paper \cite{Williams2015}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -921,24 +922,83 @@ I propose a new model to detect gene conversion events using admixed population 
 % Description of approach.
 \subsection{Methods used here to study recombination}
 Here, I outline the methods used to study recombination in humans and dogs.
+These focus on data inferred through family pedigrees, where genome wide genotypes are available for both parents and children.
+As briefly outlined above, crossovers can be located by comparing the genotypes within the family to determine the transmission pattern.
+This yields an interval, flanked by informative markers, within which the crossover must have occurred.
 
-% \subsubsection{Linkage disequilibrium}
+\subsubsection{Hidden Markov models}
+Hidden Markov models (HMMs) have several applications in biology and I will use this approach more than once in this thesis, so a general description here is necessary.
+A HMM is a statistical model that can apply to any data that can be defined as a Markov process.
+Markov processes have ``states,'' which define different classifications the process can exist in at each site.
+In addition Markov processes are memoryless, that is, transitions occur from one state to the next only depend on the current state, and earlier states are not taken into account.
+DNA is an excellent candidate for HMMs, as it easily satisfies the criterion for a Markov process.
+Each site on a DNA molecule can be considered a discrete observation which can be considered by the HMM sequentially.
+Additionally, it makes biological sense to associate positions on the DNA with additional information (epigenetic state, mutation, recombination, etc.).
+These classifications are the ``hidden'' states or output of the HMM.
+%and the goal of the model is to return information on the probability of observing a particular state given the observed underlying data.
+
+A HMM consists of a number of defining elements.
+The states represent the underlying classifications that can be applied to each observation.
+The model can move between these states according to transition probabilities, a parameter that provides weight to favor certain states at each site.
+The model also has an emission probability, which controls the probability that the model with output a certain state.
+Finally, because the HMM depends on the site previous, there are special cases for the beginning and end of the sequence, defined by the starting and ending probabilities.
+
+In the case of DNA, each site on the sequence can be considered an observation, with a number of possible hidden states underlying each observation.
+The goal of the HMM in this case is to reveal the sequence of the hidden states that bests explain the observed data.
+
 
 
 \subsubsection{Pedigree analysis}
 
+To infer recombination within a pedigree, one must define a way of calculating the likelihood of the data as a function of the recombination rate.
+Specifically it is desireable to find the recombination rate at each marker that maximizes the likelihood of the data.
+
+
 \paragraph{Lander-Green algorithm.}
-\paragraph{SHAPEIT2/duoHMM.}
+
+The Lander-Green algorithm\cite{Lander1987} considers all individuals jointly at each site along the chromosome, and seeks to identify the inheritance pattern at each site using a HMM.
+The inheritance vector represents the parental haplotype being copied from at each site, and recombination events are represented as transitions between states of the HMM.
+It proceeds in two steps, the first collecting the inheritance information at each marker, and the second combining this inheritance information for multiple markers.
+Genetic reconstruction is achieved through use of the expectation maximization (EM) approach, which finds the parameter estimates for the recombination rate that maximizes the likelihood of the data having arisen.
+
+
+
+
+
+
+The Lander-Green algorithm grows in complexity in linear time with the number of markers, and exponentially with the number of individuals.
+
+
+\paragraph{Haplotype phasing.}
+
+Inferring locations of crossover events within pedigree data can also be done with another method, that first phases the individuals, then uses pedigree structure to correct phasing errors.
+
+Current methods of determining genotypes across the genome are microarray panel, or whole genome sequencing.
+These methods produce genotype data in which the phase is unknown, so that maternal and paternal origin is not determined.
+Phasing is a method that classifies each of the two alleles at every SNP into haplotypes, representing the transmitted paternal and maternal chromosomes.
+This problem has been extensively studied, and a number of methods have been devised that work with varying degress of accuracy.
+
+I will use here a combination of tools to accurately determine haplotype phase and recombination events.
+The first, SHAPEIT2\cite{Delaneau2013}, performs general phasing using a hidden Markov model (HMM).
+This method has been used in a number of previous studies with accurate results, including the 1000 Genomes project\cite{1000G2015}.
+
+
+SHAPEIT2 has been shown to produce accurate haplotype with a minimum amount of error, although some degree of switch errors still occur in the final result.
+
+Following haplotype estimation via SHAPEIT2, duoHMM\cite{OConnell2014} is then used to identify recombination events in parent-child duos.
+The procedure for duoHMM involves multiple steps.
+First, duoHMM is used together with known pedigree structure to correct any switch errors that occurred during phasing with SHAPEIT2.
+
+
 
 \subsection{Models of crossover interference}
-    Models of crossover interference (described in full in nat comm paper).
+    %Models of crossover interference (described in full in nat comm paper).
 
 \subsection{Gene conversion}
 \subsubsection{Foundation}
     Gene conversion in admixed populations HMM \& statistical methods for recombination modeling.
 Review of Li \& Stephens and other models
 
-HMM
 
 
 
