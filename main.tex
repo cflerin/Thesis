@@ -6,7 +6,6 @@
 % \usepackage[margin=1in,lmargin=1.5in,showframe]{geometry} % ,showframe % for margin boundary box
 \usepackage[margin=1in,lmargin=1.5in]{geometry} % ,showframe % for margin boundary box
 
-
 \usepackage{titling}
 \usepackage{helvet} % Use Helvetica font.
 \renewcommand{\familydefault}{\sfdefault}
@@ -23,14 +22,17 @@
 
 % math:
 \usepackage{amsmath} % for multline
-% \usepackage{mathtools}
+\usepackage{mathtools}
 \usepackage{siunitx} % for math formatting
 \usepackage{newtxtext,newtxmath} % formats numbers in math mode to consistent font
+\newcases{cdcases}{\quad}{$\hfil\displaystyle{##}$\hfil}{$\displaystyle{##}$\hfil}{\lbrace}{.} % for gene conv model
+
+% graphics:
 \usepackage{graphicx}
 \usepackage{epstopdf} %converting to PDF
- 
 \usepackage[section]{placeins} % keep floats within sections
 \usepackage{afterpage} % wrap around floats to have them on their own pages
+
 \usepackage{hyperref} % allow urls
 \hypersetup{
     pdfauthor={CLCampbell},
@@ -48,7 +50,7 @@
     pdfpagemode=UseOutlines
 }
 % \usepackage{hypcap} % anchor links at image, not caption
-\usepackage{bookmark}
+\usepackage{bookmark} % fix pdf bookmark generation
 
 \title{Patterns of crossing over and gene conversion in meiotic recombination}
 
@@ -306,6 +308,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Detection of gene conversion in admixed population genetic data}
+%\chapter[Detection of gene conversion]{Detection of gene conversion in admixed population genetic data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \noindent Christopher L. Campbell$^1$ and Adam Auton$^{1*}$
@@ -317,7 +320,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 \noindent $^1$ Department of Genetics, Albert Einstein College of Medicine, 1301 Morris Park Avenue, Bronx, New York 10461, USA. \\
 \noindent $^*$ Former affiliation.
 
-%\include{geneConv/geneConv}
+\include{geneConv/geneConv}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Discussion}
@@ -326,9 +329,9 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 
 \backmatter
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Supplementary Materials and Methods}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \chapter{Supplementary Materials and Methods}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{List of Abbreviations}
