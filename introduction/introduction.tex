@@ -821,7 +821,7 @@ allows valuable data to be inferred regarding both crossover interference, affec
 Comparing to previously published sperm data\cite{Lu2012}, \citet{Hou2013} look at crossover spacing as a function of both physical distance (in bp), and synaptonemal complex length (\SI{}{\micro\metre}), concluding that the strength of interference is equivalent in males and females when considering the synaptonemal complex length, which is longer in females, reflecting their higher recombination rate.
 %an observation that conflicts with a number of other studies\cite{Broman2000,Housworth2003,Fledel-Alon2009}.
 Somewhat puzzling was the omission of genetic distance (in centimorgans) in this analysis, a factor that controls for the 1.6 fold higher recombination rate in females over males.
-A reanalysis of this data using genetic distance is presented in this thesis in Chapter \ref{cointExtras}.
+A reanalysis of this data using genetic distance is presented in this thesis in Chapter \ref{ch:cointExtras}.
 
 
 \subsubsection{Other methods of measuring coint}
@@ -876,24 +876,24 @@ dogs provide an interesting cohort on which to study the effects of the loss of 
 Comparing recombination properties in dogs to those of humans will provide additional insight into recombination in other organisms.
 
 This thesis can be divided into two main sections, each focusing on one of the two outcomes of recombination: crossover and gene conversion.
-In part one (Chapters 2, 3, and 4), I focus on crossover, and use a pedigree approach to study recombination in humans and dogs.
+In part one (Chapters \ref{ch:cointEsc}, \ref{ch:cointExtras}, and \ref{ch:dogPed}), I focus on crossover, and use a pedigree approach to study recombination in humans and dogs.
 
-In Chapter 1, I present a pedigree analysis of recombination in a humans.
+In Chapter \ref{ch:cointEsc}, I present a pedigree analysis of recombination in humans.
 Using a large set of human families, I identify crossovers within the genome.
 I use this data to investigate specific properties of recombination and how it differs between sexes, individuals, populations
 I analyze hotspot useage on an individual level, as well as across males and females.
 I look for age effects on recombination within this dataset.
 I am to further describe how crossover interference varies between individuals, sexes, and populations.
 
-In Chapter 3, I present a previously unpublished data.
-This consists of an extension to the data from Chapter 2, which extends the analysis of age effects in humans.
+In Chapter \ref{ch:cointExtras}, I present a previously unpublished data.
+This consists of an extension to the data from Chapter \ref{ch:cointEsc}, which extends the analysis of age effects in humans.
 Additionally, I include a re-analysis of public data from single cell sperm and oocytes.
 This provides valuable information on how recombination varies on an individual level.
 
-In Chapter 4, I focus on crossover patterns using pedigree of inbred domestic dogs.
+In Chapter \ref{ch:dogPed}, I focus on crossover patterns using pedigree of inbred domestic dogs.
 This data provides valuable insight into the effects of PRDM9, which is missing in dogs, on crossover within our own species.
 
-Finally, in Chapter 5, I focus on gene conversion.
+Finally, in Chapter \ref{ch:geneConv}, I focus on gene conversion.
 I propose a new model to detect gene conversion events using admixed population genetic data.
 
 
@@ -1052,16 +1052,97 @@ First, duoHMM is used together with known pedigree structure to correct any swit
 
 \subsubsection{The Li and Stephens model}
 The application of HMMs to genomics data was given a major boost with the development of a model by \citet{Li2003} that models recombination using haplotype segments.
-This model considers the problem of a population of unknown haplotypes ().
+This methods uses and HMM approach that models a newly observed haplotype as a patchwork of sections from previously observed haplotypes.
+The haplotypes are broken into segments by recombination and each segment is assigned an identifier indicating the parental haplotype it was copied from.
+The hidden state of this model is the path through the existing parental haplotypes.
+
+The goal of this model, and those previous in the same vein, was to estimate the population scale recombination rate, $\rho$, using LD patterns within a given population of haplotypes.
+Previous to this model, a variety of approaches were attempted, however most were too computationally complex to be of practical use in population genetic data in humans\cite{Wall2000,Fernhead2001}.
+
+\paragraph{The Li and Stephens HMM.}
+
+%This model considers the problem of a population of unknown haplotypes ().
+The Li and Stephens model examines a collection of haplotypes, $h_1,h_2,\dots,h_n$, and determines LD patterns for a given recombination rate, $\rho$, allowing variation in recombination between sites.
+
+The model defines an unknown probability distribution, the probability of observing the haplotyes given the underlying $\rho$.
+This is represented as a product of conditional distributions for the population of haplotypes at each site:
+\begin{equation}
+    \Pr(h_1,\dots, h_n | \rho ) = \Pr(h_1 |\rho) Pr(h_2 |h_1; \rho) \dots \Pr(h_n |h_1,\dots, h_{n-1}; \rho) .
+\end{equation}
+The main advance from this model was the use of an approximation to the conditional distributions, which can be written using $\pi$ to denote the conditional distributions:
+\begin{equation}
+    \Pr(h_1,\dots, h_n | \rho ) \approx \hat{\pi} \Pr(h_1 |\rho) \hat{\pi} Pr(h_2 |h_1; \rho) \dots \hat{\pi} \Pr(h_n |h_1,\dots, h_{n-1}; \rho) .
+\end{equation}
+This product of approximate conditionals (PAC) enables inference to be efficiently performed using this model with little decrease in accuracy\cite{Li2003}.
+
+Here, the recombination parameter depends on each previous haplotype observed.
+For a subpopulation of $k$ haplotypes, the conditional distribution should reflect the underlying distribution.
+Using $h_1,\dots,h_n$ haplotypes with genotypes at $S$ sites, the object is to model the next haplotype, given we have already observed $k$ haplotypes so far, with the $\pi$ approximation reflecting the next observation:
+$ \Pr( h_{k+1} | h_1,\dots,h_k) $.
+
+This problem can be described in terms of a HMM, with $X_j$ as a Markov chain representing which haplotype, $k$, was copied at site $j$.
+
+The model can start in any state since we have no information previous to the first site:
+\begin{equation}
+    \Pr( X_1 = x ) = 1 / k
+\end{equation}
+
+Transitions are possible between the $k$ previously observed haplotypes, taking into account $d$, the distance in base pairs between site $j$ and $j+1$.
+\begin{equation}
+    \Pr( X_{j+1} = x' | X_j = x ) = 
+    \begin{cases}
+        e^{-\rho_j d_j / k} + ( 1- e^{-\rho_j d_j / k} ) \frac{1}{k}
+        &  \text{if $x' = x$ } \\
+        %
+        ( 1- e^{-\rho_j d_j / k} ) \frac{1}{k}
+        &  \text{otherwise } \\
+    \end{cases}
+\end{equation}
+
+Following the foundation of the model, haplotypes $h_{k+1}$ are modeled as an imperfect mosaic of the previous $h_1,\dots,h_k$ haplotypes.
+The emissions probabilities depend on a match at the observed site to the sites in the previously observed haplotypes.
+Miscopying, or mutation, is therefore allowed by the model.
+
+
+\paragraph{Extensions of the Li and Stephens model.}
+This model has been widely used in a number of applications in population genetics.
+In one example, known as the HAPMIX algorithm\cite{Price2009}, the Li and Stephens model is modified to include two separate groups of reference populations, corresponding to ancestral populations.
+From these distinct reference populations, segments of an admixed haplotype can inferred to belong to one or the other population.
+It is thus possible to deconvolute the admixed sample, and determine the recombination breakpoints between different ancestral haplotype segments.
+HAPMIX starts with a collection of reference haplotypes in two populations, with the goal of identifying ancestry breakpoints in a single admixed sample.
+This is accomplished by assuming the admixed sample must have undergone an admixture event some number of generations in the past.
+Recent recombination since the time of admixture is modeled separately, allowing for accurate detection of breakpoints.
+
+\begin{wraptable}{r}{0.55\textwidth} \vspace{-20pt}
+\begin{tabular}{|c|c|c|} 
+    \hline Transition prob. & site $j+1$ & site $j$ \\ \hline
+    $\Pr(G_{j+1}=0|G_{j}=0)$  & no GC & no GC \\
+    $\Pr(G_{j+1}=g|G_{j}=0)$  & GC tract   & no GC  \\
+    $\Pr(G_{j+1}=0|G_{j}=g)$  & no GC & GC tract \\
+    $\Pr(G_{j+1}=g|G_{j}=g)$  & GC tract   & GC  tract\\
+    $\Pr(G_{j+1}=g'|G_{j}=g)$ &  new GC & previous GC  \\
+\hline \end{tabular} \vspace{-5pt}
+\captionTitle{\textbf{Gene conversion transition states.}}{
+    GC, gene conversion.
+\label{tab:GCgayStates}} 
+\vspace{-10pt}
+\end{wraptable}
+%
+In another model, \citet{Gay2007} extend the Li and Stephens model to include gene conversion.
+Here, a gene conversion chain, $G$, is modeled separately from crossover.
+The transitions for crossovers are essentially the same as the Li and Stephens model: either continue copying from the same haplotype, or switch to another.
+There are five transitions for the gene conversion chain, outlined in Table \ref{tab:GCgayStates}.
+The key innovation of this model was to consider gene conversion and crossover chains independently and simultaneously:
+\begin{equation} \Pr(X_{j+1}, G_{j+1} | X_{j},G_{j} ) = \Pr(X_{j+1}|X_{j}) \Pr(G_{j+1}|G_{j}) ~. \end{equation}
+%
+These two model will be revisited in Chapter \ref{ch:geneConv}.
+
 
 
 \subsection{Models of crossover interference}
     %Models of crossover interference (described in full in nat comm paper).
 
 \subsection{Gene conversion}
-\subsubsection{Foundation}
-    Gene conversion in admixed populations HMM \& statistical methods for recombination modeling.
-Review of Li \& Stephens and other models
 
 
 

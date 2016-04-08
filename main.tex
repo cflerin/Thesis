@@ -32,6 +32,7 @@
 \usepackage{epstopdf} %converting to PDF
 \usepackage[section]{placeins} % keep floats within sections
 \usepackage{afterpage} % wrap around floats to have them on their own pages
+\usepackage{wrapfig} % allow wrapfig and wraptable
 
 \usepackage{hyperref} % allow urls
 \hypersetup{
@@ -241,12 +242,12 @@ Overall, I have provided further evidence for sexual dimorphism in crossover pla
 \chapterstyle{ger}
 % \DoubleSpacing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Introduction}
+\chapter{Introduction} \label{ch:introduction}
 \include{introduction/introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Escape from crossover interference increases with maternal age}
+\chapter{Escape from crossover interference increases with maternal age} \label{ch:cointEsc}
 
 \noindent Christopher L. Campbell$^1$, Nicholas A. Furlotte$^2$, Nick Eriksson$^{2,\dagger}$, David Hinds$^2$, and Adam Auton$^1$
 
@@ -269,7 +270,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 \include{cointEscape/cointEscapeSupp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Crossover interference varies by age and individual} % \label{cointExtras}
+\chapter{Crossover interference varies by age and individual} \label{ch:cointExtras}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \noindent Christopher L. Campbell$^1$ and Adam Auton$^{1*}$
@@ -284,7 +285,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 \include{cointExtras/cointExtras}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{A pedigree-based map of recombination in the domestic dog genome}
+\chapter{A pedigree-based map of recombination in the domestic dog genome} \label{ch:dogPed}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \noindent Christopher L Campbell$^1$ , Claude Bh\'{e}rer$^{1,2}$ , Bernice E Morrow$^1$ , Adam Boyko$^3$ , and Adam Auton$^{1*}$
@@ -307,7 +308,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 \include{dogPed/dogPed}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Detection of gene conversion in admixed population genetic data}
+\chapter{Detection of gene conversion in admixed population genetic data} \label{ch:geneConv}
 %\chapter[Detection of gene conversion]{Detection of gene conversion in admixed population genetic data}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -323,7 +324,7 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 \include{geneConv/geneConv}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Discussion}
+\chapter{Discussion} \label{ch:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{discussion/discussion}
 
