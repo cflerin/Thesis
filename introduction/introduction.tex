@@ -167,7 +167,7 @@ These arrays target a pre-selected panel of hundreds of thousands to millions of
 
 Genome-wide methods have the primary goal of creating a genetic map of the frequency of recombination as a function of physical distance across each chromosome.
 In contrast, several other methods are limited in scope, and reveal information about specific loci.
-With each method, the detection of recombination is made difficult by the fact that crossovers are rare -- only 20-50 are expected to occur in each meiosis.
+With each method, the detection of recombination is made difficult by the fact that crossovers are rare -- only 20-60 are expected to occur in each meiosis.
 
 % brief introduction to these before describing in detail in "description of approach"
 
@@ -856,7 +856,62 @@ Weak negative chromatid interference has also been found in yeast\cite{Zhao1995a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Biology, impact on LD, possible model for DSB>CO/GC
-% Williams paper \cite{Williams2015}
+% Why study this? effect on the genome, LD structure, non-mend. transmission, disease association, etc
+%     Biased GC alters allele frequencies
+%     Association studies (LD disruption)
+%     Natural selection tests???
+
+% Known GC frequency/length/characteristics
+% 10x as frequent as CO\cite{Jeffreys2004}
+% Tract length 50-2000bp\cite{Jeffreys2004} % (Frisse2001??)
+
+% Methods for detection and their effectiveness:
+%     DSB-ChIP?
+%     Pedigree studies (Amy Williams)
+%     Sperm typing (Jeffreys)
+%     Genome-wide methods:
+%         Only practical way is *inference*
+%             GenCo
+
+
+% HMM argument
+% Admixture
+
+Due to the small size and nature of gene conversion events, their detection within population genetic data has proven to be difficult.
+Given the small size of gene conversion events of 50-1000 bp, it is unlikely that a given event would ovelap a typed SNP.
+Instead the event would occur in a region in which the donor and recipient homologues have the same sequence.
+The resulting conversion will result in no change to the genome, and would not be detectable outside of molecular methods to observe the event while it occurs.
+Furthermore, even if a gene conversion overlaps a SNP, it would only be observed if the SNP is heterozygous.
+Within the human genome, even the highest density SNP arrays, consisting of $\sim$2 million markers, will cover sites spaced on average 1,500 bp apart.
+Not all of these positions are heterozygous, and therefore is a further limitation.
+Most gene conversions therefore cannot be detected with this method.
+
+In addition, genotyping error is a major factor that can complicate the detection of these events.
+Genotyping error rates for SNP arrays are typically under 0.05\%\cite{Imai2011}, however at this rate, with an array of 2 million SNPs, 1,000 of these will be improperly typed.
+
+Despite the limitations, it is possibly to use genome wide pedigree data to detect gene conversion, as demonstrated in a recent study.
+\citet{Williams2015} use 34 three generation pedigrees to study and detect gene converion within 98 meioses using first SNP arrays, with follow up validation via sequence data.
+The use of three generation pedigrees provides a way to overcome the risk of false positive calls arising from genotyping error.
+First, in order to confidently call an event, the conversion must be detected in the first generation, and again in the grandchildren.
+In addition, the parent must transfer the alternate allele from a putative gene conversion site to one of the other children.
+This latter requirement ensures that both of the parent's alleles are correctly typed.
+Gene conversion tract lengths were estimated at 100-1000 bp, but these estimates may be biased towards longer lengths due to the low SNP array density.
+In addition, gene conversion was found to cluster within 20-30 kb invervals in several cases, a feature not previously seen.
+
+
+\citet{Williams2015} demonstrated the success of a pedigree approach to gene conversion detection, providing valuable information on transmission across single generations.
+However, the sensitivity of this approach is limited.
+From a set of 98 meioses, with approximately 20-60 crossovers expected in each, one would expect to find $\sim$3,500 crossovers.
+Given that gene conversion occurs 10 times more frequently that crossover, this results in $\sim$35,000 gene conversion events in the entire dataset.
+Even accounting for the proportion of invisible events, only $\sim$100 gene conversions were detected.
+The analysis of gene conversion in pedigree data provides valuable data, however it is incomplete and should be combined with results from other approaches.
+
+
+Sperm typing has proven to be a powerful technique with which to study gene conversion events.
+\citet{Jeffreys2004} described three human hotspots in detail.
+% 4-15 x CO, 55-290 bp tract length
+
+% \cite{Cole2014} length
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1160,7 +1215,6 @@ First, duoHMM is used together with known pedigree structure to correct any swit
 \subsection{Models of crossover interference}
     %Models of crossover interference (described in full in nat comm paper).
 
-\subsection{Gene conversion}
 
 
 
