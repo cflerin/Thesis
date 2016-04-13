@@ -34,6 +34,10 @@
 \usepackage{afterpage} % wrap around floats to have them on their own pages
 \usepackage{wrapfig} % allow wrapfig and wraptable
 
+% glossary:
+\usepackage[toc,nonumberlist]{glossaries}
+\makeglossaries
+
 \usepackage{hyperref} % allow urls
 \hypersetup{
     pdfauthor={CLCampbell},
@@ -187,28 +191,29 @@ Philosophy in the Graduate Division of Medical Sciences.
 \Author \\
 \end{centering}
 \vspace{10pt}
+% \DoubleSpacing
 
 
 Recombination during meiosis is an essential process to the generation of gametes.
 It acts to shuffle genetic variation within the genome, generating new combination of alleles that can be subject to natural selection.
 Failures of the chromosomes to synapse and recombine can result in aneuploidy, while improper repair of double strand breaks can cause chromosome rearrangements, both of which are highly deleterious.
 
-Recombination has been studied by a wide variety of approaches, including molecular methods such as sperm typing, as well and inferential methods, such as linkage disequilibrium modeling and pedigree analysis.
+Recombination has been studied with a wide variety of approaches, including molecular methods such as sperm typing, and inferential methods, such as linkage disequilibrium modeling and pedigree analysis.
 Most research to date has focused on crossover, the reciprocal exchange of genetic material between homologous chromosomes.
 Crossovers vary widely in frequency and placement within the genome as well as between individuals, sexes, and populations, and different species.
 Multiple factors affect the placement of crossovers within the genome, including the PRDM9 protein, which has been shown to localize crossovers to concentrated areas of recombination known as hotspots.
 In addition, crossover interference acts to inhibit crossovers in close proximity.
-It has also been suggested that recombination could change with age.
+It has also been suggested that recombination properites could change with age.
 
 In humans, I present a pedigree analysis with data on over 18,000 meioses in males and females.
 Using this data, I further characterize sex differences in human recombination, and create a sex-specific map of recombination in the human genome.
 This results reinforce previous work showing that females have a higher recombination rate than males, by a ratio of 1.6 in the autosomes, and that male recombination tends to be focused towards the telomeres.
 In addition, I find that males and females have a difference in the proportion of crossovers that overlap known hotspots, with males having 4.6\% higher hotspot overlap.
 Finally, I measure crossover interference, which affects the spatial positioning of crossovers.
-I find that in older mothers there is a steep increase in crossovers escaping regulation by interference, and appear closely spaced, pointing to a possible deregulation of recombination that increases with age in females.
+I find that in older mothers there is a steep increase in crossovers that escape regulation by interference, and appear closely spaced, pointing to a possible deregulation of recombination that increases with age in females.
 
 Additionally, I analyze crossovers in an inbred domestic dog pedigree, consisting of 408 meioses.
-Dogs are unique in that PRDM9 in this species has undergone truncating mutations, rendering it inactive, and raising question as to how crossovers are placed without this regulatory mechanism.
+Dogs are unique in that PRDM9 in this species has accumulated mutations, rendering it inactive, and raising question as to how crossovers are placed without this regulatory mechanism.
 Using this data to analyze sex differences in dogs, I find that females have a higher recombination rate than males, a ratio of 1.2 within the autosomes, and that male recombination in dogs strongly prefers the telomeric regions.
 I find that, despite the absence of PRDM9, dog recombination appears to be more concentrated to a smaller proportion of sequence when compared to humans.
 Finally, I show evidence for positive crossover interference acting in the dog genome with a similar mechanism to what has been seen in humans.
@@ -217,7 +222,7 @@ An alternate outcome of recombination is non-crossover, also known as gene conve
 Gene conversion can result in non-Mendelian transmission by converting an allele on the homologous receptor chromosome to that of the donor without reciprocal exchange, and plays an important role in shaping patterns of linkage disequilibrium throughout the genome.
 Here, I develop a hidden Markov model to detect gene conversion events in admixed population genetic data.
 The model uses two divergent ancestral reference populations in order to predict the location of gene conversion events on an admixed haplotype.
-Simulation results show that the model can plausibly used to detect gene conversion, however the complexity is high, with a large number of states at each site.
+Simulation results show that the model can plausibly be used to detect gene conversion, however the complexity is high, with a large number of states at each site.
 
 Overall, I have provided further evidence for sexual dimorphism in crossover placement and frequency within the human and dog genomes. Additionally, I have demonstrated the effects of the loss of PRDM9 on the recombination landscape in dogs, and through comparison to humans, gained additional information on recombination in both species.
 
@@ -230,10 +235,18 @@ Overall, I have provided further evidence for sexual dimorphism in crossover pla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The Training Program in Cellular and Molecular Biology and Genetics, T32 GM007491.
 
+\SingleSpacing
 \clearpage
 \tableofcontents
 \listoffigures
 \listoftables
+
+\glsaddall
+\clearpage\begingroup\let\newpage\relax
+    \printglossary[type=main,style=long,nonumberlist,title={List of Abbreviations}]
+    \addcontentsline{toc}{chapter}{List of Abbreviations}
+\endgroup
+\include{abbrv}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
@@ -253,7 +266,8 @@ Overall, I have provided further evidence for sexual dimorphism in crossover pla
 
 \vspace{0.5cm}
 \noindent This manuscript has been published: \\
-Campbell, C. L. et al. Escape from crossover interference increases with maternal age. Nat. Commun. 6:6260 doi: 10.1038/ncomms7260 (2015).
+Campbell, C. L. et al. Escape from crossover interference increases with maternal age. Nat. Commun. 6:6260 doi: 10.1038/ncomms7260 (2015). \\
+PMCID: PMC4335350
 
 \vspace{0.5cm}
 \noindent $^1$ Department of Genetics, Albert Einstein College of Medicine, 1301 Morris Park Avenue, Bronx, New York 10461, USA. \\
@@ -330,20 +344,13 @@ Campbell, C. L. et al. Escape from crossover interference increases with materna
 
 \backmatter
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \chapter{Supplementary Materials and Methods}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{List of Abbreviations}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\includepdf[pages=1-7]{cointEscape/Campbell2015.pdf}
-%\includepdf[pages=1-28]{cointEscape/Campbell2015_supp.pdf}
-
+%\includepdf[pages=1-7]{appendix/Campbell2015.pdf}
+%\includepdf[pages=1-28]{appendix/Campbell2015_supp.pdf}
+%\includepdf[pages=1-20]{appendix/SexDimorphismRecombination_2016April8_maintext.pdf}
+%\includepdf[pages=1-21]{appendix/SexDimorphismRecombination_2016April8_SUPP.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
