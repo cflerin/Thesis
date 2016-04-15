@@ -456,7 +456,8 @@ Additionally, associations with RNF212 and the inversion on 17q21.31 were replic
 
 \afterpage{
 \begin{table}[p] \footnotesize
-    \begin{tabular}{|P{3.2cm}|c|c|p{1.6cm}|p{1.3cm}|c|p{1.7cm}|} 
+    %\begin{tabular}{|P{3.2cm}|c|c|p{1.6cm}|p{1.3cm}|c|p{1.7cm}|} 
+    \begin{tabular}{|P{3.2cm}|c|c|c|c|c|c|} 
         \hline Common name (species) & Year & Study & Female (cM) & Male (cM) & Ratio & Sex avg (cM) \\ \hline
 Human (\textit{Homo sapiens}) & 1991  & \citet{Morton1991} & 4782 & 2809 & 1.70 & 3795.50 \\
        & 1994  & \citet{Matise1994} & 4790 & 2625 & 1.82 & 3707.50 \\
@@ -1332,15 +1333,24 @@ Phasing is a method that classifies each of the two alleles at every SNP into ha
 This problem has been extensively studied, and a number of methods have been devised that work with varying degress of accuracy.
 
 I will use here a combination of tools to accurately determine haplotype phase and recombination events.
-The first, SHAPEIT2\cite{Delaneau2013}, performs general phasing using a hidden Markov model (HMM).
-This method has been used in a number of previous studies with accurate results, including the 1000 Genomes project\cite{1000G2015}.
+The first, SHAPEIT\cite{Delaneau2013}, performs general phasing using a hidden Markov model (HMM).
+HMMs have been previously used in the estimation of haplotypes from genetic data, notable in the algorithm Phase\cite{Stephens2001}, which produces accurate results and has been widely used over the past decade.
 
+SHAPEIT improves upon the HMM approach by substantially reducing the computation time.
+In a typical solution to the HMM, the forward-backward algorithm is used, requiring a calculation for each state at every site, which can lead to a long computation time.
+In SHAPEIT, redundant calculations are avoided by considering the haplotyes in terms of a binary tree (or haplotype tree)\cite{Delaneau2013}.
+This effectively omits a substantial proportion of the calculations that would occur in the forward-backward algorithm.
+This data structure compacts all possible haplotypes into a branching structure, which represents all possible paths and switches.
+The calculations for homozygous SNPs within a putative haplotype are skipped entirely, since the haplotype must obviously continue past these SNPs.
+This method has been used to infer phased haplotypes in a number of previous studies with accurate results, including the 1000 Genomes project\cite{1000G2015}.
 
-SHAPEIT2 has been shown to produce accurate haplotype with a minimum amount of error, although some degree of switch errors still occur in the final result.
-
-Following haplotype estimation via SHAPEIT2, duoHMM\cite{OConnell2014} is then used to identify recombination events in parent-child duos.
+SHAPEIT has been shown to produce accurate haplotype with a minimum amount of error, although some degree of switch errors still occur in the final result.
+Following haplotype estimation via SHAPEIT, duoHMM\cite{OConnell2014} is then used to identify recombination events in parent-child duos.
 The procedure for duoHMM involves multiple steps.
 First, duoHMM is used together with known pedigree structure to correct any switch errors that occurred during phasing with SHAPEIT2.
+Second, each parent-child duo is considered separately, and phasing information is taken into account to identify haplotype switches that represent recombination events.
+In addition, duoHMM can be used to identify sites with probable genotyping errors, which can be removed from the analysis.
+When compared to a Lander-Green approach, duoHMM has been shown to have a reduced error rate, and a high sensitivity for detecting recombination events\cite{OConnell2014}.
 
 
 
