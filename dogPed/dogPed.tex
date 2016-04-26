@@ -64,7 +64,7 @@ Given the open questions regarding the role of PRDM9 in recombination, we compar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Genotyping.}
-The full dataset is derived from genomic analysis of 237 DNA samples, with 25 founder individuals (15 male, 10 female, pedigree structure shown in Figure \ref{fig:pedigree}) from a colony of Labrador Retriever and Greyhound crosses maintained at Cornell University for over 30 years\cite{Todhunter2003}.
+The full dataset is derived from genomic analysis of 237 DNA samples, with 25 founder individuals (15 male, 10 female, pedigree structure shown in Figure \ref{fig:pedigree}) from a colony of Labrador Retriever and Greyhound crosses maintained at Cornell University for over 30 years\cite{Todhunter2003,Mateescu2008,Phavaphutanon2009}.
 Genotyping was performed using genomic DNA as described in \citet{Hayward2016} using Illumina CanineHD BeadChips that include more than 170,000 SNPs. 
 All positions reported are given in canFam3.1 coordinates.
 
@@ -131,7 +131,7 @@ Gene annotations for canFam3.1 were downloaded from Ensembl (build 81).
 We considered only protein coding genes located on the autosomes, and kept the longest isoform for each gene.
 
 \paragraph{Thinning the human map.}
-In order to make a valid comparisons between dogs and humans with respect to the proportion of recombination occupying a given amount of sequence, we took a number of steps to ensure the datasets are as similar as possible.
+In order to make a valid comparison between dogs and humans with respect to the proportion of recombination occupying a given amount of sequence, we took a number of steps to ensure the datasets are as similar as possible.
 To enable sex-specific comparisons between the species, we used a human pedigree dataset (\citet{Campbell2015}) rather than an LD-based map.
 As the human dataset is considerably larger, we randomly sampled 408 phase-known meioses (204 each from males and females) to match the size of the dog dataset.
 We then reduced the SNP density of the human data.
@@ -166,13 +166,13 @@ We removed all 435 variants within four such regions, totaling 5.6 Mb of sequenc
 a further 1,344 markers identified with the error detection feature of duoHMM. 
 
 After re-calling crossovers on this filtered data, we found 8,312 autosomal recombination events.
-We then identified and removed a set of clustered double crossovers, likely to be false calls, consisting of 90 events. 
+We then identified and removed a set of clustered double crossovers, likely to be false calls, consisting of 90 events.
 Finally, we excluded meioses that have a biologically abnormal number of crossovers, excluding 3 female meioses (with 55, 41, and 119 crossovers), and 3 male meioses (with 5, 44, and 109 crossovers).
 In total we excluded 463 out of 8,312 crossovers (5.6\%).
 
 The filtered dataset consisted of 408 informative meioses, including 204 from females, and 204 from males.
 There are 7,849 well supported crossover events that could be localized to a median size of 102.1 kb (Figure \ref{fig:intsize}).
-The sex specific genetic maps had a mean resolution of less than 0.4 cM. 
+The sex specific genetic maps had a mean resolution of less than 0.4 cM.
 
 \paragraph{Comparison to previous studies.}
 To assess the accuracy and validity of our results, we compared our maps to those from previous studies.
@@ -366,6 +366,7 @@ Further work is needed on larger and more diverse pedigrees, both in domestic do
 
 \section{Acknowledgments}
 We thank Yu Kong and Anthony Marcketta for their helpful discussions and assistance in the analysis of this data.
+We thank Liz Corey and the Cornell Veterinary Biobank for their assistance in pedigree analysis of the colony.
 C.L.C.\ was supported by the Training Program in Cellular and Molecular Biology and Genetics, T32 GM007491.
 C.B. was supported by a postdoctoral fellowship from the Fonds de la recherche en sant\'{e} du Qu\'{e}bec (FRQS).
 Data in this paper are from a thesis to be submitted in partial fulfillment of the requirements for the Degree of Doctor of Philosophy in the Graduate Division of Medical Sciences, Albert Einstein College of Medicine, Yeshiva University.
