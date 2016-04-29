@@ -102,6 +102,12 @@
     \setcounter{figure}{0}
     \renewcommand{\thefigure}{\thechapter.\arabic{figure}}%
 }
+\newcommand{\beginappendixA}{ % enable appendix numbering of figures
+    \setcounter{table}{0}
+    \renewcommand{\thetable}{A.\arabic{table}}%
+    \setcounter{figure}{0}
+    \renewcommand{\thefigure}{A.\arabic{figure}}%
+}
 %%% adjust spacing between figure number and label in listoffigures:
 \makeatletter \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}} \makeatother
 
@@ -358,7 +364,8 @@ PMCID: PMC4335350
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{SingleSpace}
-\chapter{Appendix}
+\chapter{Appendix A} \label{ch:appendixCB}
+% \renewcommand{\thechapter}{A} % label appendix figure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -386,14 +393,16 @@ PMCID: PMC4335350
 \end{SingleSpace}
 
 \include{appendix_cb/appendix}
+%\includepdf[pages=1-20]{appendix/SexDimorphismRecombination_2016April8_maintext.pdf}
+%\includepdf[pages=1-21]{appendix/SexDimorphismRecombination_2016April8_SUPP.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Appendix}
+\chapter{Appendix B}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\includepdf[pages=1-7]{appendix/Campbell2015.pdf}
 %\includepdf[pages=1-28]{appendix/Campbell2015_supp.pdf}
-%\includepdf[pages=1-20]{appendix/SexDimorphismRecombination_2016April8_maintext.pdf}
-%\includepdf[pages=1-21]{appendix/SexDimorphismRecombination_2016April8_SUPP.pdf}
+%\includepdf[pages=1-20]{appendix/A global reference for human genetic variation_Nature.pdf}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
