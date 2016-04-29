@@ -1,0 +1,393 @@
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Characterization of recombination in humans and dogs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this thesis, I have presented two pedigree analyses of meiotic recombination, in both humans and dogs.
+In humans, this large scale pedigree study contributes to a growing body of research on the recombination structure, and how it differs between males and females.
+The 23andMe recombination analysis represents a comprehensive study with a large number of meioses, adding to existing research to further characterize recombination in humans.
+This study examines sexual dimorphism in recombination, specifically examining overall rate distribution, as well as regulatory mechanisms of hotspot usage, crossover interference.
+A major advance from this study was to further characterize maternal age effects in recombination.
+These age effects were found to manifest across several aspects of recombination placement, contributing to an overall pattern of deregulation with increased age.
+
+Recombination is not nearly as well characterized in dogs.
+However, dogs present a unique species in which to study recombination, largely due to the multiple truncating mutations that have rendered their PRDM9 inactive millions of years previously.
+The loss of this key recombination regulatory mechanism raises important questions on the role of recombination and specifically how the dog genome has been shaped by recombination following the loss of PRDM9.
+The pedigree analysis presented here represents an important advance towards this goal.
+%While the sample size is modest, 
+The pedigree analysis here shows that dog recombination is similar to humans on a broad scale, with high rates at the telomeric ends being male-driven.
+At the fine scale, the lack of PRDM9 is evident in the concentration of recombination at gene promoters, with sex differences in some aspects that differes from that of humans.
+
+In addition, I have developed a statistical model for the detection of gene conversion in human admixed population genetic data.
+This model integrates key features of two previous models.
+First it leverages the divergence between two distinct reference populations to pick out gene conversion events in admixed population genetic data.
+Second, it models gene conversion and crossover simultaneously using two different Markov chains.
+Although it is computationally intensive, this model has the potential to advance our understanding of gene conversion and its role within the recombination process.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sex dimorphism in recombination}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Heterochiasmy}
+
+Heterochiasmy, the difference in recombination rate between the sexes, has been observed in a wider variety of species over the course of decades of studies.
+In most studied species, the recombination rate is higher in females, and a number of possibly explanations exist to explain this.
+
+The human data presented in this thesis adds a further data point to the ratio of female to male recombination.
+The consensus among many studies over the past decades is that this ratio is approximately 1.6 within the autosomes (Table \ref{tab:introHeterochiasmy}).
+
+\subsection{Hotspot overlap.}
+
+PRDM9 has been shown to undergo rapid evolution within its DNA-binding zinc finger array\cite{Oliver2009,Ponting2011}, and this evolution has driven the lack of sharing between human populations\cite{Hinch2011}, and between species\cite{Auton2012a}.
+Previous work in humans found no difference in hotspot usage between male and females\cite{Coop2008}, with the caveat that a relatively small number of meioses was used.
+In this thesis, I report for the first time that males have a higher hotspot usage than females, with a difference of 4.6\%.
+This difference is not due to the position of hotspots within the genome, nor to recombination rate differences between males and females.
+
+One possible explanation for this is that the set of reference hotspots used were generated from LD studies of recombination\cite{Myers2005,hapmap2007}.
+They are therefore a sex-averaged collection, and may be biased in representation of hotspots from males and females.
+% These hotspots likely have a population bias, but it is unknown whether there is a sex bias.
+Given that females have a greater number of dimorphic regions of recombination than males (Appendix \ref{ch:appendixCB}, \citet{Bherer2016}), it is plausible that there are a greater number of female hotspots, resulting in a more diffuse hotspot usage per individual.
+While it is currently not possible to answer this question, future expansions to pedigree studies will provide the possibility of generating a collection of unbiased hotspots independently for males and females.
+
+
+\subsection{Recombination around the TSS}
+
+In humans, it was previously estimated that the recombination rate increases approaching the transcription start site (TSS), drops sharply within gene regions, and increases again after the transcription end site\cite{Mcvean2004,Myers2005,hapmap2007,Spencer2006,Kong2010}.
+In dogs, the recombination rate exhibits a sharp peak just upstream of the TSS, in gene promoter regions\cite{Auton2013}.
+Data presented in this thesis has the potential to expand these observations.
+There appear to be sex differences in recombination rate around gene regions particularly the TSS, in both humans and dogs.
+
+In humans, female recombination has a sharp peak centered around the TSS, that extends approximately 10 kb on either side, while the male rate appears flat throughout the region (Figure \ref{fig:appendixTSS}A).
+When removing genes that have PRDM9 binding motifs within 5 kb of the TSS, the female peak is no longer seen (Figure \ref{fig:appendixTSS}B), suggesting that this rate increase is somehow driven by PRDM9 binding.
+Although the dog data is of lower resolution, it appears to show the opposite effect.
+Here, the male rate appears higher, both in the small peak just upstream of the TSS, and in the surrounding region (Figure \ref{fig:genomicFeatures}A).
+
+When removing regions that are PRDM9 influenced from the human data, the recombination rate surrounding the TSS looks similar to that of dogs.
+The reason for these differences is not known, but it is possible that human crossovers that are not governed by PRDM9 act similarly to those of PRDM9-absent species.
+Recombination in the absence of PRDM9 has been suggested to locate preferentially to regions of open chromatin, including gene promoter regions\cite{Auton2013,Singhal2015,Lam2015}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Crossover interference}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Interference parameters across the human genome}
+
+Whether the strength of crossover interference varies with chromosome size has been an open question, with conflicting reports on this relationship.
+In a cytological study in human males, \citet{Lian2008} suggested that interference strength is higher in smaller chromosomes. % using simple gamma
+This study used the simple gamma distribution, assuming one class of crossovers which are all interfering.
+However, a reanalysis of this data was performed using the two pathway gamma-escape model\cite{Housworth2009}.
+Here, the researchers argued that the gamma model was inappropriate for fitting to immunofluorescent data since the original study considered only cases in which there are two or more MLH1 foci per stained chromosome.
+The results of the reanalysis under the two pathway model indicated that interference strength remained constant and independent of chromosome size\cite{Housworth2009}.
+
+Using the data from the 23andMe cohort, I have shown that interference strength does depend on chromosome size under the two pathway model in both males and females (Figure \ref{fig:cointFS8}).
+Here, smaller chromosomes (measured using genetic map length) had a greater strength of interference when compared to larger chromosomes.
+This supports the findings of \citet{Lian2008}, and
+makes intuitive sense, since two crossovers placed on a large chromosome will naturally be further apart that on a smaller chromosome.
+
+However, when considering the proportion of events that escape interference, there was a high level of variability among the chromosomes, and no relationship with chromosome size.
+We are unable to make any conclusions along these lines in dogs, due to a reduced dataset size, and lower power to detect interference for smaller chromosomes.
+
+
+\subsection{Implications of the two-pathway model in humans and dogs}
+
+The two pathway model categorizes crossovers into two classes: those that are subject to strong positive interference, and those with no interference.
+A suggestion from \citet{Housworth2003} was that these two pathways could correspond to crossovers placed by different mechanisms that are temporally separated.
+Non-interfering events were predicted to occur early in meiosis, and aided in the pairing and synapsis of homologues into the SC.
+Events that occurred later were part of a disjunction pathway, and subject to strong interference that spaced out the events along each chromosome.
+The wider spacing of crossovers likely assists in proper disjunction, reducing the risk of aneuploidy.
+%Further expansions of this model to fit data in yeast suggest that gene conversion is limited to the early pairing pathway, which is non-interfering\cite{Stahl2010}.
+%This suggests a further mechanistic separation of the two pathways, with different DSB repair mechanisms influencing the decision to repair a break as a crossover or gene conversion\cite{Baudat2007}.
+This is suggestive of a mechanistic separation of the two pathways, in which different mechanisms
+control DSB initiation and placement, and DSB repair mechanisms influence the decision to repair a break as a crossover or gene conversion\cite{Baudat2007,Berchowitz2010,Stahl2010}.
+
+Substantial evidence has accumulated in support of the two pathway model for recombination in humans\cite{Housworth2003,Fledel-Alon2009,Campbell2015}.
+While there is strong evidence that crossovers are indeed comprised of these two classes, whether these classes correspond to early/pairing and late/disjunction is unknown.
+An additional confounding factor is PRDM9, which acts to initiate DSBs in the meiotic process.
+How or if PRDM9 fits into the framework of the two pathway model is not known.
+However, PRDM9 is known to act early, generating DSBs in the zygotene phase\cite{Hayashi2005}.
+This early action of PRDM9, along with its localization to specific DNA sequence motifs, suggests that it could be part of the early pairing pathway, and produce crossovers that are absent of interference.
+
+% dogs:
+The analysis of interference in dogs provides an excellent opportunity to examine crossover interference in the absence of PRDM9.
+I found evidence for strong positive crossover interference in dogs, supporting previous cytological data\cite{Basheva2008}, and the two pathway model was favored over the simple gamma model.
+This adds to existing findings from this study and others\cite{Axelsson2012,Auton2013,Wong2010} that dog recombination is broadly similar to that of humans, apes, and mice.
+While the sample size of the dog study makes a firm conclusion difficult, 
+the support for the two pathway model of interference in dogs suggests that PRDM9 is likely not involved with interference.
+This supports the idea that PRDM9 is part of an early acting, non-interfering recombination initiation pathway.
+
+\subsection{Interference on an individual basis.}
+
+Most studies in humans so far have looked at interference on a group basis.
+This is a necessity of the methods used to study interference, which require that a model be fit to a distribution of many inter-crossover distance measurements.
+The level of variability in interference within single individuals is currently unknown.
+
+Using publicly available data, from sperm\cite{Wang2012,Lu2012}, and oocytes\cite{Hou2013}, I have taken the first steps toward addressing this question.
+These data indicate that the level of interference varies widely both between, and within individuals.
+While these results represent a small number of samples (2 males, 8 females), the increasing availability of genetic data from single-cells means that it will soon become feasible to study interference on an individual basis.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Age effects on recombination}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \subsection{Recombination rate}
+
+There have been conflicting reports of age effects on human recombination in the past decades.
+A number of studies reported that the maternal recombination rate increases with age\cite{Kong2004,Coop2008}, while others have reported the opposite effect\cite{Hussin2011,Bleazard2013}.
+In most cases, the reported effect is subtle, with only a few extra crossovers found over a 10 year difference in age.
+In all studies, the effect was limited to females, with no change in rate found in males.
+
+In the 23andMe study (Chapter \ref{ch:cointEsc}), I present evidence that the maternal recombination rate increases with age, supporting previous studies.
+There is a sharp increase in the recombination rate in mothers over 39 years of age.
+Since the publication of our findings from the 23andMe data more evidence has surfaced that reinforces this.
+A multi-cohort analysis using over 6,000 meioses found a small and significant positive association with recombination rate and age\cite{Martin2015}.
+In this study, six cohorts were examined using multiple statistical methods, leading to an convincing confirmation of the increase in rate with age.
+
+There are additional age effects on recombination, and 
+I have shown, for the first time, that crossover interference parameters change with age.
+While there is no change in interference strength, the proportion of events that escape regulation by interference rises sharply in older mothers.
+This effect is robust to varying subdivisions of the data, and further data from an additional older age group shows that the escape proportion continues to increase in a linear fashion (Chapter \ref{ch:cointExtras}).
+In addition, there is a weak effect on hotspot usage with age in females, with hotspot usage decreasing slightly.
+
+% \subsection{Interpretation}
+
+Several interpretations for the rate increase in older mothers have been put forth.
+The finding of these age related effects, which include an increase in crossover count and an increase in escape, along with higher rates of aneuploidy in older mothers\cite{Hassold2001}, suggests that all of these observations may be related to similar underlying mechanisms.
+When taking interference into account alongside the apparent increase in recombination rate, there are several possibilities.
+Most interpretations postulate a link between aneuploidy, which is known to increase in older mothers, since higher recombination rates have been shown to reduce the rate of aneuploid gametes\cite{Hassold2001}.
+First, it is possible that mothers with a baseline higher recombination rate are able to continue to have healthy children until a later age\cite{Kong2004}.
+However, the increased clustering of crossovers that are seen as a result of interference is not clearly explained by this model.
+
+Second is the possibility that oocytes enter and exit meiosis in a specific order, and that oocytes that exit early have stronger and more frequent recombination than those that exit later.
+However, a recent study presented evidence against the existence of a production line in humans, finding no differences in recombination rate among fetal oocytes\cite{Rowsey2014}.
+Whether interference could affect oocytes differently across a production line while there is no differences in rate, is not known.
+
+It is also possible that some form of deregulation is occurring during the meiotic arrest period, which can last for decades.
+The arrest occurs after the full assembly of the synaptonemal complex, and the chromosomes are frozen mid-crossover.
+Over time, the connections tethering the complex together could potentially degrade, which could in turn lead to aneuploidy during separation later in meiosis.
+In this model, interference has presumably already exerted its effect, since crossovers are placed prior to arrest.
+However, if interference consists of two pathways, it is possible that they act a different stages and could therefore influence events during arrest (unlikely?).
+% chrX, which breaks and synapses later in meiosis, has a lower v / L than autosomes.
+
+% Considering the apparent drive for a higher recombination rate in older mothers to counteract the risk of aneuploidy.
+
+The concept of deregulation is an attractive one, since it is apparent that the positioning of crossovers within the genome is carefully regulated by multiple mechanisms.
+The preferential positioning of crossovers within hotspots by PRDM9, the spacing of crossovers by interference, broad-scale positioning, and crossover assurance and homeostasis can all be considered regulatory constraints on recombination.
+Taken together, these regulatory mechanisms exhibit careful control over broad and fine scale crossover placement, while still retaining some element of randomness.
+Differences in these elements are apparent between males and females, with males having a higher hotspot usage, and a stronger interference strength, despite a lower number of crossovers overall.
+With respect to age, males show no change in the distribution of their events, while data for females suggests changes in interference, recombination rate, and potentially hotspot usage as a function of age.
+This evidence suggests that female recombination is subject to a deregulation phenomenon that increases in strength with age. % accumulates?
+It is possible that this is caused by an interaction or conflict between crossover regulating mechanisms.
+% with an increase in crossover count as a protective mechanism against aneuploidy, a
+% Considering the differences in the timing of meiotic events between males and females,
+
+
+% \subsection{Age effects in other organisms}
+% There have been limited results on any age effects found in other species.
+% Hunter2016 reports age effects in drosophila: increase in CO count with maternal age.
+% 
+% None found in dogs (Chapter \ref{ch:dogPed})
+
+
+\section{Genomic disorders}
+% male/female differences. 22q11 higher incidence in females (and higher recomb rate).
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Gene conversion model}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Despite the complexity of this model, something like this could be used in the future
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Proposed model for recombination initiation and resolution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A growing body of work has led to the characterization of recombination in an expanding number of diverse species, including many without PRDM9.
+From a LD based study in dogs, it was found that recombination preferentially locates to gene promoter regions, located just upstream of the transcription start site (TSS)\cite{Auton2013}.
+A similar finding was made in mice with PRDM9 knocked out (Brick?).  Here, crossovers did not form, but DSBs located preferentially upstream of the TSS.
+Work in other species lacking PRDM9 has found similar trends in birds\cite{Singhal2015}, and yeast\cite{Lam2015}.
+
+Species that use PRDM9 vs those without.
+
+PRDM9 -> DSB -> CO/GC \\
+!PRDM9 -> DSB -> CO/GC
+
+Describe how crossover interference, hotspot usage, chromatin configuration 
+
+% In light of the data presented here and elsewhere, I propose a model for the initiation, procession, and resolution of both crossover and gene conversion events.
+
+% (Pratto2014 recomb initiation maps) This study raises the possibility that crossover interference can act on the DSB level, with PRDM9 binding causing chromatin remodeling and the recruitment of recombination machinery.
+% This collection of proteins could cause steric interference that prevents the formation of DSBs nearby.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Strengths of this work}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Pedigree studies are powerful methods for studying the transmission of recombinant gametes across a single generation.
+They allow the assignment of events to a specific individual, and therefore allow us to study how recombination differs between males and females.
+
+Considering the data presented within this thesis, one major strength is the sample size for the human recombination study in Chapter \ref{ch:cointEsc}.
+Here, I used data obtained from a collaboration with 23andMe to analyze more 18,000 meioses in one of the largest pedigree studies conducted in humans\cite{Campbell2015}.
+This large sample size allowed a detailed analysis to be made of human recombination in males and females.
+Perhaps most importantly, the number of individuals was high enough to allow the division of the data into multiple age groups.
+After this division, each sub-group had a high enough number of samples to allow a clear trend to be discovered, both in the increase in recombination rate, and the amount of interference escape, both of which were found to increase with age in females.
+
+The 23andMe data proved to be of very high quality and relatively minimal quality control steps were necessary to generate genetic maps that closely resembled previous high quality maps from the deCODE study\cite{Kong2010}, and the Hapmap project\cite{hapmap2007}.
+In addition, the reference assembly for the human genome is well characterized and includes very few gaps or misplaced contigs, which could result in false crossover calls and an inflation of the genetic map.
+Therefore, most of the quality control process focused on the pedigree data itself, and the removal of families or meioses with biologically implausible numbers of crossovers.
+
+\paragraph{Recombination fraction correction for homozygosity.}
+The recombination fraction between markers, $\theta$, is typically represented as the ratio of the number of recombinants in a given interval to the number of meioses studied, and determines the recombination rate:
+\begin{equation*}
+    \theta = \frac{ \text{\# of recombinants} } { \text{\# of meioses studied} } .
+\end{equation*}
+The number of meioses is typically a fixed number reflecting the composition of the dataset.
+This works fine for typical datasets, and has been used for decades in pedigree studies in humans and other species.
+
+However, when working with inbred dogs, I discovered that the heterozygosity of the samples presented an issue.
+The method we used to call recombination in dogs, duoHMM, identifies each crossovers as a genomic interval that is flanked by heterozygous markers in the parent.
+In a number of the parents, I found a lack of heterozygous markers, especially towards the telomeric ends of the chromosomes.
+In some cases, the first heterozygous marker did not occur until many Megabases into the chromosome.
+Therefore, it was obvious that our study was missing crossovers occurring toward the telomeres.
+This was reflected in the genetic maps.
+When comparing to the previous pedigree study from \citet{Wong2010}, our dog maps had a consistently shorter map length.
+
+Therefore, some correction was necessary.
+I changed the denominator of the recombination fraction to reflect the effective number of recombinants within each specific interval.
+This change to the recombination fraction resulted in map lengths that were much closer to those of previous studies.
+This minor modification to genetic map constriction should prove useful in future pedigree studies, even those that do not study inbred populations.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Limitations of this work}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Limitations of pedigree studies}
+Pedigree studies, by their nature, are inferential studies of recombination and are limited to observe only the transmitted gametes that produce viable offspring.
+By contrast, a direct approach would be to observe a cell across the entire meiotic cycle, capturing events as they occur, and be able to analyze all four products of meiosis.
+
+\paragraph{Data availability.}
+At the same time, large sample sizes are required for a comprehensive analysis of the results from a pedigree analysis.
+Given that there are only 20-60 events in a given (human) meiosis\cite{Broman1998,Coop2008,Kong2010}, large numbers of meioses are necessary.
+Generating data of this size is difficult, both in terms of cost, and in sample availability.
+Collection of samples is especially difficult in non-humans, requiring substantial time and effort on the part of a researcher.
+In addition, pedigree studies are often informed by accurate genealogical records, which are unique to humans.
+%not widely kept except in.
+% lack of general interest despite usefulness of these results.
+
+Unfortunately, the requirement for large sample sizes is firm and the same type of data cannot be obtained through other methods.
+Pedigree analyses remain the gold standard for studying differences between individuals and sexes in recombination.
+However, \citet{Kong2010} took a novel approach to bypassing the sample size requirement imposed by this method.
+The key advance in this study was to genotyping a only subset of the individuals in the study, then use computational methods to infer phase.
+Combined with the unique genetic structure of Icelanders, which exhibit a high degree of relatedness, the effective study size was increased well beyond the number of fully genotyped individuals.
+However, this increase in sample size came with a penalty.
+The methods used meant that the 5 Mb of sequence near the telomeric ends of the chromosomes were unable to be accurately characterized, where male recombination is typically higher.
+
+In recent years, the cost of whole-genome genotyping methods, including SNP microarrays and even whole-genome sequencing, have continuously reduced in cost.
+With this reduction in cost, and increasing availability of data, pedigree studies will become more widespread.
+The data generated from these studies will reveal more about the recombination landscape in humans, and in presently uncharacterized species.
+
+\subsection{Cohort composition}
+\paragraph{Humans.}
+The 23andMe cohort consisted of approximately 70\% of samples that were of European descent.
+This limits the conclusions that could be drawn for populations outside of Europe.
+This limitation can be directly seen in Figure \ref{fig:cointF2}B, in which the error bars for non-European populations are much wider that those for Europeans.
+Multiple studies have demonstrated differing properties of recombination in non-European populations\cite{Bleazard2013,Hinch2011,Berg2011}, highlighting the importance of expanding these studies to other populations.
+
+\paragraph{Dogs.}
+% dogs: inbred, poor assembly of sequence, esp. X
+Within this thesis, the study of dog recombination (Chapter \ref{ch:dogPed}) in particular was hampered by a low sample size.
+This was made especially apparent when, having been incredibly fortunate with the excellent 23andMe dataset, I transitioned to the pedigree analysis in inbred dogs.
+The dog genome is not as well characterized, and the reference assembly consists of larger, and more frequent gaps and misplaced contigs.
+There is evidence that two entire chromosomes, 27 and 32, are reversed in their physical coordinates within the reference build\cite{Wong2010}.
+The genetic data itself was of high quality, however the inbred nature of the dogs used made the inference of crossover events difficult.
+These factors made for an especially difficult quality control process, with many iterations necessary to remove poorly assembled regions that caused severe jumps in the genetic map.
+
+In addition, the small sample size was limiting for many of the analyses attempted.
+Dividing the dogs into age groups produced inconclusive results for any age effect.
+The resolution of the genetic map was not high enough to examine fine scale differences between males and females.
+Additional work with a larger cohort is necessary to sufficiently address these questions.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Future directions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The results presented within this thesis represent an advance in the characterization of recombination in both humans and dogs.
+At the same time, they raise a number of further research topics that need to be addressed.
+
+First, it is necessary to expand further the datasets available to study recombination in humans, as well as other species.
+Successful pedigree studies depend on the availability of sufficient number of meioses.
+As the cost of genotyping large numbers of individuals and families further decreases, it should be possible to extend pedigree analysis further.
+An interesting example of this can be seen in this thesis, in which a private company, 23andMe, has been very efficient at collecting large amounts of genotyping data.
+While the 23andMe data was not originally intended to be used for recombination studies, their Research Portal\cite{23andMe2013} allows investigators to apply to use the data for potentially unconventional purposes.
+Resources such as the 23andMe sample database will inevitably continue to grow, providing a reduction to some of the barriers in the collection of data.
+It may prove interesting to revisit the 23andMe dataset as it continues to expand in the future.
+
+With the availability of increased amounts of data comes the opportunity for a more even sampling of the human population as a whole.
+Most recombination studies focus on, or are limited to, a single human population which are often genetic isolates such as Hutterites\cite{Coop2008}, Icelanders\cite{Kong2010}, or French-Canadians\cite{Hussin2011}.
+The 23andMe study itself has a substantial European bias.
+While these studies undoubtedly provide valuable data, it would be interesting to undertake a large-scale study comparing recombination across multiple worldwide populations.
+
+It is also of great importance to further expand recombination studies to more non-humans species.
+Chimpanzees, our closest ancestor, provide an important potential venue to study recombination from an evolutionary perspective.
+Currently there is a LD map of recombination in Chimpanzees\cite{Auton2012a}, however no pedigree studies have yet been completed.
+The extent of sex differences within Chimpanzees, and how they compare to those observed in humans, remains unknown and could provide important clues to recombination in humans and how it has evolved since the time of divergence.
+
+Expanding pedigree studies to look for sex differences in PRDM9-absent species has the potential to reveal much about the regulatory mechanisms that govern crossover placement.
+The study of inbred dogs presented in Chapter \ref{ch:dogPed} provides an important first step towards this, but a greater sample size and a greater breed diversity is necessary for further research.
+A comparison of domestic dogs to village dogs, as well as to wolves, their closest ancestor, could provide important clues in the evolution of recombination in the absence of PRDM9.
+Canids have lost PRDM9 through mutation, and we can assume therefore that it must have been previously functional.
+It would therefore be of great interest to compare canid recombination to that of the Giant Panda, their closest PRDM9-dependent relative.
+Such a comparison could reveal how the recombination processes in these two species have diverged over millions of years of evolutionary history.
+
+Further investigation into the phenomenon of crossover interference has the potential to reveal much about the recombination process.
+The 23andMe study is the largest interference study so far in humans, but the conclusions on interference are made by considering all samples on a group basis.
+The continuing progress in single cell sequencing, both in spermatocytes and oocytes, provides more opportunity to study large numbers of recombination products from a single individual.
+I have demonstrated this on a small scale in Chapter \ref{ch:cointExtras}, finding that there is substantial variability within and between individuals.
+In addition, using data from DSB initiation maps\cite{Pratto2014}, interference can be studied on the DSB level for individuals.
+Future research at both the DSB and crossover level, using larger sample sizes, has the potential to reveal mechanisms of interference, and on which meiotic stage they act.
+
+% clinical
+In addition, the human work presented here on the maternal age effect has potential clinical significance.
+The incidence of aneuploidy has a baseline of around 1-4\% in males and 2-3\% in females in their twenties, but this number rises sharply, to 30-40\% in females in their forties\cite{Hassold2009,Nagaoka2012}.
+Currently such aneuploidies are not preventable, although several clinical screening procedures are available, and more are continually evolving.
+Recently, the analysis of circulating fetal ``cell-free DNA'' in maternal blood has been used in the development of a non-invasive assay for the detection of fetal aneuploidy\cite{Lo2007}.
+This technique has been used with great success to detect a number of trisomies including 21\cite{Papageorgiou2011}, 18\cite{Palomaki2012}, and 13\cite{Palomaki2012}.
+However, even with the success of the cell-free DNA approach, positive results are often followed up with invasive secondary tests, and this is an area in which more work is necessary.
+
+There is a clear connection between failures of recombination at meiosis I, and aneuploidies that result in an extra or missing chromosome\cite{Nagaoka2012}.
+The work presented in Chapters \ref{ch:cointEsc} and \ref{ch:cointExtras} extends these findings and has the potential to improve understanding of the underlying mechanisms.
+The maternal age related findings, an increase in recombination rate and interference escape, point to a decline in recombination regulation mechanisms.
+These mechanisms are presumably in place to prevent non-disjunction and ensure healthy gametes.
+This research has the potential to further our understanding of how the recombination process changes with age in females, which can in turn inform future diagnostic screening approaches.
+
+
+% Applicability to a typical researcher: use of genetic maps in phasing/other programs... why care about
+
+
+
+In conclusion, the study of human recombination has advanced substantially in the years since the completion of the Human Genome Project.
+The data presented here suggests a complex interaction of regulatory mechanisms that appear to be subject to deregulation in older mothers, suggestive of a connection to aneuploid pregnancies.
+While the study of recombination in other species lag behind humans, this gap is being continually eroded, with the advancement of genotyping technology and the collection of new data both contributing.
+The further study of PRDM9-absent species, including dogs, has the opportunity to increase the level of understanding in both humans, and recombination as a whole.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\renewcommand{\bibname}{References}
+\bibliographystyle{ccampbell_thesis}
+\begingroup
+    \setlength{\bibsep}{10pt}
+    \linespread{1}\selectfont
+    \bibliography{/home/ccampbell/Dropbox/papers/recombination,/home/ccampbell/Dropbox/papers/thesis,/home/ccampbell/Dropbox/papers/GeneConversion,dogPed/dogPed}
+\endgroup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
