@@ -10,26 +10,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Meiosis occurs in all sexually reproducing organisms, and is essential to gametogenesis.
 Recombination plays a key role in this process, facilitating the pairing and alignment of chromosomes, while the exchange of genetic material has important implications in inheritance, natural selection, and evolution.
-Most research  has focused on crossover, the reciprocal exchange of genetic material between homologous chromosomes.
+Double strand breaks begin the recombination process, and resolve to one of two outcomes, crossover or gene conversion.
+% Crossover is the reciprocal exchange of genetic material around the break point, while gene conversion is the uni-directional transfer of small amounts segments of DNA from one chromosome to its homologue.
+Most research  has focused on genetic crossover, which is the reciprocal exchange of genetic material between homologous chromosomes during meiosis.
 There are a number of factors that influence the placement of crossovers within the genome, and there is tremendous variability between individuals, sexes, and species.
-In this thesis, I aim to use a number of methods to gain insight into factors affecting crossover placement, and into the recombination process as a whole.
+In this thesis, I used a number of statistical methods to gain insight into factors affecting crossover placement, and into the recombination process as a whole.
 
 Much of existing research focuses on human subjects, and has a specific goal of learning more about recombination in humans.
-I have focused the majority of work within this thesis on research in human subjects, with the specific goal of learning more about human recombination.
-In Chapter \ref{ch:cointEsc}, I use a large set of human families to identify crossovers within the genome.
-I use this data to investigate specific properties of recombination frequency and placement and how these properties differ between sexes, individuals, and populations.
-I examine hotspot usage on an individual level, as well as how it differs between males and females, and look for age effects on recombination within this dataset.
-I also further describe how crossover interference varies between individuals, and sexes.
+I have focused the majority of work within this thesis on research of recombination in humans, with the specific goal of learning more about human recombination.
+In Chapter \ref{ch:cointEsc}, I used a large set of human families to identify crossovers within the genome.
+I used this data to investigate specific properties of recombination frequency and placement and how these properties differ between sexes, individuals, and populations.
+I examined hotspot usage on an individual level, as well as how it differs between males and females, and looked for age effects on recombination within this dataset.
+I also determined how crossover interference varies between individuals, and sexes.
 
-
-In Chapter \ref{ch:cointExtras}, I present unpublished data.
-This consists of an extension to the data from Chapter \ref{ch:cointEsc}, which extends the analysis of age effects in humans.
+In Chapter \ref{ch:cointExtras}, I present unpublished data that consists of an extension to Chapter \ref{ch:cointEsc}, which includes the analysis of age effects in humans.
 Additionally, I include a re-analysis of public data from single cell sperm and oocytes.
-Here, I focus on crossover interference properties, which can provide valuable information on how crossover placement varies on an individual level.
+Here, I focused on crossover interference properties, which can provide valuable information on how crossover placement varies on an individual level.
 
-In Chapter \ref{ch:dogPed}, I focus on crossover patterns using a complex pedigree of inbred domestic dogs.
-Dogs, and the entire canid family, are unique among mammals because they have undergone a series of mutations within PRDM9, rendering this gene inactive in meiosis.
-Since this protein has been shown to be essential to meiosis, its absence raises a number of questions as to how recombination has been altered as a result.
+In Chapter \ref{ch:dogPed}, I focused on crossover patterns using a complex pedigree of inbred domestic dogs.
+Dogs, and the entire canid family, are unique among mammals because they have acquired a series of disruptive mutations within its PRDM9 ortholog, rendering this gene inactive in meiosis.
+Since this protein is essential to meiosis in some mammals, its absence raises a number of questions as to how recombination has been altered as a result.
 % Dogs provide an interesting cohort on which to study the effects of the loss of PRDM9 on the recombination landscape as a whole.
 Comparing recombination properties in dogs to those of humans will provide additional insight into recombination in other organisms, and within our own species.
 With this goal in mind, I examine aspects of crossover placement within the genome, including crossover interference, and compare these to human data.
@@ -37,9 +37,9 @@ With this goal in mind, I examine aspects of crossover placement within the geno
 % I have also included a chapter in which I analyse recombination in domestic dogs.
 
 
-In Chapter \ref{ch:geneConv}, I focus on gene conversion, an alternate outcome of recombination.
+In Chapter \ref{ch:geneConv}, I focus on gene conversion, an alternate outcome of recombination, in which small segments of DNA are transferred in one direction from one chromosome to its homologue.
 Gene conversion (or non-crossover) is the non-reciprocal transfer of genetic information that is limited to smaller intervals.
-I examine current methods for crossover and gene-conversion detection, and propose a new model to detect gene conversion events using admixed population genetic data.
+I examined current methods for crossover and gene conversion detection, and based on this I propose a new model to detect gene conversion events using admixed population genetic data.
 
 In general, this thesis can be divided into two main sections, each focusing on one of the two outcomes of recombination: crossover and gene conversion.
 In part one (Chapters \ref{ch:cointEsc}, \ref{ch:cointExtras}, and \ref{ch:dogPed}), I focus on crossover, using a pedigree approach to study recombination in humans and dogs.
@@ -85,21 +85,26 @@ These two aspects come together to provide an expanded picture of the recombinat
 
 Prior to meiosis, a diploid cell contains pairs of homologous chromosomes, with one of the pair inherited from the father, and the other from the mother.
 This diploid DNA is replicated just prior to the cell entering the meiotic cycle, in premeiotic S-phase\cite{Bell2002} to generate exact copies of each pair of chromosomes, referred to as sister chromatids.
-Meiosis consists of two stages; recombination occurs in the first, meiosis I, while meiosis II sees sister chromatids separate into their respective daughter cells.
+Meiosis consists of two stages; recombination occurs in the first stage, referred to as meiosis I, while sister chromatids separate into their respective daughter cells in meiosis II.
 Meiosis I is the most complex and lengthy stage, with chromosome pairing, synapsis, and recombination all occurring in succession within prophase I, which is  divided into several sub-stages.
+Meiosis II is similar to mitotic divisions and results in separation of chromosomes to haploid daughter cells.
 
-In leptotene (derived from Greek meaning ``thin threads''), changes in chromatin cause the newly replicated chromosomes to form thin individual strands.
+Prophase of meiosis I has several stages which have been given individual names, shown in Figure X(*).
+The stages are leptotene, zygotene, pachytene, diplotene, and diakinesis.
+In the first step, leptotene (derived from Greek meaning ``thin threads''), changes in chromatin cause the newly replicated chromosomes to form thin individual strands.
 Here, the synaptonemal complex (SC), a protein structure that will bind the sister chromatids and their homologues into a tetrad begins to assemble.
 The SC consists of a scaffold of proteins that first forms with axial elements that associate with the already paired sister chromatids, solidifying their association.
 
 In the zygotene phase (``paired threads''), pairing between the unraveled DNA begins to occur at regions of homology in a process known as synapsis.
-Homologous chromosomes connect to to the SC by transverse filaments, drawing them into the SC structure in a progressive zipper-like mechanism, completing synapsis\cite{Yang2009}.
+Homologous chromosomes connect to the SC by transverse filaments, drawing them into the SC structure in a progressive zipper-like mechanism, completing synapsis\cite{Yang2009}.
 Evidence from cytological studies suggests that DNA DSBs occur at this stage\cite{Oliver-Bonet2005,Gruhn2013}.
 
 By the pachytene stage (``thick threads''), synapsis, and the SC assembly are fully complete, and the pairs of homologous chromosomes bound within the SC are referred to as a tetrad or bivalent.
-Strand exchange and DSB repair occurs here, mediated by the structure of the SC.
+Strand exchange and DSB repair occurs at this stage, mediated by the structure of the SC.
+Several models for strand exchange and resolution have been proposed, but one possibility is the Szoszak model in which the invading DNA forms a double Holliday junction that are resolved in two possible ways\cite{Szoszak1983}.
 A subset of the DSBs are processed as crossovers, at locations called chiasmata.
 The remaining DSBs are repaired through a different pathway, as non-crossovers, also known as gene conversion.
+It is proposed that two distinct enzymatic reactions occur that sever the Holliday junctions in two different ways, producing either gene conversion or crossover\cite{Baudat2013}.
 
 In the diplotene stage (``two threads''), the SC is disassembled, allowing the tetrad to relax slightly.
 The homologous chromosomes are still held together at chiasmata locations.
@@ -107,23 +112,27 @@ The homologous chromosomes are still held together at chiasmata locations.
 In the final substage of prophase I, diakinesis (``moving through''), the chromosomes condense into visible threads.
 
 The cellular machinery begins to prepare for cell division, which occurs in the remaining step of meiosis I, metaphase I, and anaphase I.
-Chiasmata, holding the chromosomes together as crossover points are cut, allowing the homologous chromosomes to segregate to their respective cellular poles.  
+Chiasmata, holding the chromosomes together as crossover points are digested enzymatically, allowing the homologous chromosomes to segregate to their respective cellular poles.  
 Following this, the cell proceeds through meiosis II, which is procedurally similar to mitosis.
 Here, the separation of sister chromatids occurs, and four haploid gametes are produced.
 
 
 
-\paragraph{Timing of double strand breaks and the synaptonemal complex assembly.}
+\paragraph{Timing of double strand breaks and the synaptonemal protein-DNA complex (SC) assembly.}
 
-The recombination process is begun by programmed double strand breaks (DSBs) in the DNA, catalyzed by the protein SPO11, which has a similar function to DNA topoisomerases\cite{DeMassy2013}.
-Cytological studies detect DSBs by staining with markers for RAD51, a protein that localizes to broken DNA and assists in strand invasion and homologous pairing of the cut strand.
-RAD51 has been detected in autosomes as early as late leptotene or early zygotene\cite{Oliver-Bonet2005}, suggesting that DSBs form early.
+Specific proteins are critically important for individual steps of meiosis I.
+The recombination process in meiosis I begins with programmed double strand breaks (DSBs) in the DNA, catalyzed by the protein SPO11, which has a similar function to DNA topoisomerases\cite{DeMassy2013}.
+% Cytological studies detect DSBs by staining with markers for 
+The protein RAD51 localizes to broken DNA and assists in strand invasion and homologous pairing of the cut strand.
+RAD51 has been detected in autosomes as early as late leptotene or early zygotene\cite{Oliver-Bonet2005}, suggesting that DSBs form early in meiosis I.
 
 Roughly concurrent with DSB formation in late leptotene, the axial elements of the SC assemble\cite{Yang2009}.
 The axial elements form the backbone of the SC, and each associates with one pair of sister chromatids.
 The axial elements are attached to chromatin, containing the compacted DNA of the sister chromatids in a series of loops that radiate outwards from the core axis of the SC.
 
-In the zygotene stage, peak levels of MSH4 foci are found, which mark most DSBs and is thought to promote synapsis\cite{Oliver-Bonet2005}.
+Two DNA binding proteins, MSH4 and MLH1 are critically important in the next step of meiosis I.
+In the zygotene stage, peak levels of MSH4 foci are found.
+The MSH4 protein marks most DSBs and is thought to promote synapsis\cite{Oliver-Bonet2005}.
 MLH1 foci, thought to specifically influence DSBs to be repaired as crossovers and not non-crossover\cite{Baker1996}, begin to appear in late zygotene\cite{Oliver-Bonet2005}.
 %MLH1 foci counts have been shown to mirror those of crossovers detected through linkage studies\cite{Tease2004,Gruhn2013}.
 By the end of zygotene, the paired sister chromatids in each axial element complete synapsis.
@@ -132,7 +141,7 @@ The axial elements progressively join together at homologous regions, assisted b
 When complete by the end of zygotene, the SC is composed of two axial elements, a central element, and a number of transverse elements\cite{Yang2009}.
 The DNA is bound within this complex, with homologous pairing within the SC core, and compacted DNA within chromatin located outside the central core in large loops.
 The preceding evidence suggests a sequence of events in which DSBs form early in prophase I, just prior to, or concurrent with, synapsis and full assembly of the SC.
-The decision to repair a DSB as a crossover, as seen by the association of MLH1 and MSH4 proteins, appears to happen alongside synapsis and prior to DSB resolution in pachytene, however the exact timing remains an open quesion\cite{Baudat2007}.
+The decision to repair a DSB as a crossover, as seen by the association of MLH1 and MSH4 proteins, appears to happen in conjunction with synapsis and prior to DSB resolution in pachytene, however the exact timing remains an open quesion\cite{Baudat2007}.
 
 % sex chromosomes break later
 Additional evidence from mouse studies suggests that sex chromosomes have a different timing of these events.
@@ -140,20 +149,6 @@ There are two isoforms of \textit{Spo11} in humans, and mice, and a recent study
 Male mice with only \textit{Spo11$\beta$} had meiotic defects, with the majority of spermatocytes failing to recombine in the pseudoautosomal region (PAR)\cite{Kauppi2011}.
 Following this, \textit{Spo11$\alpha$} was found to be expressed later in meiosis, and coincided with DSBs located within the sex chromosomes, including the PAR\cite{Kauppi2011,DeMassy2013}.
 This evidence indicates that the initiation of DSBs is a complex, multi-stage process, with autosomal DNA processed earlier than DNA from the sex chromosomes.
-
-
-\paragraph{Non-disjunction and the role of recombination.}
-In humans, an estimated 30\% of fertilized eggs have aneuploid chromosomes\cite{Hassold2001}, and evidence suggests that meiotic errors are responsible in many cases.
-Non-disjunction, the abnormal segregation of chromosomes, can occur at either of the two cell divisions in meiosis.
-Meiosis II non-disjunction typically results from a failure of the sister chromatids to separate.
-Meiosis I non-disjunction is thought to involve recombination, either in a failure to resolve chiasmata, or a lack of chiasmata entirely.
-
-A reduced recombination rate has been observed in human genetic maps generated from viable meiosis I aneuploidies (15, 16, 18, 21, XXX, XXY)\cite{Hassold2001,Lynn2004}.
-This indicates that recombination rate must remain above a certain level to prevent non-disjunction.
-This is supported by the finding that many trisomies involve achiasmate chromosomes, in which recombination is absent in that chromosome\cite{Nagaoka2012}.
-
-This supports the idea that chiasmata, which serve to tether homolgous chromosomes together after the dissolution of the SC, and through the end of anaphase I, provide a crucial tension that serves to inhibit non-disjunction.
-Research suggests that there is a requirement of one chiasma per chromosome to prevent non-disjunction, but that there may be a backup mechanism to enable chromosomes to properly segregate even without any chiamata\cite{Fledel-Alon2009}.
 
 
 
@@ -178,11 +173,15 @@ This arrest period ends only upon ovulation, and thus meiosis can be potentially
 Additionally, while each male meiosis produces four haploid sperm products, female meiosis yields one haploid oocyte contain the majority of the cytoplasm.
 The remaining meiosis I and II division products produce polar bodies, which contain DNA but typically apoptose\cite{Schmerler2011}.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% put elsewhere
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Differences in timing of meiosis in humans versus other mammalian species.}
 Meiosis in dogs differs from that of humans in some key respects.
 Meiosis in female dogs begins later, starting in the neonatal period\cite{Freixa1987}.
 The meiotic arrest occurs at the same dictyotene stage in both species, but is shorter in dogs, given the later onset of meiosis in dogs as well as a reduced lifespan.
 In addition, while meiosis exits the arrest period prior to ovulation in humans, dogs ovulate immature, primary oocytes, which only mature to fertility 48-60 hours after ovulation\cite{Tsutsui1989,Chastant-Maillard2011}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \afterpage{
 \begin{figure}[P]
@@ -197,14 +196,30 @@ In addition, while meiosis exits the arrest period prior to ovulation in humans,
 \end{figure}
 \clearpage}
 
+
+\paragraph{Non-disjunction and the role of recombination.}
+In humans, an estimated 30\% of fertilized eggs have aneuploid chromosomes\cite{Hassold2001}, and evidence suggests that meiotic errors are responsible in many cases.
+Non-disjunction, the abnormal segregation of chromosomes, can occur at either of the two cell divisions in meiosis.
+Meiosis II non-disjunction typically results from a failure of the sister chromatids to separate.
+Meiosis I non-disjunction is thought to involve recombination, either in a failure to resolve chiasmata, or a lack of chiasmata entirely.
+
+A reduced recombination rate has been observed in human genetic maps generated from viable meiosis I aneuploidies (15, 16, 18, 21, XXX, XXY)\cite{Hassold2001,Lynn2004}.
+This indicates that recombination rate must remain above a certain level to prevent non-disjunction.
+This is supported by the finding that many trisomies involve achiasmate chromosomes, in which recombination is absent in that chromosome\cite{Nagaoka2012}.
+
+This supports the idea that chiasmata, which serve to tether homolgous chromosomes together after the dissolution of the SC, and through the end of anaphase I, provide a crucial tension that serves to inhibit non-disjunction.
+Research suggests that there is a requirement of one chiasma per chromosome to prevent non-disjunction, but that there may be a backup mechanism to enable chromosomes to properly segregate even without any chiamata\cite{Fledel-Alon2009}.
+
+Meiotic arrest of oocytes in mammals has been the subject of much discussion because it may be associated with increased aneuploidy in humans, in particularly in older mothers.  
 Several biological possibilities have been proposed to explain what happens to oocytes during meiotic arrest.
 One is the production line hypothesis, first proposed in 1968\cite{Henderson1968}, which proposes that oocytes exit meiosis and are ovulated in the order in which they enter.
 An implication of this is that an oocyte produced early in the fetal stage, which will thus exit early, must have more robust crossover connections and are less prone to aneuploidy when compared to later oocytes.
+This may explain why aneuploidy occurs more frequently in older mothers.
 Furthermore, the production line hypothesis suggests that chiasmata frequency would decrease with age in females, as the rate of aneuploidy increases.
 Several tests of the production line hypothesis have been done in mammals.
-A study in mice found support for the existence of a production line in mice\cite{Polani1991}, supporting the idea that oocytes exit meiosis in the order in which they enter.
+There is evidence to support the existence of a production line in mice\cite{Polani1991}, suggesting that oocytes exit meiosis in the order in which they enter.
 However several studies in humans contradict the assumption of a decrease in crossover count in older mothers\cite{Kong2004,Martin2015}.
-Most recently, a study in over 8,000 human oocytes found no evidence for a decrease in crossover count with age.
+Most recently, a study in over 8,000 human oocytes found no evidence for a decrease in crossover count with age\cite{Rowsey2014}.
 
 Another possibility, suggested by a study in the Icelandic population\cite{Kong2004}, is oocytes that have higher recombination rates are more likely to survive to become successful embryos.
 Since a higher rate of recombination is linked to a lower incidence of aneuploidy, it is possible that oocytes with lower crossover counts were more likely to be aneuploid.
@@ -212,7 +227,6 @@ These aneuploid oocytes would therefore be discarded somehow, by a cell cycle ch
 These could not be observed in a study looking at presumably healthy, or at least viable, offspring and would giving the impression of a recombination rate increase.
 
 %%% other possibilities? rec events during arrest period.
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,7 +268,7 @@ With each method, the detection of recombination is made difficult by the fact t
 \subsection{Pedigree analysis}
 
 Tracking the transmission of alleles from one generation to the next within known pedigrees provided the first data on recombination in early linkage studies, and pedigree analyses are still widely in use today.
-Regardless of the method used for obtaining markers, the principle of detecting recombination in a pedigree remains.
+Regardless of the method used for obtaining markers, the principle of detecting recombination in a pedigree remains similar.
 Crossovers can be identified by tracing the allele transmissions from parent to child.
 Figure \ref{fig:introPedfig} provides a simple visual example, showing a family quartet.
 The father in this pedigree has two informative SNPs producing haplotypes 1-1 and 0-0, while the mother is homozygous at both sites.
@@ -299,7 +313,7 @@ In software such as LDhat\cite{Mcvean2004,Auton2007,Auton2014}, the population-s
 $\rho = 4 N_e r$
 where $N_e$ represents the effective population size, and $r$ the per-generation recombination rate.
 These methods are quite powerful and have produced high-quality estimates of recombination in humans\cite{hapmap2007}, however, they are subject to limitations.
-First, that this method requires the knowledge of the genealogical history of a sample, which is unknown, and thus relies on simplifying approximation.
+First, this method requires the knowledge of the genealogical history of a sample, which is unknown, and thus relies on a simplifying approximation to the true genealogical structure.
 Second, these maps by their nature generate sex-averaged data only, since recombination events that are inferred have occurred over the course of potentially thousands of generations.
 
 
@@ -350,7 +364,8 @@ The researchers generated ``MeioMaps,'' providing valuable information on how me
 \subsubsection{Recombination initiation maps}
 Additional methods have been developed to identify double strand breaks within a individual cells undergoing meiotic recombination.
 \citet{Pratto2014} utilized chromatin immunoprecipitation coupled with sequencing to identify DSBs associated with the strand-exchange protein DMC1 to generate DSB maps in four unrelated human males.
-This method identifies the majority of DSBs within the meiotic cell, only a fraction of which will be resolved as crossovers that could be identified via genotyping methods, the remainder ending up as non-crossover gene conversions.
+This method identified the majority of DSBs within the meiotic cell, only a fraction of which would be resolved as crossovers that could be identified via genotyping methods.
+The remainder would be repaired as non-crossover gene conversions.
 The researchers found the DSBs cluster into hotspots, of which 51\% overlapped with the LD crossover hotspots\cite{hapmap2007}, and 80\% of DSB hotspots overlapped regions with elevated recombination rate.
 
 
@@ -363,7 +378,7 @@ Here, estimates of the genome wide map lengths, inferences on individual variati
 %% move to heterochiasmy?
 The ratio of female to male autosomal map length was estimated at 1.56, indicating that the recombination rate in females is substantially higher than males.
 This ratio has proved stable over a number of subsequent studies (summarized in Table \ref{tab:introHeterochiasmy}).
-Analysis of this this ratio as a function of chromosome position revealed that male recombination tends to be highest in the telomeres, while females had a higher ratio towards the centromeres.
+Analysis of this ratio as a function of chromosome position revealed that male recombination tends to be highest in the telomeres, while female recombination tends to be higher towards the centromeres.
 This study provided valuable insight into broad-scale sex dimorphism in recombination, and raised questions as to the extent of fine-scale differences between males and females.
 
 \subsection{deCODE maps}
@@ -371,22 +386,23 @@ Another major stride in pedigree-based genetic maps came from deCODE genetics, a
 The first was in 2002, in which 146 families, comprising 1,257 meioses, were genotyped using 5,136 microsatellite markers\cite{Kong2002}.
 This data, in conjunction with the draft sequence of the human genome\cite{Venter2001,Lander2001} was used to improve the marker order and their placement within the reference sequence.
 The genetic map generated from this study confirmed much found by \citet{Broman1998} in terms of sex dimorphism in recombination, and further characterized fine scale variation.
-One particular finding was that of recombination ``jungles,'' regions of high crossover rate that clustered towards the telomeres.
+One particular finding was the discovery of recombination ``jungles,'' which are regions of high crossover rate that are clustered towards telomeres.
 In addition, recombination rate was found to correlate with GC content, CpG motif occurrence, and tracts of poly(A)/poly(T), together explaining $\sim$37\% of variation.
 
 In 2010, using genome wide SNP data, deCODE genetics published an updated sex-specific recombination map consisting of 15,257 meioses\cite{Kong2010}.
-Instead of a typical pedigree-based recombination study, \citet{Kong2010} leverage the high degree of relatedness within the Icelandic population to infer phase and parent-of-origin in 20,217 individuals typed on microarrays assaying $>$289,000 autosomal SNPs.
-Here, phase is determined for parent-child pairs by taking into account haplotype blocks that are shared with other individuals within the population to determine the parent-of-origin for a particular block.
-Crossovers are called when a segment of a child's haplotype is inferred to move between maternal and paternal origin.
+Instead of a typical pedigree-based recombination study, \citet{Kong2010} leveraged the high degree of relatedness within the Icelandic population to infer phase and parent-of-origin in 20,217 individuals typed on microarrays assaying $>$289,000 autosomal SNPs.
+Here, phase was determined for parent-child pairs by taking into account haplotype blocks that are shared with other individuals within the population to determine the parent-of-origin for a particular block.
+Crossovers were called when a segment of a child's haplotype was inferred to move between maternal and paternal origin.
 This enables recombination be called in 15,257 parent-offspring pairs.
 %%%
-One effect of this parent-child phasing approach is that inference of recombination events near the telomeres is difficult, and \citet{Kong2010} omit the most distal 5 Mb for each chromosome.
-The omission of the telomeric regions, where male recombination is higher, contributes to the inflation of the female:male map length ratio, at 1.78 in this study, although the true value is more likely to be closer to the consensus ratio of around 1.6 (Table \ref{tab:introHeterochiasmy}).
+One effect of this parent-child phasing approach is that inference of recombination events near the telomeres was difficult, and \citet{Kong2010} omitted the most distal 5 Mb for each chromosome.
+The omission of the telomeric regions, where male recombination is higher, contributed to the inflation of the female:male map length ratio, at 1.78 in this study.
+The true value is more likely to be closer to the consensus ratio of around 1.6 (Table \ref{tab:introHeterochiasmy}).
 Since its release in 2010 the deCODE genetic map has proven quite valuable as a high quality sex-specific map of recombination in the human genome.
 
 
 \paragraph{Other pedigree studies.}
-A study in 2008 employed a pedigree analysis of individuals from Hutterites, an isolated population of European descent\cite{Coop2008}.
+A study in 2008 performed a pedigree analysis of individuals from Hutterites, an isolated population of European descent that lives in the US\cite{Coop2008}.
 This was the first study to use genome-wide high-density SNP arrays (in this case the Affymetrix GeneChip Mapping 500k array) to study recombination.
 A total of 728 meioses were analyzed, yielding valuable data regarding the overlap of crossovers and hotspots on an individual basis.
 Other pedigree studies include a map generated from 980 meioses using individuals of Korean and Mongolian descent\cite{Bleazard2013}.
@@ -398,24 +414,26 @@ Perhaps the most high-quality LD map comes from data generated from the Internat
 This map was generated using samples from both European (CEU) and African (YRI) origin, greatly improving the resolution over the Phase I map.
 The resolution of this map refined the collection of hotspots first identified by \citet{Myers2005}, and expands this set to include 32,996 within the human genome.
 This map remains in common use today, still providing the highest resolution of sex-averaged recombination rate across the human genome.
+% ethnicity differences in these maps?
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Determinants of broad-scale localization in the genome.}
+\section{Determinants of broad-scale localization of recombination in the genome.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Differences in populations (Berg2010,Berg2011,Hinch2011)
 
 \subsection{Distribution within the genome}
 
-The distribution of recombination within the genome has been shown to vary considerably between individuals, sexes, and populations.
+The distribution of recombination within the genome varies considerably between individuals, sexes, and populations.
 At the broad scale, crossovers are not distributed equally across the genome.
 The recombination rate is higher towards the telomeres\cite{Broman1998,Mcvean2004,hapmap2007}.
-This effect seems to be primarily driven by males, with crossover occurring more frequently in telomeric regions, while females have higher recombination rates closer to the centromeres\cite{Kong2002,Coop2008,Kong2010}.
+This effect seems to be primarily driven by sex.
+Crossing over in males occurs more frequently in telomeric regions, while females have higher recombination rates closer to the centromeres\cite{Kong2002,Coop2008,Kong2010}.
 
-Numerous studies in humans have found that recombination tends to be depressed within gene regions overall, with recombination high just upstream and downstream of gene regions\cite{Mcvean2004,Myers2005,hapmap2007,Spencer2006,Kong2010}.
+Numerous studies in humans have found that recombination tends to be depressed within gene regions overall, with high recombination just upstream and downstream of gene regions\cite{Mcvean2004,Myers2005,hapmap2007,Spencer2006,Kong2010}.
 When looking further away from gene regions, recombination appears to be elevated up to around around 500 kb away, then falls off after a few hundred kb more.
 Evidence for sex differences in recombination has also been suggested to occur around gene regions.
 \citet{Kong2010} found that recombination was lower within genes overall, and that
@@ -451,12 +469,12 @@ Two were associated with female recombination rate (KIAA1462, PDZK1), and the ot
 These genes are poorly characterized and their function, beyond potential meiotic roles, remains unknown.
 However, this study reinforces the suggestion that male and female recombination rate are controlled via differing genetic factors.
 
-Another study, again in the Icelandic population with an expanded number of meioses, identified a further 8 genomic regions that have separate associations with male and female rates\cite{Kong2014}.
+Another study, again in the Icelandic population with an expanded number of meioses, identified a further 8 genomic regions that have separate associations with male and female recombination rates\cite{Kong2014}.
 In the telomeric region of chromosome 4, near RNF212, one variant was found that was estimated to increase the map length by 386 cM in females, and 124 cM in males.
 Novel variants were found in an additional six genes (Table \ref{tab:introGenes}).
 
-The strongest association thus far has been with PRDM9, which was first associated with hotspot usage and variation in alleles encoding the zinc finger array\cite{Baudat2010,Berg2010}.
-\citet{Berg2011} found that variation in PRDM9 alleles greatly influences hotspot usage in African populations, who appear to have a distinct subset of hotspots\cite{Hinch2011}.
+The strongest association thus far has been with the PRDM9 protein, which was first associated with hotspot usage and variation in alleles encoding the zinc finger array\cite{Baudat2010,Berg2010}.
+\citet{Berg2011} found that DNA sequence variation in \textit{PRDM9} alleles greatly influences hotspot usage in African populations, who appear to have a distinct subset of hotspots\cite{Hinch2011}.
 Genome-wide associations with hotspot usage were replicated in the Icelandic population with strong effects\cite{Kong2010}.
 
 In non-human studies, both RNF212, and REC8, a SC-associated protein, have also been shown to associate with recombination rate in cattle\cite{Sandor2012}.
@@ -486,10 +504,10 @@ In non-human studies, both RNF212, and REC8, a SC-associated protein, have also 
 \clearpage}
 
 \paragraph{Heritability of recombination modifiers.}
-Several lines of evidence indicates that modifiers to recombination are heritable.
-The 2004 deCODE study, by analyzing siblings in large families, suggested that recombination rates were broadly heritable\cite{Kong2004}.
-The pedigree analysis of the Hutterites population by \citet{Coop2008} was the first to find extensive variation among individuals in terms of their hotspot overlap (the proportion of an individual's crossover that overlap with known hotspots).
-Furthermore, it was found that the extent of hotspots overlap was also heritable.
+Several lines of evidence indicates that modifiers of recombination are heritable.
+In the 2004 deCODE study, siblings in large families, were analyzed and data suggested that recombination rates are broadly heritable\cite{Kong2004}.
+The pedigree analysis of the Hutterites population by \citet{Coop2008} was the first to find extensive DNA sequence variation among individuals in terms of their hotspot overlap (the proportion of an individual's crossover that overlap with known hotspots).
+Furthermore, it was found that the extent that hotspots overlap is also heritable.
 Further work reinforced the heritability of hotspot usage as a phenotype, and supported the finding that both male and female recombination rates are heritable\cite{Fledel-Alon2011}.
 In addition, selection has been shown to act to retain eggs with higher recombination rates\cite{Ottolini2015}, a phenomenon previously suggested to explain the apparent increase in recombination rate in older mothers\cite{Kong2004}.
 This raises the possibility that other aspects of the recombination process may also be heritable, but further work in larger cohorts is will necessary to determine the full extent of these modifiers.
@@ -555,10 +573,10 @@ The estimation of this ratio proved to be accurate, despite the low marker cover
 This example in humans provides an illustration of heterochiasmy, the unequal distribution of recombination rates between the sexes of a species.
 Humans are among a large majority of species with data currently available in which the female recombination rate is higher than that of the male (Table \ref{tab:introHeterochiasmy}).
 
-Related to heterochiasmy is the Haldane-Huxley rule\cite{Haldane1922,Huxley1928}, which states that in organisms in which one sex has an absence of recombination (achiasmate) it is the heterogametic sex.
-Because recombination is suppressed between the sex chromosomes in heterogames, \citet{Haldane1922} hypothesized that this suppression carried over to the autosomes as well.
+Related to heterochiasmy is the Haldane-Huxley rule\cite{Haldane1922,Huxley1928}, which states that in organisms in which one sex has an absence of recombination (achiasmate) it is the heterogametic sex (the sex with differing sex chromosomes, e.g.\ XY males).
+Because recombination is suppressed between the sex chromosomes in the heterogametic sex, \citet{Haldane1922} hypothesized that this suppression carried over to the autosomes as well.
 But the Haldane-Huxley rule does not apply to species in which neither sex is achiasmate.
-There are a number of known species in which heterogametes have an equal or higher recombination rate than homogametes, and several other possibilities have been proposed.
+There are a number of known species in which the heterogametic sex has an equal or higher recombination rate than the homogametic sex (e.g.\ XX females), and several other possibilities have been proposed.
 
 One interesting explanation is that recombination is lower in the sex that undergoes stronger selection.
 % recombination is suppressed in males because there is less selective pressure to do so\cite{Trivers1988}.
@@ -591,8 +609,8 @@ In the short-tailed opossum\cite{Samollow2004},  males have twice the amount of 
 
 
 Cytological studies of meiotic cells have provided convincing evidence that the sex differences in crossover count are driven by, or parallel differing chromatin configurations across meiotic prophase.
-Using this technique, the entirely of the SC can be visualized and measured with markers to SYCP3, a transverse element protein.
-The SC has been shown to be substantially longer in females than males, translating to a correspondingly larger DNA loop size\cite{Tease2004,Gruhn2013}.
+Using molecular cytological studies, the entirely of the SC can be visualized and measured with markers to SYCP3, which is a transverse element protein.
+The SC is substantially longer in females than males, translating to a correspondingly larger DNA loop size\cite{Tease2004,Gruhn2013}.
 This relationship has been proposed to account for the differences in crossovers observed between males and females.
 Males and females have chromosomes of identical size (among the autosomes), so packaging the same amount of DNA into a smaller total SC length would naturally mean a larger loop size.
 In addition males have fewer DSBs overall, when examining markers for RAD51, which associate with DSBs, indicating that these differences occur prior to or at the onset of DSB formation\cite{Gruhn2013}.
@@ -617,7 +635,7 @@ No such effect was found in males in either study.
 A study by \citet{Hussin2011} examined in recombination in 195 maternal meioses from French-Canadian pedigrees.
 Here, the opposite effect was seen, with recombination rate found to decrease with maternal age, with a larger effect size.
 The crossover count was estimated to decrease by $-$0.49 to $-$0.42 events each year.
-Differences in the direction of the effect here may be due to real differences between populations, when considering the French-Canadian as a genetic isolate, or simply due to a lack of power with only 195 meioses.
+Differences in the direction of the effect here may be due to real differences between populations, when considering the French-Canadian population as a genetic isolate, or simply due to a lack of power with only 195 meioses.
 %%%
 Another study reported a slight decrease in crossover count with maternal age in 338 meioses, finding a decrease of $-$0.29 events per year\cite{Bleazard2013}.
 In a direct test of the production line hypothesis, \citet{Rowsey2014} examine more than 8,000 oocytes, finding no significant change in crossover count among oocytes.
@@ -655,43 +673,44 @@ Though much work has been done, both theoretical and experimental, no clear expl
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Hotspots}
+\section{Fine-scale structure of recombination placement in the genome: recombination hotspots}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Initial discovery of hotspots}
+\subsection{Initial discovery of recombination hotspots}
 
 Sperm typing produced the first set of well-characterized hotspots in humans, initially focusing within the MHC\cite{Jeffreys2000,Jeffreys2001}.
+Extensive analysis by sperm typing has indicated that hotspots can have recombination rates thousands of times that of the surrounding region and are generally just 1-2 kb in width\cite{Jeffreys2004a,Arnheim2003}.
 The correlation of hotspot locations identified by sperm typing in this regions with the breakdown of LD measurements provided support for the use of LD methods to find hotspots of recombination genome-wide, without the expense and limitations of single-cell assays\cite{Jeffreys2001}.
-Hotspots were found genome wide using LD methods\cite{Mcvean2004}, and it was in 2005 that \citet{Myers2005} produced a fine-scale recombination map in the human genome using LD methods.
-Along with this map, hotspots were found to be a ubiquitous feature of the human genome, with a set of $\sim$25,000 found, occurring roughly every 50 kb.
-The Hapmap LD map expanded the characterized set of hotspots to more than 30,000 throughout the human genome\cite{hapmap2007}.
+Using LD methods\cite{Mcvean2004}, hotspots have been identified on genome-wide scales and in 2005 \citet{Myers2005} used LD methods to produce the first fine-scale recombination map of the human genome.
+Using this map, hotspots were found to be a ubiquitous feature of the human genome, with over $\sim$25,000 hotspots identified, occurring roughly every 50 kb.
+The subsequent HapMap LD map expanded the characterized set of hotspots to more than 30,000 throughout the human genome\cite{hapmap2007}.
 These LD maps of recombination also estimated the proportion of recombination occurring within various fractions of the total genome sequence, finding that recombination was intensely concentrated, with 80\% of all recombination occupying less than 20\% of sequence.
-Extensive analysis by sperm typing has indicated that hotspots are generally 1-2 kb in width\cite{Jeffreys2004a,Arnheim2003}.
 
 
 \subsection{Discovery of PRDM9}
 
-Since hotspots were first looked at in detail, and the discovery that they were common and spread across the entire genome, questions regarding a possibly regulatory mechanism for hotspots have persisted.
-\citet{Myers2005} found that hotspots shared many common features including repeat elements THE1A/B, and a common sequence motif (CCTCCCT) located at the centers of many hotspots.
-A further family of motifs were identified via the use of the Hapmap phase 2 LD map\cite{hapmap2007}, encompassed by the degenerate 13 bp motif (CCNCCNTNNCCNC)\cite{Myers2008}, estimated to be involved in up to 40\% of all hotspots.
-Hotspots were found to be associated with increased GC content, GC increasing mutations, a likely result of the action of biased gene conversion\cite{Spencer2006}.
+Since hotspots were first identified in large numbers, questions regarding the regulatory mechanism have persisted.
+%the discovery that they were common and spread across the entire genome, 
+\citet{Myers2005} found that DNA sequences within recombination hotspots were enriched for certain DNA repeat elements such as THE1A/B, as well as a short sequence motif (CCTCCCT) located at the centers of many hotspots.
+A further family of motifs were identified via the use of the HapMap Phase 2 LD map\cite{hapmap2007}, encompassed by the degenerate 13 bp motif (CCNCCNTNNCCNC)\cite{Myers2008}, estimated to be involved in up to 40\% of all hotspots.
+Hotspots were associated with increased GC content, GC increasing mutations, a likely result of the action of biased gene conversion\cite{Spencer2006}.
 
 
 In 2010, a series of papers by three separate groups converged on the identification of PRDM9 from different approaches.
-This protein, originally called \textit{Meisetz} was discovered in mice, and is active in early meiotic prophase\cite{Hayashi2005}.
-PRDM9 contains a high polymorphic zinc finger DNA binding array, as well as a methyltransferase domain, responsible for the trimethylation of lysine 4 on histone 3 (H3K4).
-
 \citet{Myers2010} compared the sequence of the 13 bp motif against predicted binding of various zinc finger arrays in the genome, finding PRDM9 as a top candidate.
-%predicted binding sequence of the PRDM9 zinc-finger array in humans, they found that PRDM9 is a match for the 13 bp sequence motif found at the center of human hotspots.
-%Looked at the recombination rate in chimpanzees in sequence surrounding human hotspotso
 Using a mouse genetic approach, \citet{Baudat2010} focused on a locus previously determined to be involved in localization of crossover initiation\cite{Grey2009,Parvanov2009},
 and narrowed this genomic interval to a region containing the \textit{Prdm9} gene.
-A third study used fine mapping techniques in mice to narrow the region, again identifying PRDM9 as the likely candidate protein\cite{Parvanov2010}.
+A third study used linkage analysis in mice to narrow the region, again identifying PRDM9 as the likely candidate protein\cite{Parvanov2010}.
+
+PRDM9 was originally identified in mice, where is was called \textit{Meisetz}, and was shown to be active only in early meiotic prophase\cite{Hayashi2005}.
+PRDM9 (PR domain containing 9) has multiple domains.
+It contains a KRAB (Kruppel-associated box) domain, that is potentially involved in protein-protein interactions, a PR/SET domain that serves a methyltransferase function, responsible for the trimethylation of lysine 4 on histone 3 (H3K4)\cite{Hayashi2005}.
+PRDM9 also contains a high polymorphic C2H2 zinc finger array, responsible for binding to specific DNA sequences\cite{Hayashi2005}. 
 
 \subsection{PRDM9 alleles}
 
-The PRDM9 zinc finger array has tremendous variability and there are a number of alleles present.
+The PRDM9 zinc finger array has tremendous variability and there are a number of alleles present, not just in humans but also chimpanzees and other primates\cite{Schwartz2014}.
 The major alleles A and B, are both present in a high percentage of European individuals, and differ by only a single amino acid change, while the I allele encodes a longer zinc finger array\cite{Baudat2010}.
 The A and B alleles are predicted to recognize the degenerate 13-mer motif, but the I allele is not\cite{Baudat2010}.
 This effect is seen at the DSB-level as well, with PRDM9 A and B variants contributing to generate similar DSB hotspots\cite{Pratto2014}.
@@ -709,6 +728,9 @@ PRDM9$_\text{A}$ and PRDM$_\text{B}$ alleles appear to specify similar DSB hotsp
 PRDM9 heterozygosity was also found to influence hotspot strength.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% move from other species to here
+PRDM9 is a rapidly evolving gene and is under high selective pressure across a wide variety of species\cite{Oliver2009,Ponting2011}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -720,16 +742,21 @@ PRDM9 heterozygosity was also found to influence hotspot strength.
 The most direct association of recombination with disease is with aneuploidy due to meiosis I errors\cite{Hassold2001,Hassold2007}.
 Otherwise, since recombination has such a high impact on the structure of the genome, it also has the possibility to cause genomic instability if errors occur during the break and repair of DNA.
 Defects in recombination have been associated with a number of disorders caused by genomic instability.
+Errors in the repair of breaks initiated during recombination are a major cause of structural variants, leading to disease\cite{Carvalho2016}.
 Nonallelic homologous recombination (NAHR), also known as ectopic exchange results in structural genomic rearrangements and is a major cause of recombination-associated copy number alteration.
-For example, 22q11.2 deletion syndrome is believed to be caused by improper pairing and crossing over between low copy repeats (LCRs) that flank the region, causing it to be deleted in the recombinant chromosome\cite{Emanuel2008}.
-Ectopic exchange contributes to a number of other diseases associated with genomic rearrangements\cite{Stankiewicz2002,Liu2012}.
-\citet{Berg2010} reported that variation found at the PRDM9 locus contributed to genome instability.
-\citet{Pentao1992} found that rearrangements between repeat regions associate with the deletion of a 1.5 Mb region, associated with Charcot-Marie-Tooth disease type 1A (CMT1A).
-Deletion of the 7q11 region in sperm causes Williams-Beuren syndrome\cite{Turner2008}.
+This occurs in locations in the genome containing segmental duplications, also referred to as low copy repeats (LCRs).  
+These blocks of sequence evolved recently in primate evolution and are highly homologous.
+Unequal exchanges can be caused due to non-allelic recombination between different, paralogous LCRs.  
+For example, 22q11.2 deletion syndrome is believed to be caused by improper pairing and crossing over between LCR22s that flank the region, causing it to be deleted in the recombinant chromosome\cite{Emanuel2008}.
+
+Ectopic exchange contributes to a number of other similar types of genomic diseases associated with LCR-mediated rearrangements\cite{Stankiewicz2002,Liu2012}.
+For example, \citet{Pentao1992} found that rearrangements between repeat regions associate with the deletion of a 1.5 Mb region, associated with Charcot-Marie-Tooth disease type 1A (CMT1A).
+In addition, deletion of the 7q11 region in sperm causes Williams-Beuren syndrome\cite{Turner2008}.
 
 PRDM9 has also been implicated in genomic instability associated disease.
 PRDM9 hotspot motifs have been found in regions associated with disorders of genomic instability\cite{Myers2008}.
-In a sperm-typing study, non-A alleles of PRDM9 were found to be protective against the risk of rearrangements leading to CMT1A and hereditary neuropathy with liability to pressure palsies (HNPP)\cite{Berg2010}.
+\citet{Berg2010} reported that variation found at the PRDM9 locus contributed to genome instability and rearrangement.
+Using a sperm-typing approach, non-A alleles of PRDM9 were found to be protective against the risk of rearrangements leading to another LCR-mediated set of diseases on chromosome 17, which include CMT1A, and hereditary neuropathy with liability to pressure palsies (HNPP)\cite{Berg2010}.
 Here, a protective effect against genome rearrangement was seen in men homozygous for the N/N allele, with a lesser effect in heterozygous A/N individuals.
 In addition, PRDM9 has been associated with children with B-cell precursor acute lymphoblastic leukemia (B-ALL)\cite{Hussin2013}.
 Here, a rare PRDM9 allele (C) was found in a number of families, and was tied to the abnormal location of crossover events, and associated with B-ALL.
@@ -748,7 +775,7 @@ Coupled with the finding of a healthy PRDM9 knockout in humans\cite{Narasimhan20
 
 % Current status of crossover interference field.
 Crossover interference, also known as chiasma interference, is another mechanism that affects the placement on crossover events on a chromosome.
-Interference was first observed in flies in 1913\cite{Sturtevant1913}, but not formally named until 1916 when Hermann Muller coined the term:
+Interference was first observed in flies in 1913\cite{Sturtevant1913}, but not formally named until 1916 when Hermann Muller coined the term, as stated,
 \begin{quote}
     In a sense, then, the occurrence of one crossing-over interferes with the coincident occurrence of another crossing-over in the same pair of chromosomes, and I have accordingly termed this phenomenon ``\textit{interference}''.
 %\hfill Hermann J Muller, 1916\cite{Muller1916}
@@ -768,18 +795,18 @@ Crossover interference affects the linkage patterns between genes, has possible 
 \subsubsection{Crossover interference models}
 
 Several biological explanations have been proposed to account for the action of crossover interference in the genome, and are reviewed here.
-An early suggestion was that steric interference was responsible for interference.
+An early suggestion was that steric interference was responsible.
 In this case, the cluster of proteins that are necessary to facilitate resolution of the DSB would bind to the DNA, preventing further attachment at nearby sites.
-This idea was mostly discounted after cytological studies failed to observe complexes of a sufficient size to enable interference over long enough distances.
+This idea was mostly discounted after cytological studies failed to observe complexes of sufficient size to enable interference over long enough distances.
 
 Models seek to account for two key aspects governing crossover placement, crossover homeostasis, and crossover assurance.
-Crossover assurance captures the idea that as least one crossover is required per chromosome, which is thought to be required to prevent non-disjunction.
 Crossover homeostasis is somewhat related, but deals with the ratio of crossovers to non-crossovers.
+Crossover assurance captures the idea that as least one crossover is required per chromosome, which is thought to be needed to prevent non-disjunction.
 In a typical meiotic progression, multiple DSBs are created in the DNA and only a small fraction of them resolve to crossovers, with the remainder repaired as non-crossover gene conversions.
 Studies in yeast have shown that the final number of crossovers remains at the same level even when reducing the number of precursor DSBs\cite{Martini2006}.
 Thus, it appears that there is some regulatory mechanism in place to ensure at least one crossover per chromosome.
 Another implication of crossover homeostasis is that it has the potential to change the ratio of crossovers to gene conversion events.
-Since crossovers tend to be maintained at a constant level, the number of gene conversions decreases.
+Since crossovers tend to be maintained at a constant level, the number of gene conversions decreases if there are fewer DSBs.
 
 
 \paragraph{The mechanical stress model.}
@@ -972,7 +999,7 @@ Humans and chimpanzees have a complete absence of hotspot sharing, despite a hig
 Evidence points specifically to the rapidly evolving zinc finger DNA binding array to explain the lack of shared hotspots between humans and chimpanzees\cite{Myers2010}, and between a wide variety of other mammals\cite{Oliver2009,Ponting2011,Thomas2009}.
 Even within different human populations, there are substantial differences in hotspot specification and usage, driven primarily by differences in PRDM9 alleles (discussed above).
 
-PRDM9 appears to be a essential component of recombination in a large number of species, however it is not a ubiquitous feature for meiosis.
+PRDM9 appears to be an essential component of recombination in a large number of species, however it is not a ubiquitous feature for meiosis.
 PRDM9 is absent in a number of species, including birds, lizards, amphibians, dogs, and fruit flies\cite{Ponting2011,Oliver2009}.
 Intriguingly, a recent study in humans identified a healthy mother carrying a homozygous knockout of PRDM9 predicted to render the protein inactive\cite{Narasimhan2016}.
 In PRDM9 knockout mice, meiosis is not able to complete properly\cite{Brick2012}.
@@ -981,8 +1008,8 @@ In this transmission, crossovers at PRDM9 binding locations were reduced in numb
 This observation by \citet{Narasimhan2016} raises the possibility of a backup mechanism for the completion of meiosis in the absence of PRDM9 in the human genome.
 
 
-Perhaps most interesting and relevant to this thesis is recombination in dogs. % , which are interesting because of their loss of PRDM9.
-The canid family provides an interesting subject for recombination studies, since evidence exists that multiple truncating mutations occurred in canine PRDM9, rendering the gene inactive.
+Perhaps most interesting and relevant to this thesis is recombination in dogs (investigated further in Chapter \ref{ch:dogPed}). % , which are interesting because of their loss of PRDM9.
+The canid family provides an interesting subject for recombination studies, since evidence exists that multiple disrupting mutations occurred in the canine version of PRDM9, rendering the gene inactive.
 Linkage maps in dogs have been available for a number of decades\cite{Mellersh1997,Neff1999}, but
 the first sign that dog PRDM9 might be missing came with the publication of the first draft sequence of the domestic dog genome, in a boxer, in 2005\cite{Lindblad-Toh2005}.
 Since then a number of studies have looked at dogs and their close relative within the family Canidae to determine when and how PRDM9 became inactivated.
@@ -991,12 +1018,15 @@ Additional studies found multiple PRDM9 mutations in both the Island Fox and And
 This indicates that the mutations must have happened at some point after the divergence of canids from the panda, which occurred approximately 49 Mya\cite{Oliver2009,Axelsson2012}
 Despite the loss of this gene, canids are able to successfully complete meiosis and recombination and produce fertile offspring, raising questions as to the requirement of PRDM9 in meiosis.
 Evidence for hotspots has been found in dogs and these hotspots are characteristically different from those found in humans.
-Dog hotspots appear to have a lowered intensity and occupy a wider range (4-18 kb)\cite{Axelsson2012,Auton2013} when compared to humans, although care must be taken in the interpretation of these data.
+Dog hotspots appear to have a lowered intensity and occupy a wider range (4-18 kb)\cite{Axelsson2012,Auton2013} when compared to humans.
+Direct comparisons of these results between the two species must be made with care, however, as the LD approach is sensitive to population genetic parameters.
+In particular, an accurate estimate of the recombination rate depends directly on accurate measurements of the effective population size, which is well characterized in humans, but not dogs.
 Additionally, dog hotspot appear to be localized near gene promoter regions\cite{Auton2013}, a seemingly common feature of PRDM9-absent species.
 
 % A pedigree study in dogs \cite{Wong2010}...
 %Yeast has been the subject of a number of studies, due to their ease of use as a model organism and much of what we know today comes from yeast.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% live hot die young?
 Evidence suggests that, in the absence of PRDM9, hotspots continue to persist within the genome.
 Most recently, two studies of recombination were released in yeast\cite{Lam2015} and birds\cite{Singhal2015}, two species lacking PRDM9.
 These studies provided an evolutionary perspective on recombination initiation and hotspot evolution.
@@ -1103,7 +1133,7 @@ The gene conversion tract length was further estimated to be around 500 bp\cite{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Methods used here to study recombination}
-Here, I outline the methods used to study recombination in humans and dogs.
+Here, I outline the methods used to study recombination in humans (Chapters \ref{ch:cointEsc}, \ref{ch:cointExtras}) and dogs (Chapter \ref{ch:dogPed}).
 For the study of crossover, the focus is on data inferred through family pedigrees, where genome wide genotypes are available for both parents and children.
 As outlined above, crossovers can be located by comparing the genotypes within the family to determine the transmission pattern.
 This yields an interval, flanked by informative markers, within which the crossover must have occurred.
@@ -1356,7 +1386,7 @@ These methods produce genotype data in which the phase is unknown, so that mater
 Phasing is a method that classifies each of the two alleles at every SNP into haplotypes, representing the transmitted paternal and maternal chromosomes.
 This problem has been extensively studied, and a number of methods have been devised that work with varying degrees of accuracy.
 
-I use here a combination of tools to accurately determine haplotype phase and recombination events.
+For my thesis work presented in Chapter \ref{ch:dogPed}, I used a combination of tools to accurately determine haplotype phase and recombination events.
 The first, SHAPEIT\cite{Delaneau2013}, performs general phasing using a hidden Markov model.
 HMMs have been previously used in the estimation of haplotypes from genetic data, notably in the algorithm Phase\cite{Stephens2001}, which produces accurate results and has been widely used over the past decade.
 
@@ -1385,6 +1415,27 @@ Crossovers are represented as a genomic interval, bounded by informative markers
 % \subsection{Models of crossover interference}
     %Models of crossover interference (described in full in nat comm paper).
 
+\section{Rationale}
+
+Recombination is an essential component of meiosis and serves multiple functions, both to reshuffle genetic variation to generate new combination of alleles that can be acted upon by natural selection, and to serve as a physical connection between the chromosomes during meiosis, which serves to prevent non-disjunction.
+Of the subset of recombination events that are repaired as crossovers, there is tremendous variation in the placement and frequency within the genome.
+This variation in crossover properties has been shown to occur between individuals, sexes, and populations, and extends across species.
+A recent major advance was the discovery of the PRDM9 protein, which acts to funnel recombination events into concentrated regions of the genome known as hotspots.
+PRDM9 is essential to recombination in most mammals, including mice and primates and much research has focused on further characterizing its function and effects.
+Dogs, however, are the only known mammals to not use PRDM9, having lost it through mutation millions of years previous.
+This therefore makes dogs an interesting species in which to study recombination, to learn about the evolutionary effects of the loss of PRDM9.
+
+In this thesis, I will investigate and characterize differences in crossover properties between the sexes in humans (Chapters \ref{ch:cointEsc} and \ref{ch:cointExtras}), and in dogs (Chapter \ref{ch:dogPed}).
+In humans, I will present a large scale pedigree analysis, which enables the characterization of recombination properties on a fine scale.
+In addition, I will investigate how the recombination process changes with age, which has a connection to the incidence of aneuploid pregnancies that increase in older mothers.
+
+In dogs (Chapter \ref{ch:dogPed}), I will use a pedigree approach to characterize differences crossover properties between the sexes and across the genome.
+Through a comparison to human data and a study of observed differences, this will shed light on how mammalian recombination has changed in the absence of PRDM9.
+
+As much as 90\% of all DSBs that are created during the recombination process are repaired as non-crossover gene conversions, of which relatively little is known compared to crossovers.
+Current methods are limited to molecular characterization of gene conversion, which is limited to males.
+In recent years statistical methods have emerged that provide a promising framework to use for the further study of gene conversion in human population genetic data.
+In Chapter \ref{ch:geneConv}, I will generate a new statistical model for the detection of gene conversion in humans, which uses data from admixed individuals to increase the contrast to detect these events.
 
 
 
