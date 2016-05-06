@@ -1,24 +1,82 @@
 
 \beginappendixA
 
-\section{An expanded view of sex dimorphism in recombination in humans}
+\section{An expanded view of sex dimorphism in recombination in humans and dogs}
 
+I have extracted here two figures from a manuscript currently in the review stage (\citet{Bherer2016}, and attached to this appendix).
+These have relevance to the data presented in Chapter \ref{ch:dogPed}, in which recombination in dogs is compared to that of humans.
+
+
+\subsection{The concentration of recombination in the genome}
+The relationship of genetic to physical distance along a chromosome is not equal.
+While physical distance is a discrete measurement of the number and sequence of base pairs, recombination does not distribute equally along the chromosome.
+One way to quantify this is to measure the proportion of recombination occurring in various proportions of sequence.
+This analysis has been used in a number of studies in recombination in both human\cite{Myers2005,hapmap2007}, and dogs\cite{Auton2013}.
+% LD based studies in humans have estimated that recombination is highly concentrated within the genome, with 80\% of all recombination occurring in less than 20\% of the sequence\cite{hapmap2007}.
+
+The data presented within this manuscript was used to generate pedigree maps using 104,268 meioses in humans (57,930 female, 46,338 male), collecting data from multiple public sources.
+This provides the opportunity to study for the first time the concentration of recombination using sex specific pedigree data.
+Figure \ref{fig:appendix8020} shows this data.
+A previously published LD recombination map from the HapMap\cite{hapmap2007} study is shown in the black line, and represents current understanding (80\% of recombination occupying less than 20\% of sequence).
+
+In the new pedigree map built (dashed lines), recombination appears to be much less concentrated than in the HapMap study.
+In addition, the pedigree map underwent a refinement step, aimed at reducing the crossover interval size.
+Here, crossover resolution was improved using a method that narrows the intervals defining the crossover boundaries based on overlap with other events.
+Using the resulting maps (solid lines), recombination appears much more concentrated than both the unrefined pedigree map and the HapMap LD map.
 
 \afterpage{
 \begin{figure}[P]
     \begin{center}
-    \includegraphics[width=\textwidth]{appendix_cb/figs/8020plot_Bherer-maps_wAvg2.eps}
+    \includegraphics[width=\textwidth]{appendix_cb/figs/8020plot_Bherer-maps_wAvg2}
     \end{center}
     \vspace{-10pt}
     \captionTitle{\textbf{The proportion of recombination in various proportions of sequence.}}{ 
         Data is shown from multiple human sources.
         Dashed lines represent data from the unrefined maps, while data from the refined maps is shown in green, red and blue.
-        For the refined and unrefined maps, females are shown in red, males in blue, and sex-averaged maps in green.
+        For the refined and unrefined maps, females are shown in red, males in blue, and sex averaged maps in green.
         Data from the Hapmap LD-based map\cite{hapmap2007} is shown with a solid black line.
-        This figure is taken from \citet{Bherer2016}.
+        This figure is from \citet{Bherer2016} (Figure 1E).
    \label{fig:appendix8020}}
 \end{figure}
 \clearpage}
+
+The large differences in the unrefined and refined pedigree maps illustrates the sensitivity of this type of analysis, and emphasizes that care must be taken in interpretation of the results, especially in comparisons to other datasets with differing characteristics.
+In particular, it appears that the crossover interval size, which has been narrowed in the refined map, has a large effect on the estimated proportions in the plot, causing recombination to appear more concentrated.
+These observations support the conclusions from the analysis of dog recombination (Chapter \ref{ch:dogPed}) in two ways.
+First, male recombination is more concentrated in both unrefined and refined maps, mirroring the finding from the thinned human pedigree maps used in Figure \ref{fig:distrRecomb}C.
+Second, the variation in the unrefined and refined curves presented here was shown to be dependent on the crossover interval resolution.
+This provides support for the validity of the comparison of the thinned human map to the dog data, provided that the human map was thinned properly (Chapter \ref{ch:dogPed}, Figures \ref{fig:distrRecomb}C, \ref{fig:8020supp}).
+% The supports the idea that the comparison of the thinned human map to the dog data is valid, 
+%proper thinning of the human map results in a reliable comparison to the dog dataset 
+Thus, this supports the conclusion that dog recombination is more concentrated than that of humans.
+
+
+\subsection{Recombination around the transcription start site}
+
+Another finding is that dog recombination is preferentially located to gene promoter regions located just upstream of the transcription start site (TSS)\cite{Auton2013}.
+This supports the idea that recombination without PRDM9 is directed to regions of open chromatin.
+Sex specific data in dogs indicated that this effect may be male driven (Chapter \ref{ch:dogPed}, Figures \ref{fig:genomicFeatures} and \ref{fig:TSScpgSplit}), however the resolution is substantially lower than the LD based dog map.
+
+In this study, the pedigree maps were used to quantify recombination around the TSS in humans.
+Recombination in humans was previously shown to be elevated in the vicinity of the TSS and depressed in gene regions\cite{Mcvean2004,Myers2005,hapmap2007,Kong2010}.
+This study expands upon these findings, using the high resolution of the pedigree based map to show recombination rates for both males and females around the TSS.
+
+Intriguingly, the elevation of recombination around the TSS seems to be entirely driven by females, with males showing no change in rate across the 100 kb window shown in Figure \ref{fig:appendixTSS}A.
+This is in direct contrast to the result seen in dogs, where male rates appeared higher just upstream of the TSS.
+This effect was not due to position within the chromosome for either species, and the same patterns were observed when considering centromeric and telomeric regions separately.
+
+Furthermore, it appears that this elevation in human females is related to PRDM9.
+The set of genes was partitioned into two groups: those that have PRDM9 binding motifs located with 5 kb, and those without the motif.
+When excluding genes with a nearby motif, the peak in recombination is eliminated (Figure \ref{fig:appendixTSS}B).
+The peaks therefore appear due to the action of PRDM9, and not to the TSS itself.
+Again, no elevation was seen in males around genes with or without the motif.
+
+These results suggest that PRDM9 plays a role in sexual dimorphism in recombination.
+This supports results from Chapter \ref{ch:cointEsc}, in which males were found to have a higher hotspot usage than females, by 4.6\%.
+Therefore, the dimorphic action of PRDM9 may serve to further explain sex differences in recombination properties.
+In dogs, which do not have PRDM9, recombination appears to locate instead to regions of open chromatin located at gene promoter regions.
+
+% If this true, the lack of PRDM9 in dogs could partially explain the reduced ratio of female to male recombination in dogs (1.19) compared to humans (1.6).
 
 \afterpage{
 \begin{figure}[P]
@@ -32,7 +90,7 @@
         Male rates are shown in shades of blue, while female rates are shown in red shades.
         Panel A represents the entire set of genes.
         In panel B, data from each sex has been split to include or exclude genes that have the PRDM9 13 bp motif within 5 kb of the TSS.
-        This figure is taken from \citet{Bherer2016} and was generated by Claude Bh\'{e}rer.
+        This figure is from \citet{Bherer2016} (Figure 5) and was generated by Claude Bh\'{e}rer.
    \label{fig:appendixTSS}}
 \end{figure}
 \clearpage}
