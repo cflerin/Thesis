@@ -13,49 +13,90 @@ Recombination plays a key role in this process, facilitating the pairing and ali
 Double strand breaks begin the recombination process, and resolve to one of two outcomes, crossover or gene conversion.
 % Crossover is the reciprocal exchange of genetic material around the break point, while gene conversion is the uni-directional transfer of small amounts segments of DNA from one chromosome to its homologue.
 Most research  has focused on genetic crossover, which is the reciprocal exchange of genetic material between homologous chromosomes during meiosis.
-There are a number of factors that influence the placement of crossovers within the genome, and there is tremendous variability between individuals, sexes, and species.
-In this thesis, I used a number of statistical methods to gain insight into factors affecting crossover placement, and into the recombination process as a whole.
 
+There are a number of factors that influence the placement of crossovers within the genome, and there is tremendous variability between individuals, sexes, and species.
+Recombination properties differ greatly between males and females, both in frequency and in placement within the genome.
+In addition, recombination in most mammals has been shown to be preferentially located into hotspots, narrow regions within the genome.
+Hotspots are under the control of the PRDM9 protein, and much research has focused on their further characterization.
+
+
+In this introductory chapter, I will outline the history and current status of the recombination field.
+%, focusing in humans, but considering recombination across a number of other species as well.
 Much of existing research focuses on human subjects, and has a specific goal of learning more about recombination in humans.
 I have focused the majority of work within this thesis on research of recombination in humans, with the specific goal of learning more about human recombination.
-In Chapter \ref{ch:cointEsc}, I used a large set of human families to identify crossovers within the genome.
-I used this data to investigate specific properties of recombination frequency and placement and how these properties differ between sexes, individuals, and populations.
-I examined hotspot usage on an individual level, as well as how it differs between males and females, and looked for age effects on recombination within this dataset.
-I also determined how crossover interference varies between individuals, and sexes.
 
-In Chapter \ref{ch:cointExtras}, I present unpublished data that consists of an extension to Chapter \ref{ch:cointEsc}, which includes the analysis of age effects in humans.
-Additionally, I include a re-analysis of public data from single cell sperm and oocytes.
-Here, I focused on crossover interference properties, which can provide valuable information on how crossover placement varies on an individual level.
+I will review the current and historical literature that has advanced our understanding of how recombination varies in its frequency and placement within the genome.
+%Biology / molecular
+First, I will review what is known about the biology of meiotic recombination.
+This includes the cellular stages that make up meiosis I and II, and how double strand breaks are initiated and resolved. % to either crossover or gene conversion.
+%Methods: ld/pedigree
+Then I will outline a variety of methods that have been used to study recombination.
+This includes molecular methods that observe recombination in a direct fashion, as well as indirect approaches that rely on inferring crossover from genetic data from families and unrelated individuals.
 
-In Chapter \ref{ch:dogPed}, I focused on crossover patterns using a complex pedigree of inbred domestic dogs.
-Dogs, and the entire canid family, are unique among mammals because they have acquired a series of disruptive mutations within its PRDM9 ortholog, rendering this gene inactive in meiosis.
-Since this protein is essential to meiosis in some mammals, its absence raises a number of questions as to how recombination has been altered as a result.
-% Dogs provide an interesting cohort on which to study the effects of the loss of PRDM9 on the recombination landscape as a whole.
-Comparing recombination properties in dogs to those of humans will provide additional insight into recombination in other organisms, and within our own species.
-With this goal in mind, I examine aspects of crossover placement within the genome, including crossover interference, and compare these to human data.
-% This data provides valuable insight into the effects of PRDM9, which is missing in dogs, on crossover within our own species.
-% I have also included a chapter in which I analyse recombination in domestic dogs.
+%History / Maps
+% I will then review the currently available genetic maps for recombination in humans and what
+
+I will then describe what is currently known about the various factors that act together to modify properites of recombination freqeuncy and placement.
+% PRDM9
+This includes the hotspot specifying protein PRDM9, which was recently identified, and influences recombination placement in humans and other mammals.
+%Sex differences
+Another aspect is that of sex differences in recombination properties, which have been shown to vary widely between males and females on both broad and fine scales.
+% Interference
+In addition, a phenomenon called interference affects the spacing of bewteen crossover events on a chromosome.
+
+Gene conversion, the non-reciprocal transfer of genetic material between chromosomes is understudied due to the difficulty of its detection.
+Most research so far has relied on sperm typing, which does not provide any information on gene conversion in females.
+Genome wide methods focus on statistical approaches to infer gene conversion events in genetic data.
+
+%Approach
+In this thesis, I used a number of biological and statistical methods to gain insight into factors affecting crossover placement, and into the recombination process as a whole.
+I will conclude this introduction with an overview of these methods used to study both crossover and gene conversion.
+Specifically, this focuses on obtaining genotypes from family pedigrees followed by a hidden Markov model (HMM) approach to call crossovers.
+For gene conversions, I will review several previous HMMs that were used to call recombination in population genetic data.
+
+Overall, the study of recombination has advanced greatly over the past 100 years, with substantial progress made in humans following the completion of the Human Genome Project.
+Although a number of advances have been made in recent years, our current understanding of the recombination process is incomplete.
+The research presented within this thesis provides an expanded picture of the recombination landscape as a whole.
 
 
-In Chapter \ref{ch:geneConv}, I focus on gene conversion, an alternate outcome of recombination, in which small segments of DNA are transferred in one direction from one chromosome to its homologue.
-Gene conversion (or non-crossover) is the non-reciprocal transfer of genetic information that is limited to smaller intervals.
-I examined current methods for crossover and gene conversion detection, and based on this I propose a new model to detect gene conversion events using admixed population genetic data.
 
-In general, this thesis can be divided into two main sections, each focusing on one of the two outcomes of recombination: crossover and gene conversion.
-In part one (Chapters \ref{ch:cointEsc}, \ref{ch:cointExtras}, and \ref{ch:dogPed}), I focus on crossover, using a pedigree approach to study recombination in humans and dogs.
-Part two (Chapter \ref{ch:geneConv}) focuses on a statistical model for the detection of gene conversion events.
-% Overall, 
-These two aspects come together to provide an expanded picture of the recombination landscape as a whole.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% In Chapter \ref{ch:cointEsc}, I used a large set of human families to identify crossovers within the genome.
+% I used this data to investigate specific properties of recombination frequency and placement and how these properties differ between sexes, individuals, and populations.
+% I examined hotspot usage on an individual level, as well as how it differs between males and females, and looked for age effects on recombination within this dataset.
+% I also determined how crossover interference varies between individuals, and sexes.
+% 
+% In Chapter \ref{ch:cointExtras}, I present unpublished data that consists of an extension to Chapter \ref{ch:cointEsc}, which includes the analysis of age effects in humans.
+% Additionally, I include a re-analysis of public data from single cell sperm and oocytes.
+% Here, I focused on crossover interference properties, which can provide valuable information on how crossover placement varies on an individual level.
+% 
+% In Chapter \ref{ch:dogPed}, I focused on crossover patterns using a complex pedigree of inbred domestic dogs.
+% Dogs, and the entire canid family, are unique among mammals because they have acquired a series of disruptive mutations within its PRDM9 ortholog, rendering this gene inactive in meiosis.
+% Since this protein is essential to meiosis in some mammals, its absence raises a number of questions as to how recombination has been altered as a result.
+% % Dogs provide an interesting cohort on which to study the effects of the loss of PRDM9 on the recombination landscape as a whole.
+% Comparing recombination properties in dogs to those of humans will provide additional insight into recombination in other organisms, and within our own species.
+% With this goal in mind, I examine aspects of crossover placement within the genome, including crossover interference, and compare these to human data.
+% % This data provides valuable insight into the effects of PRDM9, which is missing in dogs, on crossover within our own species.
+% % I have also included a chapter in which I analyse recombination in domestic dogs.
+% 
+% 
+% In Chapter \ref{ch:geneConv}, I focus on gene conversion, an alternate outcome of recombination, in which small segments of DNA are transferred in one direction from one chromosome to its homologue.
+% Gene conversion (or non-crossover) is the non-reciprocal transfer of genetic information that is limited to smaller intervals.
+% I examined current methods for crossover and gene conversion detection, and based on this I propose a new model to detect gene conversion events using admixed population genetic data.
+% 
+% In general, this thesis can be divided into two main sections, each focusing on one of the two outcomes of recombination: crossover and gene conversion.
+% In part one (Chapters \ref{ch:cointEsc}, \ref{ch:cointExtras}, and \ref{ch:dogPed}), I focus on crossover, using a pedigree approach to study recombination in humans and dogs.
+% Part two (Chapter \ref{ch:geneConv}) focuses on a statistical model for the detection of gene conversion events.
+% % Overall, 
+% These two aspects come together to provide an expanded picture of the recombination landscape as a whole.
+% 
+% 
 
 
-% % Hypothesis / goal of this thesis.
-% \begin{titemize}
-%         %\item To examine how the absence of PRDM9 has affected the recombination landscape in dogs.
-%     \item To examine how crossover interference varies between individuals and across species.
-%     \item To further investigate possibilities to model gene conversion in the human genome.
-% \end{titemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

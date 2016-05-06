@@ -207,33 +207,46 @@ Recombination during meiosis is an essential process to the generation of gamete
 It acts to shuffle genetic variation within the genome, generating new combination of alleles that can be subject to natural selection.
 Failures of the chromosomes to synapse and recombine can result in aneuploidy, while improper repair of double strand breaks can cause chromosome rearrangements, both of which are highly deleterious.
 
-Recombination has been studied with a wide variety of approaches, including molecular methods such as sperm typing, and inferential methods, such as linkage disequilibrium modeling and pedigree analysis.
-Most research to date has focused on crossover, the reciprocal exchange of genetic material between homologous chromosomes.
-Crossovers vary widely in frequency and placement within the genome as well as between individuals, sexes, and populations, and different species.
+In humans and other mammals, recombination has been studied using a wide variety of approaches, including molecular methods such as sperm typing, and inferential methods, such as linkage disequilibrium modeling and pedigree analysis.
+Recombination has two outcomes: crossover and gene conversion.
+In crossover, there is an equal exchange of genetic material between homologous chromosomes, while gene conversion is the non-reciprocal transfer of genetic information between homologues that is limited to smaller intervals.
+Most research has focused on crossover, since identifying gene conversion events can be methodologically challenging.
+Crossovers vary widely in frequency and placement within the genome as well as between individuals, sexes, populations, and species.
 Multiple factors affect the placement of crossovers within the genome, including the PRDM9 protein, which has been shown to localize crossovers to concentrated areas of recombination known as hotspots.
 In addition, crossover interference acts to inhibit crossovers in close proximity.
-It has also been suggested that recombination properties could change with age.
+It has been suggested that these recombination properties change with age, which might lead to chromosomal aneuploidy.
 
-In humans, I present a pedigree analysis with data on over 18,000 meioses in males and females.
-Using this data, I further characterize sex differences in human recombination, and create a sex-specific map of recombination in the human genome.
-This results reinforce previous work showing that females have a higher recombination rate than males, by a ratio of 1.6 in the autosomes, and that male recombination tends to be focused towards the telomeres.
+% chapter 2
+% Despite the importance of recombination, it is a relatively rare process, with only a few dozen recombination events expected to occur within a given meiosis. In order to better understand recombination in humans I have employed statistical methods to identify sex specific differences in recombination.
+In Chapter \ref{ch:cointEsc}, I performed a pedigree analysis using data derived from over 18,000 meioses.
+Using this data, I characterized sex differences in human recombination, and created sex-specific maps of recombination in the human genome.
+These results extend previous work showing that females have a higher recombination rate than males, by a ratio of 1.6 in the autosomes, and that male recombination tends to be focused towards the telomeres.
 In addition, I find that males and females have a difference in the proportion of crossovers that overlap known hotspots, with males having 4.6\% higher hotspot overlap.
 Finally, I measure crossover interference, which affects the spatial positioning of crossovers.
 I find that in older mothers there is a steep increase in crossovers that escape regulation by interference, and appear closely spaced, pointing to a possible deregulation of recombination that increases with age in females.
 
-Additionally, I analyze crossovers in an inbred domestic dog pedigree, consisting of 408 meioses.
-Dogs are unique in that PRDM9 in this species has accumulated mutations, rendering it inactive, and raising question as to how crossovers are placed without this regulatory mechanism.
-Using this data to analyze sex differences in dogs, I find that females have a higher recombination rate than males, a ratio of 1.2 within the autosomes, and that male recombination in dogs strongly prefers the telomeric regions.
-I find that, despite the absence of PRDM9, dog recombination appears to be more concentrated to a smaller proportion of sequence when compared to humans.
+
+In Chapter \ref{ch:cointExtras}, I present unpublished data, an extension to Chapter \ref{ch:cointEsc}, which confirms the age effects using samples from older individuals.
+Additionally, I include a re-analysis of public data from single cell sperm and oocytes, showing the interference varies widely on an individual basis.
+
+In Chapter \ref{ch:dogPed}, I focused on crossover patterns using a complex pedigree of inbred domestic dogs, consisting of 408 meioses.
+Dogs are unique in that their PRDM9 orthlog has accumulated mutations, rendering it inactive, and raising question as to how crossovers are placed without this regulatory mechanism.
+I found that female dogs have a higher recombination rate than males but to a lesser extent than humans.
+% , a ratio of 1.2 within the autosomes, and that 
+As in humans, male recombination in dogs strongly prefers the telomeric regions.
+Despite the absence of PRDM9, dog recombination appears to be more concentrated to a smaller proportion of sequence when compared to humans, suggesting the existence of hotspots.
 Finally, I show evidence for positive crossover interference acting in the dog genome with a similar mechanism to what has been seen in humans.
 
-An alternate outcome of recombination is non-crossover, also known as gene conversion, the uni-directional transfer of small amounts of genetic material that occurs during the repair of double strand breaks in meiosis.
-Gene conversion can result in non-Mendelian transmission by converting an allele on the homologous receptor chromosome to that of the donor without reciprocal exchange, and plays an important role in shaping patterns of linkage disequilibrium throughout the genome.
-Here, I develop a hidden Markov model to detect gene conversion events in admixed population genetic data.
+In Chapter \ref{ch:geneConv}, I examined gene conversion, using a new method that I developed.
+In this chapter, I developed a novel computational approach using a hidden Markov model to detect gene conversion events in admixed population genetic data.
 The model uses two divergent ancestral reference populations in order to predict the location of gene conversion events on an admixed haplotype.
-Simulation results show that the model can plausibly be used to detect gene conversion, however the complexity is high, with a large number of states at each site.
+Simulation results show that the model can plausibly be used to detect gene conversion.
+% , however the complexity is high, with a large number of states at each site.
 
-Overall, I have provided further evidence for sexual dimorphism in crossover placement and frequency within the human and dog genomes. Additionally, I have demonstrated the effects of the loss of PRDM9 on the recombination landscape in dogs, and through comparison to humans, gained additional information on recombination in both species.
+Overall, I have performed three separate but interrelated studies of recombination that expand on existing studies.
+First, my work expands on the current knowledge of recombination variation and provides evidence for sexual dimorphism in crossover placement and frequency.
+Second, my work has further investigated the effects of the loss of PRDM9 on the recombination landscape in dogs, and through comparison to humans, provided insight into recombination in both species.
+Finally, I developed a novel computational approach for investigating gene conversion, in order to enable further understanding of the properties of genetic recombination.
 
 
 
