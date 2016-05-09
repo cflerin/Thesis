@@ -10,43 +10,53 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Meiosis occurs in all sexually reproducing organisms, and is essential to gametogenesis.
 Recombination plays a key role in this process, facilitating the pairing and alignment of chromosomes, while the exchange of genetic material has important implications in inheritance, natural selection, and evolution.
-Double strand breaks begin the recombination process, and resolve to one of two outcomes, crossover or gene conversion.
+Double strand breaks begin the recombination process, and resolve to one of two outcomes, crossover or gene conversion (outlined in Figure \ref{fig:introOutcomes}).
 % Crossover is the reciprocal exchange of genetic material around the break point, while gene conversion is the uni-directional transfer of small amounts segments of DNA from one chromosome to its homologue.
 Most research  has focused on genetic crossover, which is the reciprocal exchange of genetic material between homologous chromosomes during meiosis.
 
 There are a number of factors that influence the placement of crossovers within the genome, and there is tremendous variability between individuals, sexes, and species.
 Recombination properties differ greatly between males and females, both in frequency and in placement within the genome.
-In addition, recombination in most mammals has been shown to be preferentially located into hotspots, narrow regions within the genome.
-Hotspots are under the control of the PRDM9 protein, and much research has focused on their further characterization.
+% In addition, recombination in most mammals has been shown to be preferentially located into hotspots, narrow regions within the genome.
+% Hotspots are under the control of the PRDM9 protein, and much research has focused on their further characterization.
+%
+In this introductory chapter, I will review historical literature that has advanced our understanding of recombination, building up to the current knowledge of how recombination is affected by these recombination modifying factors.
+Much of existing research focuses on human subjects, and I have focused the majority of work within this thesis on the research of recombination in humans, with the specific goal of learning more about human recombination.
+I have focused on research in humans, but consider recombination across a number of other species as well.
 
-
-In this introductory chapter, I will outline the history and current status of the recombination field.
-%, focusing in humans, but considering recombination across a number of other species as well.
-Much of existing research focuses on human subjects, and has a specific goal of learning more about recombination in humans.
-I have focused the majority of work within this thesis on research of recombination in humans, with the specific goal of learning more about human recombination.
-
-I will review the current and historical literature that has advanced our understanding of how recombination varies in its frequency and placement within the genome.
+% I will review the current and historical literature that has advanced our understanding of how recombination varies in its frequency and placement within the genome.
 %Biology / molecular
 First, I will review what is known about the biology of meiotic recombination.
 This includes the cellular stages that make up meiosis I and II, and how double strand breaks are initiated and resolved. % to either crossover or gene conversion.
 %Methods: ld/pedigree
 Then I will outline a variety of methods that have been used to study recombination.
 This includes molecular methods that observe recombination in a direct fashion, as well as indirect approaches that rely on inferring crossover from genetic data from families and unrelated individuals.
-
 %History / Maps
-% I will then review the currently available genetic maps for recombination in humans and what
 
 I will then describe what is currently known about the various factors that act together to modify properites of recombination freqeuncy and placement.
 % PRDM9
 This includes the hotspot specifying protein PRDM9, which was recently identified, and influences recombination placement in humans and other mammals.
 %Sex differences
-Another aspect is that of sex differences in recombination properties, which have been shown to vary widely between males and females on both broad and fine scales.
+Another important modifier of recombination is sex, and males and females have been shown to vary widely in their recombination properties on both broad and fine scales.
 % Interference
 In addition, a phenomenon called interference affects the spacing of bewteen crossover events on a chromosome.
 
+\afterpage{
+\begin{figure}[P]
+    \begin{center}
+    \includegraphics[width=\textwidth]{introduction/figs/outcome_CO-GC}
+    \end{center}
+    \vspace{-10pt}
+    \captionTitle{\textbf{Recombination produces crossover and gene conversion.}}{ 
+        Recombination is initiated by DNA double strand breaks that resolve into one of two possible outcomes.
+        Crossover (shown at right) is the large-scale, reciprocal exchange of genetic material between two chromosomes around the break point.
+        Gene conversion (or non-crossover, shown at left) is the one-way transfer of small amounts of DNA from one chromosome to the other during the repair of the break.
+   \label{fig:introOutcomes}}
+\end{figure}
+\clearpage}
+
 Gene conversion, the non-reciprocal transfer of genetic material between chromosomes is understudied due to the difficulty of its detection.
 Most research so far has relied on sperm typing, which does not provide any information on gene conversion in females.
-Genome wide methods focus on statistical approaches to infer gene conversion events in genetic data.
+I will review these, as well as genome wide methods that focus on statistical approaches to infer gene conversion events in genetic data.
 
 %Approach
 In this thesis, I used a number of biological and statistical methods to gain insight into factors affecting crossover placement, and into the recombination process as a whole.
@@ -104,20 +114,26 @@ The research presented within this thesis provides an expanded picture of the re
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \afterpage{
 \begin{figure}[P]
     \begin{center}
-    \includegraphics[width=\textwidth]{introduction/figs/outcome_CO-GC}
+    \includegraphics[width=\textwidth]{introduction/figs/prophaseI.png}
     \end{center}
     \vspace{-10pt}
-    \captionTitle{\textbf{Recombination produces crossover and gene conversion.}}{ 
-        Recombination is initiated by DNA double strand breaks that resolve into one of two possible outcomes.
-        Crossover (shown at right) is the large-scale, reciprocal exchange of genetic material between two chromosomes around the break point.
-        Gene conversion (or non-crossover, shown at left) is the one-way transfer of small amounts of DNA from one chromosome to the other during the repair of the break.
-   \label{fig:introOutcomes}}
+    \captionTitle{\textbf{The stages of prophase I in meiosis.}}{ 
+        The top panel shows an overview of the five stages of prophase I, progressing from left to right.
+        One pair of sister chromatids is shown in shades of red, and represents genetic material inherited from one parent.
+        A second pair of sister chromatids, inherited from the other parent, is shown in shades of blue.
+        %and is homologous to the second pair of sister chromatids, shown in shades of blue.
+        The pairs of sister chromatids are homologous to each other and this homology aids in pairing and synapsis.
+        The bottom panel shows the progression of the assembly and disassembly of the synaptonemal complex (SC), corresponding with the stages in the top panel.
+        A recombination event is shown in the pachytene stage, mediated within the central region of the SC.
+        The axial element forms the backbone of the SC (shown in green) and binds to DNA that is tightly packaged into large chromatin loops.
+        Modified from \citet{Yang2009} and \citet{DeBoer2006}.
+   \label{fig:introProphaseI}}
 \end{figure}
 \clearpage}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,7 +146,7 @@ Meiosis consists of two stages; recombination occurs in the first stage, referre
 Meiosis I is the most complex and lengthy stage, with chromosome pairing, synapsis, and recombination all occurring in succession within prophase I, which is  divided into several sub-stages.
 Meiosis II is similar to mitotic divisions and results in separation of chromosomes to haploid daughter cells.
 
-Prophase of meiosis I has several stages which have been given individual names, shown in Figure X(*).
+Prophase of meiosis I has several stages which have been given individual names, shown in Figure \ref{fig:introProphaseI}.
 The stages are leptotene, zygotene, pachytene, diplotene, and diakinesis.
 In the first step, leptotene (derived from Greek meaning ``thin threads''), changes in chromatin cause the newly replicated chromosomes to form thin individual strands.
 Here, the synaptonemal complex (SC), a protein structure that will bind the sister chromatids and their homologues into a tetrad begins to assemble.
@@ -1078,7 +1094,7 @@ the first sign that dog PRDM9 might be missing came with the publication of the 
 Since then a number of studies have looked at dogs and their close relative within the family Canidae to determine when and how PRDM9 became inactivated.
 PRDM9 was found to be disrupted in the closest relative of dogs, wolves, as well as coyotes\cite{Munoz-Fuentes2011}, revealing that inactivation was not a result of domestication, or a limited event.
 Additional studies found multiple PRDM9 mutations in both the Island Fox and Andean Fox\cite{Auton2013}, but not the cat and panda\cite{Axelsson2012}.
-This indicates that the mutations must have happened at some point after the divergence of canids from the panda, which occurred approximately 49 Mya\cite{Oliver2009,Axelsson2012}
+This indicates that the mutations must have happened at some point after the divergence of canids from the panda, which occurred approximately 49 Mya\cite{Oliver2009,Axelsson2012}.
 Despite the loss of this gene, canids are able to successfully complete meiosis and recombination and produce fertile offspring, raising questions as to the requirement of PRDM9 in meiosis.
 Evidence for hotspots has been found in dogs and these hotspots are characteristically different from those found in humans.
 Dog hotspots appear to have a lowered intensity and occupy a wider range (4-18 kb)\cite{Axelsson2012,Auton2013} when compared to humans.
@@ -1492,6 +1508,8 @@ Crossovers are represented as a genomic interval, bounded by informative markers
 \section{Rationale}
 
 Recombination is an essential component of meiosis and serves multiple functions, both to reshuffle genetic variation to generate new combination of alleles that can be acted upon by natural selection, and to serve as a physical connection between the chromosomes during meiosis, which serves to prevent non-disjunction.
+Both crossover and gene conversion are important in shaping the LD structure of the genome, which affects inheritance.
+Additionally recombination has an important role in genome wide associations studies (GWAS), which often genotype a subset of variation within the genome, and rely on linked SNPs to infer associations.
 Of the subset of recombination events that are repaired as crossovers, there is tremendous variation in the placement and frequency within the genome.
 This variation in crossover properties has been shown to occur between individuals, sexes, and populations, and extends across species.
 A recent major advance was the discovery of the PRDM9 protein, which acts to funnel recombination events into concentrated regions of the genome known as hotspots.
