@@ -8,34 +8,39 @@
 % \setlength{\parskip}{0pt}
 % \setlength{\parindent}{1.5em}
 
-Crossing over during meiotic recombination is not a random process but a carefully orchestrated sequence of events, with many factors controlling the placement, frequency, and spacing of events.
-Crossover properties have been shown to vary widely between individuals, sexes and populations.
+Crossing over during meiotic recombination is not a random process but a carefully orchestrated sequence of events, with many factors controlling the placement, frequency, and spacing of recombination.
+While the crossover properties appear to be under evolutionary constraints, few (if any) of the features of crossover appear to be fixed, with many crossover properties having been shown to vary widely between individuals, sexes and populations.
 
-One well characterized example is that of hotspot usage.
+One well characterized example of variation is that of recombination hotspot usage.
 Crossovers have been shown to cluster into hotspots of recombination\cite{Myers2005,hapmap2007}, and the placement of these events has been shown to be under the control of the PRDM9 protein\cite{Baudat2010,Myers2010,Parvanov2010}.
-When looking at crossovers on an individual level, the overlap with known hotspots varies widely\cite{Coop2008}.
-Furthermore, much of hotspot overlap is dependent on which particular PRDM9 allele an individual carries, which can vary widely between populations\cite{Baudat2010,Hinch2011}.
+However, when looking at the location of crossovers derived from specific meioses, the overlap with known hotspot locations varies widely\cite{Coop2008}.
+The degree to which a set of crossovers overlaps with a set of known hotspots is largely dependent on which particular PRDM9 allele an individual carries.
+As over 35 distinct PRDM9 human alleles have been identified to date, the degree of hotspots usage can vary widely between individuals and populations\cite{Baudat2010,Hinch2011}.
 
-Much of the current methods for studying meiotic recombination are based on pedigree studies, which infer the locations of crossover events through indirect measurements from transmitted meiotic products.
+Many of the current methods for studying meiotic recombination are based on pedigree studies, which infer the locations of crossover events through indirect measurements from transmitted meiotic products.
 While these studies provide high-quality genome-wide data on recombination, they are limited by a requirement for large sample sizes.
-Furthermore, while they do provide data on an individual level, the number of crossover products from a single meiosis is limited to 20-60\cite{Lynn2004,Coop2008}, and much of the value comes from considering crossovers on a group basis.
-Even in the case where multiple children are born within the same family, the number of crossovers that can be obtained per individual parent is limited to a few hundred at most.
+Furthermore, while such studies do provide data on a per-individual basis, the crossover products from a single meiosis generally number no more than 20-60\cite{Lynn2004,Coop2008}.
+As such, much of the value from pedigree studies is derived from combining data over a number of distinct meioses.
+Even in the case where multiple children are born within the same family, the number of crossovers that can be obtained per individual parent is perhaps a few hundred at most.
 
-This limitation has left unanswered the question of how recombination varies within a single individual.
-Most studies so far have relied on sperm typing methods, which are powerful but labor intensive and restricted to targeted regions of the genome\cite{Jeffreys2004}.
-A recent series of analyses has used single cell sequencing approaches to identify crossover events in sperm\cite{Wang2012,Lu2012} and oocytes\cite{Hou2013}, providing data on multiple recombination products from single individuals.
-This data has the potential to reveal information on recombination variance on an individual level that is not available through pedigree studies.
+These limitation have left unanswered questions regarding recombination how varies within a single individual.
+To address such questions, researchers have generally relied on sperm typing methods, which are powerful but labor intensive and restricted to targeted regions of the genome\cite{Jeffreys2004}.
+A recent series of analyses has used single cell sequencing approaches to identify crossover events in sperm\cite{Wang2012,Lu2012} and oocytes\cite{Hou2013}, and were therefore able to observe multiple recombination products from single individuals.
+These data have the potential to reveal information on recombination variance on an individual level that cannot be achieved through human pedigree studies.
 
-Another outstanding question is that of the effects of age on properties of crossover regulation.
-A number of studies have provided evidence that the crossover frequency increases with age in females\cite{Kong2004,Martin2015}, but there are conflicting studies that report the opposite\cite{Bleazard2013,Hussin2011}.
+Nonetheless, it is clear that recombination is a dynamic process, even over the lifetime of a single individual.
+Specifically, there are a number of outstanding questions regarding how the properties of recombination vary as an organism ages.
+In humans, a number of studies have provided evidence that the crossover frequency increases with age in females\cite{Kong2004,Martin2015}, but there are conflicting studies that report the opposite\cite{Bleazard2013,Hussin2011}.
 
-In addition to these, a recent study, described in Chapter \ref{ch:cointEsc} of this thesis, reported on an age effect on crossover interference.
-Crossover interference governs the spacing of events between crossovers within the same meiosis, and acts to space events further apart than expected by chance.
-Crossover interference has been shown to act in humans\cite{Broman2000,Housworth2003} in a model that assumes two classes of crossovers.
-In this model interfering crossovers, which are spaced further apart than expected, coexist with those that ``escape'' the interference effect, and appear to be space closer together.
-In this study, older mothers were shown to have a higher proportion of crossovers that escape crossover interference and this proportion increases linearly with maternal age\cite{Campbell2015}.
+In addition, in a recent study, presented in Chapter \ref{ch:cointEsc} of this thesis, we reported on an age-based effect relating to crossover interference.
+Crossover interference governs the spacing of events between crossovers within the same meiosis, and acts to space events further apart than would be expected by chance.
+Crossover interference appears to be well explained by a model that assumes two classes of crossovers\cite{Broman2000,Housworth2003}.
+Specifically, this model implies two classes of crossovers.
+The main type of crossover are spaced further apart than expected under a simple crossover model.
+However, these appear to coexist with those that ``escape'' the interference effect, and therefore appear to be spaced closer together.
+In our study, which was one of the largest pedigree-based studies of human recombination, older mothers were shown to have a higher proportion of crossovers that escape crossover interference and this proportion appears to increase linearly with maternal age\cite{Campbell2015}.
 The escaping crossovers appear to bypass the regulatory effect of crossover interference.
-However, beyond this study, no other reports give any clues to changing interference properties with age in humans.
+However, beyond this study, no other reports have given any clues to changing interference properties with age in humans.
 
 Here, we present an analysis of crossover interference using single cell data from a number of previously published studies, which used alternate methods to study interference.
 In addition, we re-analyze pedigree data obtained through our collaboration with 23andMe, but using an additional set of older parents that were not present in the original report.
@@ -80,7 +85,7 @@ Crossover interference was modeled according to the two pathway model, also know
 In this model, two types of crossovers exist together in a mixture model.
 The distance between interfering crossovers are modeled according to a gamma distribution, with shape $\nu$ and rate 2$\nu$.
 Non-interfering crossovers follow a similar distribution of inter-event distances, but with $\nu=$1, representing no interference, or a random placement of events.
-A second parameter, $p$ represents the proportion of these non-interfering crossovers within the mixture.
+A second parameter, p, represents the proportion of these non-interfering crossovers within the mixture.
 To estimate these interference parameters in this data we used a MATLAB software package (\url{https://github.com/auton1/interference}) previously described (Chapter \ref{ch:cointEsc}, and \citet{Campbell2015}).
 
 
@@ -98,9 +103,30 @@ We estimated crossover interference parameters using the gamma-escape model of i
 In order to investigate age effects on crossover interference, we previously divided the data into 10 bins by quantile on the basis of age.
 Here, we added an additional bin containing all age-masked individuals.
 We observed a linear increase in the number of events escaping interference with increased maternal age, rising from 5.8\% in mothers under 25 to 8.2\% in mothers in the 35-40 age bin.
-Estimates from mothers in the masked group showed a further increase, with 8.8\% of escaping events (Figure \ref{fig:extrasCointAge}).
-No change with age was seen in strength parameter estimates for mothers, or for either parameter in males.
+Comfirming the expectation from the published analysis, estimates from mothers in the masked group showed a further increase in the proportion of escaping events, with 8.8\% of events estimated to be interference escapers (Figure \ref{fig:extrasCointAge}).
+Again confirming the expectation of the published data, no change with age was seen in strength parameter estimates for females, or for either parameter in males.
 
+
+\subsection{Crossover interference within individuals}
+We next estimated parameters of crossover interference using previously published data from human sperm and oocytes.
+In sperm, we use data from two different studies, one with 99 sperm cells obtained from an Asian male\cite{Lu2012}, and another using 91 sperm cells from a Caucasian male\cite{Wang2012}.
+From a study in oocytes, we obtain data from 8 individual Asian females\cite{Hou2013}.
+
+Using this data, we estimate interference parameters under the gamma-escape model on an individual basis, and compare to group-level estimates from the 23andMe dataset\cite{Campbell2015}.
+Using all available data from the oocyte study, we pool data from the FPN, PB1, PB2 for a single individual.
+All available sperm data is pooled for each individual.
+Parameter estimates for the gamma escape model are shown in Figure \ref{fig:extrasCointSingle}.
+Among female individuals, there is large amount of variation in the estimates for the interference strength parameters.
+Most of the single cell female samples overlap with the grouped estimates from the 23andMe study ($\nu=$ 7.13, 95\% confidence interval (CI) 6.95--7.33).
+Two samples have estimates outside this range, with sample S02 lower ($\nu=$ 5.19, 95\% CI 4.40--6.40), and sample S03 higher ($\nu=$ 11.12, 95\% CI 9.27--14.87) that the 95\% confidence intervals from 23andMe females.
+In the two male sperm samples, the strength estimates are again similar to that of the 23andMe male estimates.
+However both sperm estimates have larger confidence intervals, and slightly higher point estimates of interference strength.
+
+When comparing the escape parameter, the female individuals had estimates that were notably lower than the 23andMe samples, in which the escape estimate, p, was 0.071, 95\% CI 0.067--0.075.
+Two samples, S02 and S04, had escape estimates that were 0 or whose confidence intervals did not exclude 0, indicating a very low degree of escape in these individuals.
+Two individuals, S03 and S07, had estimates that overlapped with those from 23andMe females, with the remaining samples having estimates of 1--3\%.
+In contrast, the male sperm samples both overlapped with the 23andMe male estimates, which have escape estimates of p$=$ 0.059, 95\% CI 0.054--0.064.
+However the confidence intervals were substantially wider than the group estimates, potentially owing to the smaller sample sizes.
 
 \afterpage{
 \begin{figure}[p]
@@ -113,9 +139,6 @@ No change with age was seen in strength parameter estimates for mothers, or for 
     \label{fig:extrasAgeHist}}
 \end{figure}
 \clearpage}
-
-% \subsection{Crossover interference}
-
 
 \afterpage{
 \begin{figure}[p]
@@ -130,26 +153,6 @@ No change with age was seen in strength parameter estimates for mothers, or for 
 \end{figure}
 \clearpage}
 
-\subsection{Crossover interference within individuals}
-We next estimated parameters of crossover interference using previously published data from human sperm and oocytes.
-In sperm, we use data from two different studies, one with 99 sperm cells obtained from an Asian male\cite{Lu2012}, and another using 91 sperm cells from a Caucasian male\cite{Wang2012}.
-From a study in oocytes, we obtain data from 8 individual Asian females\cite{Hou2013}.
-
-Using this data, we estimate interference parameters under the gamma-escape model on an individual basis, and compare to group-level estimates from the 23andMe dataset\cite{Campbell2015}.
-Using all available data from the oocyte study, we pool data from the FPN, PB1, PB2 for a single individual.
-All available sperm data is pooled for each individual.
-Parameter estimates for the gamma escape model are shown in Figure \ref{fig:extrasCointSingle}.
-Among female individuals, there is large amount of variation in the estimates for the interference strength parameters.
-Most of the single cell female samples overlap with the grouped estimates from the 23andMe study ($\nu=$ 7.13, 95\% confidence interval (CI) 6.95--7.33).
-However, two samples have estimates outside this range, with sample S02 lower ($\nu=$ 5.19, 95\% CI 4.40--6.40), and sample S03 higher ($\nu=$ 11.12, 95\% CI 9.27--14.87) that the 95\% confidence intervals from 23andMe females.
-In the two male sperm samples, the strength estimates are again similar to that of the 23andMe male estimates.
-However both sperm estimates have larger error bars, and slightly higher point estimates of interference strength.
-
-When comparing the escape parameter, the female individuals had estimates that were notably lower than the 23andMe samples ($p=$ 0.071, 95\% CI 0.067--0.075).
-Two samples, S02 and S04, had escape estimates that were 0 or whose confidence intervals did not exclude 0, indicating a very low degree of escape in these individuals.
-Only two individuals, S03 and S07, had estimates that overlapped with those from 23andMe females, with the remaining samples having estimates of 1--3\%.
-In contrast, the male sperm samples both overlapped with the 23andMe male estimates ($p=$ 0.059, 95\% CI 0.054--0.064).
-However the confidence intervals were substantially wider than the group estimates, potentially owing to the lower sample sizes.
 
 
 \afterpage{
@@ -160,9 +163,8 @@ However the confidence intervals were substantially wider than the group estimat
         Interference parameter estimates are shown for the gamma escape model.
         The strength parameter is shown in panel A, and the escape parameter in panel B.
         Data points for females (red) represent data data generated by \citet{Hou2013}, representing 8 individuals.
-        % Data points for females (red) represents data generated by \citet{Hou2013} (oocytes, n=215; female pronucleus (FPN), n=69; polar body 1 (PB1), n=76; polar body 2 (PB2), n=70).
         Data for males (in blue) comes from \citet{Lu2012} (n=99), \citet{Wang2012} (n=99).
-        23andMe data\cite{Campbell2015} is provided for comparison and represents 2184 females and 2092 males).
+        23andMe data\cite{Campbell2015} is provided for comparison and represents 2,184 females and 2,092 males).
     \label{fig:extrasCointSingle}}
 \end{figure}
 \clearpage}
@@ -172,15 +174,15 @@ However the confidence intervals were substantially wider than the group estimat
 \clearpage
 \section{Discussion}
 The questions of how recombination properties vary on an individual basis and with age have long been outstanding.
-I have presented here a brief series of analyses that attempt to shed light on these effects. %, some of which were addressed elsewhere in this thesis.
+I have presented here a series of analyses that attempt to shed light on these effects. %, some of which were addressed elsewhere in this thesis.
 
 I have used an updated dataset which was previously presented without the age-masked individuals included here, both in this thesis (Chapter \ref{ch:cointEsc}), and in a peer-reviewed journal article\cite{Campbell2015}.
 The original dataset was the first study of recombination in humans to find evidence for an increase in the proportion of events that escape crossover interference with increased age in females.
 The original data was suggestive of an increasing de-regulation of events with age in females.
 Considering the increased incidence of aneuploidy in older mothers\cite{Hassold2001}, it was suggested that these observations could be related.
-Here, I have updated this finding to include data from older parents, which have been masked for privacy concerns.
-The updated dataset supports and extends the original finding that interference escape increases in older mothers, but not fathers.
-Although there is an overlap in the confidence intervals, the masked data in older mothers continues to increase from the previous bin, supporting the idea that the phenomenon is a linear increase.
+Here, I have updated this finding to include data from older parents, which had been masked for privacy concerns.
+The updated dataset validates and extends the original finding that interference escape increases in older mothers, but not fathers.
+Although there is an overlap in the confidence intervals, the masked data in older mothers continues to increase from the previous bin and has no overlap with the youngest group, supporting the idea that the phenomenon is a linear increase.
 
 In a separate analysis, I have taken previously published data from recombination studies that identified crossovers within individuals using multiple single cell assays.
 These data provide a picture of how much variation can be expected within a single individual, which appears to vary substantially.
