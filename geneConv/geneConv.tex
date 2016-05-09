@@ -14,10 +14,10 @@ In contrast, gene conversion (GC), is a non-reciprocal process in which short se
 Molecular studies support a model in which DNA DSBs occur at multiple points along a chromosome, and each of these DSBs undergoes a repair procedure that results in either CO or GC\cite{Baudat2007}.
 Sperm typing studies have estimated that GC occurs approximately ten times more frequently than crossover\cite{Jeffreys2004,Baudat2007,Cole2012}.
 Gene conversion events are small, typically under 1000 bp, but could range from 50-2000 bp\cite{Jeffreys2004}.
-This small size therefore makes GC events difficult to detect using genome-wide inference methods such as pedigree studies or linkage disequilibrium (LD) analysis.
+This small size therefore makes GC events difficult to detect using genome-wide inference methods such as pedigree studies or even linkage disequilibrium (LD) analysis.
 
-Despite these difficulties, gene conversion has been successfully studies using pedigree approaches.
-A recent study used SNP array data from multiple three-generation pedigrees to identify $\sim$100 GC events in humans\cite{Williams2015}. 
+Despite these difficulties, gene conversion has been successfully studied using pedigree approaches.
+A recent study used SNP array data from multiple three-generation pedigrees to identify approximately 100 GC events in humans\cite{Williams2015}. 
 Supporting results from molecular studies, gene conversions were found to occupy 100-1000 bp tracts.
 However, GC events were found to cluster unexpectedly, raising questions as to potential differences in the repair mechanism.
 
@@ -394,7 +394,7 @@ In addition, our method uses a genetic map, with estimates of the recombination 
 As this also has the potential to introduce bias, we again use a genetic map with a fixed recombination rate.
 
 To create simulated admixed haplotypes, we use a 1 Mb region on chr22, taking all phased haplotypes from two groups of reference populations.
-For Eurpean haplotypes we select CEU, GWR, and TSI populations (n=399), and we select YRI and LWK for African populations (n=302).
+For European haplotypes we select CEU, GWR, and TSI populations (n=399), and we select YRI and LWK for African populations (n=302).
 We draw 100 haplotypes from each of two reference populations.
 SNP density is thinned to keep 300 sites, and singleton variants are removed from the analysis.
 
@@ -403,6 +403,9 @@ The number of crossovers is determined by sampling from a Poisson distribution (
 Gene conversions are likewise placed under a Poisson process ($g = 10/1 \mathrm{Mb}$; $1/\lambda = 500 \mathrm{bp}$).
 Following the initial admixture event, six subsequent generations were simulated using intra-population mating, with CO and GC events recorded each time they occurred. 
 Our HMM is then run using the haplotypes from the simulated admixed population using the two-pass approach.
+
+\subsection{Code availability.}
+This C++ code for this model is available at \url{https://github.com/clcampbell/CGmix}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -421,7 +424,6 @@ We are unable to detect GCs that do not overlap a SNP, and label these ``invisib
 GCs that do overlap a heterozygous SNP, and do not produce any change in the alleles are labelled ``silent'' GC events.
 Finally, GC events that overlap a SNP and produce a detectable change in the allele are termed ``non-silent'' events, and are the only ones that are detectable by our model.
 Therefore, our results only account for non-silent gene conversion events, and we do not consider the other cases, even though they may occur as a result of the simulation.
-
 
 For all GC events detected, we record the total posterior probability of finding a GC event at that site, and whether this is a real (non-silent) GC event.
 Using a threshold of 0.5 for the posterior probability, we estimate the true positive rate at 8.0\%, while the false discovery rate is 27.3\%. % (Figure \ref{fig:GCperformance}).
@@ -452,6 +454,12 @@ Most studies focus on crossover and ignore the effects of gene conversion, which
 In our model, the use of admixed genomes provides a unique leverage, in which we detect gene conversion events from one ancestral population against a contrasting background from the other.
 In our model, we adopt the Li and Stephens model to include gene conversion, as in \citet{Gay2007}, and two reference populations, as in HAPMIX\cite{Price2009}.
 This resulting model attempts to identify cross-population gene conversion events with a higher contrast.
+
+The confounding effects of genotyping error and the small size of gene conversion events therefore constrain the sensitivity of the model substantially, which we report here to be 8\%.
+This low sensitivity is expected, due to the nature of the problem, and this model can still be considered to be successful even when missing the vast majority of true events.
+The detection of even a few hundred gene conversions in human data would represent a substantial advance in our knowledge.
+The FDR of the model is far more important, and lowering this rate to under 10\% would be a key advance that would be necessary before the model can be run on admixed samples with any reliability.
+Future work could focus on simplifying the model, and reducing the FDR.
 
 % Simulation results show...
 
