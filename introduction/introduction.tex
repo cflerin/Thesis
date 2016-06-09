@@ -329,9 +329,9 @@ These alleles exhibit evidence of linkage disequilibrium, a deviation from the a
 
 LD is measured in a pairwise fashion, considering allele frequencies at each pair of markers in the genome.
 From measurements of LD within a number of unrelated samples, methods based on coalescent theory have been developed to estimate the recombination rate\cite{Auton2012}.
-In software such as LDhat\cite{Mcvean2004,Auton2007,Auton2014}, the population-scale recombination rate, $\rho$, is estimated from the data, and the per-generation recombination rate can be calculated by the relationship
-$\rho = 4 N_e r$
-where $N_e$ represents the effective population size, and $r$ the per-generation recombination rate.
+In software such as LDhat\cite{Mcvean2004,Auton2007,Auton2014}, the population-scale recombination rate, $\rho$, is estimated from the data, and the per-generation recombination rate, $r$, can be calculated by the relationship
+$\rho = 4 N_e r$,
+where $N_e$ represents the effective population size.
 These methods are quite powerful and have produced high-quality estimates of recombination in humans\cite{hapmap2007}, however, they are subject to limitations.
 First, this method requires the knowledge of the genealogical history of a sample, which is unknown, and thus relies on a simplifying approximation to the true genealogical structure.
 Second, these maps by their nature generate sex-averaged data only, since recombination events that are inferred have occurred over the course of potentially thousands of generations.
@@ -939,7 +939,7 @@ Even within species, due to sex-differences in recombination rate, any compariso
 
 The gamma model is an extension of the counting model, in which inter-crossover distances are modeled instead of counts, which are not observed in inferential studies of interference.
 The gamma model starts with the assumption that all crossovers are capable of interfering with each other, and chromatid interference is neutral.
-The location of chiasmata on a tetrad bundle are determined by a stationary renewal process(*).
+The location of chiasmata on a tetrad bundle are determined by a stationary renewal process.
 Each chiasmata is considered an ``arrival'' that resets the probability controlling the distance from the previous arrival.
 The inter-chiasmata distances are represented by a gamma distribution with a single parameter, $\nu$, representing the strength of interference.
 In this model, $\nu <$ 0 corresponds to negative interference, $\nu=$ 0 no interference, and $\nu>$0 positive interference.
@@ -1092,14 +1092,14 @@ Linkage maps in dogs have been available for a number of decades\cite{Mellersh19
 the first sign that dog PRDM9 might be missing came with the publication of the first draft sequence of the domestic dog genome, in a boxer, in 2005\cite{Lindblad-Toh2005}.
 Since then a number of studies have looked at dogs and their close relative within the family Canidae to determine when and how PRDM9 became inactivated.
 PRDM9 was found to be disrupted in the closest relative of dogs, wolves, as well as coyotes\cite{Munoz-Fuentes2011}, revealing that inactivation was not a result of domestication, or a limited event.
-Additional studies found multiple PRDM9 mutations in both the Island Fox and Andean Fox\cite{Auton2013}, but not the cat and panda\cite{Axelsson2012}.
+Additional studies found multiple PRDM9 mutations in both the Island Fox and Andean Fox\cite{Auton2013}, but not the cat or panda\cite{Axelsson2012}.
 This indicates that the mutations must have happened at some point after the divergence of canids from the panda, which occurred approximately 49 Mya\cite{Oliver2009,Axelsson2012}.
 Despite the loss of this gene, canids are able to successfully complete meiosis and recombination and produce fertile offspring, raising questions as to the requirement of PRDM9 in meiosis.
 Evidence for hotspots has been found in dogs and these hotspots are characteristically different from those found in humans.
 Dog hotspots appear to have a lowered intensity and occupy a wider range (4-18 kb)\cite{Axelsson2012,Auton2013} when compared to humans.
 Direct comparisons of these results between the two species must be made with care, however, as the LD approach is sensitive to population genetic parameters.
 In particular, an accurate estimate of the recombination rate depends directly on accurate measurements of the effective population size, which is well characterized in humans, but not dogs.
-Additionally, dog hotspot appear to be localized near gene promoter regions\cite{Auton2013}, a seemingly common feature of PRDM9-absent species.
+Additionally, dog hotspots appear to be localized near gene promoter regions\cite{Auton2013}, a seemingly common feature of PRDM9-absent species.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% put elsewhere
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1436,7 +1436,7 @@ There are five transitions for the gene conversion chain, outlined in Table \ref
 The key innovation of this model was to consider gene conversion and crossover chains independently and simultaneously:
 \begin{equation} \Pr(X_{j+1}, G_{j+1} | X_{j},G_{j} ) = \Pr(X_{j+1}|X_{j}) \Pr(G_{j+1}|G_{j}) ~. \end{equation}
 %
-These two model will be revisited in Chapter \ref{ch:geneConv}.
+These two models will be revisited in Chapter \ref{ch:geneConv}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
